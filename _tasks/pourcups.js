@@ -4,6 +4,8 @@ const dateFormat = require("dateformat");
 const slugify = require("slugify");
 const ogs = require("open-graph-scraper");
 
+console.log(`did you load env? => ${process.env.FIREBASE_PROJECT_ID}`);
+
 const Firestore = require("@google-cloud/firestore");
 const firestore = new Firestore({
   credentials: {
