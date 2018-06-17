@@ -28,7 +28,15 @@ query
       });
       fs.writeFile(
         `_posts/${date}-${slug}.md`,
-        setFrontMatter(sip.get("name")),
+        setFrontMatter(
+          sip.get("name"),
+          sip.get("address"),
+          sip.get("city"),
+          sip.get("country"),
+          sip.get("instagram_id"),
+          sip.get("location")._latitude,
+          sip.get("location")._longitude
+        ),
         function(err) {
           if (err) {
             return console.log(err);
@@ -38,9 +46,24 @@ query
     });
   });
 
-function setFrontMatter(title) {
+function setFrontMatter(
+  title,
+  address,
+  city,
+  country,
+  instagram_id,
+  latitude,
+  longitude
+) {
   return `---
 layout: default
 title: ${title}
+address: ${address}
+city: ${city}
+country: ${country}
+instragram_id: ${instagram_id}
+location: 
+  - ${latitude}
+  - ${longitude}
 ---`;
 }
