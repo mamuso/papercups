@@ -4,7 +4,9 @@
   "description": "Jekyll build manager",
   "main": "index.html",
   "scripts": {
-    "clean:posts": "rm -f _posts/*.md"
+    "clean:posts": "rm -f _posts/*.md",
+    "pourcup": "node _tasks/pourcups.js",
+    "build": "npm install && npm run pourcup && jekyll build"
   },
   "repository": {
     "type": "git",
