@@ -1,0 +1,23 @@
+{
+  "name": "coffeeandpapercups",
+  "version": "1.0.0",
+  "description": "Jekyll build manager",
+  "main": "index.html",
+  "scripts": {
+    "clean:posts": "rm -f _posts/*.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamuso/coffeeandpapercups.git"
+  },
+  "author": "mamuso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mamuso/coffeeandpapercups/issues"
+  },
+  "homepage": "https://github.com/mamuso/coffeeandpapercups#readme",
+  "dependencies": {
+    "@google-cloud/firestore": "^0.14.1",
+    "dotenv": "^6.0.0"
+  }
+}
