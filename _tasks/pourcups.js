@@ -78,7 +78,7 @@ title: ${title}
 address: ${address}
 city: ${city}
 country: ${country}
-instragram_id: ${instagram_id}
+instagram_id: ${instagram_id}
 instagram_image_url: ${instagram_image_url}
 location: 
   - ${latitude}
