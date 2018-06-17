@@ -1,6 +1,7 @@
 require("dotenv").config();
 const fs = require("fs");
 const dateFormat = require("dateformat");
+const slugify = require("slugify");
 
 const Firestore = require("@google-cloud/firestore");
 const firestore = new Firestore({
@@ -21,8 +22,12 @@ query
   .then(cups => {
     cups.docs.forEach(sip => {
       const date = dateFormat(sip.get("created_at"), "yyyy-mm-dd");
+      const slug = slugify(sip.get("name"), {
+        lower: true,
+        remove: /[$*_+~.()'"!\-:@]/g
+      });
       fs.writeFile(
-        `_posts/${date}-${sip.id}.md`,
+        `_posts/${date}-${slug}.md`,
         setFrontMatter(sip.get("name")),
         function(err) {
           if (err) {
