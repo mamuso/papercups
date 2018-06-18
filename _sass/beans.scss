@@ -29,17 +29,13 @@ body {
   display: block;
   background: white;
   width: 45%;
-  min-width: 420px;
-  max-width: 580px;
+  min-width: 400px;
+  max-width: 540px;
   margin: 32px;
   box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.03);
   border-radius: 3px;
-  background-size: 55%;
-  background-repeat: repeat-y;
-  background-position: left-top;
   img {
-    float: left;
-    width: 55%;
+    width: 100%;
   }
   a {
     position: absolute;
@@ -50,14 +46,13 @@ body {
     text-indent: -9000em;
   }
   .info {
-    float: left;
+    display: block;
     box-sizing: border-box;
-    width: 45%;
-    padding: 24px 28px 20px 20px;
+    padding: 16px 70px 20px 20px;
     h2 {
       margin: 0 0 16px;
       font-family: Montserrat, sans-serif;
-      font-size: 24px;
+      font-size: 22px;
       color: #34373d;
     }
     address {
