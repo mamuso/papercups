@@ -1,0 +1,67 @@
+body {
+  background: #d3d3d3;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  font-family: Montserrat, sans-serif;
+  z-index: 1;
+  .wrapper {
+    padding: 24px 36px;
+  }
+  .site-title {
+    text-transform: uppercase;
+    color: #34373d;
+    text-decoration: none;
+  }
+}
+.cup-list {
+  padding-top: 180px;
+}
+
+.coffeeloyaltycard {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: white;
+  width: 45%;
+  min-width: 420px;
+  max-width: 580px;
+  margin: 32px;
+  box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  background-size: 55%;
+  background-repeat: repeat-y;
+  background-position: left-top;
+  img {
+    float: left;
+    width: 55%;
+  }
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-indent: -9000em;
+  }
+  .info {
+    float: left;
+    box-sizing: border-box;
+    width: 45%;
+    padding: 24px 28px 20px 20px;
+    h2 {
+      margin: 0 0 16px;
+      font-family: Montserrat, sans-serif;
+      font-size: 24px;
+      color: #34373d;
+    }
+    address {
+      color: #767678;
+    }
+  }
+}
