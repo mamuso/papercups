@@ -1,1 +1,1 @@
-# Coffee and paper cups
+# Paper cups
