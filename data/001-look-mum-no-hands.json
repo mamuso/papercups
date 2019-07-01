@@ -1,0 +1,12 @@
+{
+  "slug": "look-mum-no-hands-london-uk",
+  "name": "Look Mum No Hands!",
+  "address": "49 Old St, London EC1V 9HX, UK",
+  "city": "London",
+  "country": "UK",
+  "created_at": "2018-03-18",
+  "location": {
+    "lat": 51.524168,
+    "lng": -0.09688899999999999
+  }
+}

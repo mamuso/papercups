@@ -1,16 +1,22 @@
 {
-  "name": "coffeeandpapercups",
+  "name": "papercups",
   "version": "1.0.0",
-  "description": "website for coffeeandpapercups.mamuso.net",
+  "description": "website for papercups.mamuso.net",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "deploy": "export NODE_ENV=production && rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "mapimages": "node tasks/mapimages.js",
+    "deploy": "export NODE_ENV=production && rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && mv out dist && git add dist/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "next": "^8.1.0",
+    "next-routes": "^1.4.2",
+    "processmd": "^4.4.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "standard": "^12.0.1",
+    "staticmaps": "^1.1.3",
+    "styled-components": "^4.3.2"
   },
   "license": "ISC"
 }
