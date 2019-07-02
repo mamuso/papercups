@@ -1,20 +1,23 @@
 import React from "react";
-import Link from "next/link";
+import Layout from "../layouts/Blog";
+import data from "../data.json";
+import { Link } from "../routes";
 import styled from "styled-components";
-// import Layout from "layouts/Main";
-// import { getPost } from "api/posts";
 
-const PostPage = ({ post }) => (
+const PostPage = ({ cup }) => (
   <Layout>
-    <h1>{post.title}</h1>
-    <p>{post.body}</p>
+    dddddddddddd
+    <h1>{cup.name}</h1>
+    <p>{cup.body}</p>
   </Layout>
 );
 
 PostPage.getInitialProps = async ({ query }) => {
-  const res = await getPost(query.slug);
-  const json = await res.json();
-  return { post: json[0] };
+  return {
+    cup: data.filter(function(coffee) {
+      return coffee.slug === query.slug;
+    })[0]
+  };
 };
 
 export default PostPage;

@@ -1,34 +1,23 @@
 import React from "react";
 import Layout from "../layouts/Blog";
+import data from "../data.json";
+import Router from "next/router";
 import { Link } from "../routes";
 
 import Post from "../components/Post";
 
-const IndexPage = ({ posts }) => (
+const IndexPage = () => (
   <Layout>
     <ul>
-      {posts.map(p => (
-        <Post key={p.title} post={p} />
+      {data.map(p => (
+        <Post key={p.slug} post={p} />
       ))}
     </ul>
   </Layout>
 );
 
 IndexPage.getInitialProps = async ({ req }) => {
-  // const res = await getPosts();
-  // const json = await res.json();
-  return {
-    posts: [
-      {
-        title: "oh, of course",
-        body: "sure"
-      },
-      {
-        title: "uh",
-        body: "absolutely"
-      }
-    ]
-  };
+  return {};
 };
 
 export default IndexPage;
