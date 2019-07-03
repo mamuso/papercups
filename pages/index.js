@@ -1,8 +1,6 @@
 import React from "react";
 import Layout from "../layouts/Blog";
 import data from "../data.json";
-import Router from "next/router";
-import { Link } from "../routes";
 
 import Post from "../components/Post";
 

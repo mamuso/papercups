@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "../../routes";
 import Wrapper from "./Wrapper";
-import Router from "next/router";
 
 const PostItem = ({ post }) => (
   <Wrapper>

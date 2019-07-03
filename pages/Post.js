@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../layouts/Blog";
 import data from "../data.json";
-import { Link } from "../routes";
 import styled from "styled-components";
 
 const PostPage = ({ cup }) => (
