@@ -7,7 +7,7 @@
     "build": "next build",
     "stitchjson": "node tasks/stitchjson.js",
     "mapimages": "node tasks/maptoimage.js",
-    "deploy": "export NODE_ENV=production && rm -rf node_modules/.cache && rm -rf dist && next build && next export && touch out/.nojekyll && mv out dist && git add dist/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix dist origin gh-pages"
+    "deploy": "export NODE_ENV=production && ./deploy.sh"
   },
   "dependencies": {
     "next": "^8.1.0",
