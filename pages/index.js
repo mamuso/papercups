@@ -2,13 +2,15 @@ import React from "react";
 import Layout from "../layouts/Blog";
 import data from "../data.json";
 
-import Post from "../components/Post";
+import Cuppa from "../components/Cuppa";
 
 const IndexPage = () => (
   <Layout>
     <ul>
       {data.map(p => (
-        <Post key={p.slug} post={p} />
+        <li>
+          <Cuppa key={p.slug} post={p} />
+        </li>
       ))}
     </ul>
   </Layout>

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  h3 {
+  img {
+    height: 300px;
+    width: 300px;
   }
 `;
 
