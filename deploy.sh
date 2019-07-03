@@ -93,6 +93,7 @@ main() {
 	# Do and export
 	rm -rf node_modules/.cache
 	rm -rf dist
+	npm run stitchjson
 	node_modules/.bin/next build
 	node_modules/.bin/next export
 	touch out/.nojekyll
