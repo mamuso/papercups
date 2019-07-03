@@ -6,7 +6,7 @@ module.exports = {
       (pages, cup) =>
         Object.assign({}, pages, {
           [`/pour/${cup.slug}`]: {
-            page: "Post",
+            page: "/Post",
             query: { slug: cup.slug }
           }
         }),
