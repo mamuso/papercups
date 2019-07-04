@@ -6,7 +6,7 @@ const CuppaItem = ({ post }) => (
   <Wrapper>
     <Link route="post" params={{ slug: post.slug }}>
       <a>
-        <h3>{post.name}</h3>
+        <h2>{post.name}</h2>
         <img src={`/static/cups/${post.slug}@S.png`} />
       </a>
     </Link>
