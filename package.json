@@ -12,7 +12,6 @@
   "dependencies": {
     "next": "^8.1.0",
     "next-routes": "^1.4.2",
-    "processmd": "^4.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "standard": "^12.0.1",
