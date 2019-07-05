@@ -5,9 +5,8 @@ import styled from "styled-components";
 
 const PostPage = ({ cup }) => (
   <Layout>
-    ☕️
     <h1>{cup.name}</h1>
-    <p>{cup.body}</p>
+    <img src={`/static/cups/${cup.slug}@L.png`} />
   </Layout>
 );
 

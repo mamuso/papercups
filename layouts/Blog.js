@@ -1,5 +1,12 @@
 import Head from "next/head";
-import Wrapper from "./Wrapper";
+import Nav from "../components/Nav";
+import styled from "styled-components";
+
+export const Wrapper = styled.div``;
+
+export const Content = styled.div`
+  padding: 6rem 8rem 4rem;
+`;
 
 export default ({ children, title = "This is the default title" }) => (
   <Wrapper>
@@ -7,7 +14,9 @@ export default ({ children, title = "This is the default title" }) => (
       <title>{title}</title>
     </Head>
     <header />
-
-    <main>{children}</main>
+    <main>
+      <Nav />
+      <Content>{children}</Content>
+    </main>
   </Wrapper>
 );

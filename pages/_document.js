@@ -12,9 +12,8 @@ const resetStyles = `
     min-height: 100vh;
     font-size: 18px;
     line-height: 1.6;
-    font-family: ${bodyFont}
+    font-family: ${bodyFont};
     font-style: normal;
-    padding: 6rem 8rem 4rem;
     margin: 0;
     border: 1.2rem solid #fff;
     color: rgb(46, 68, 78);
