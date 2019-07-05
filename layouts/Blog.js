@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div``;
 
 export const Content = styled.div`
-  padding: 4rem 8rem 6rem;
+  padding: 4rem 0 6rem;
 `;
 
 export default ({ children, title = "☕️ Paper Cups" }) => (

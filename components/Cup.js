@@ -5,6 +5,14 @@ import { transparentize } from "polished";
 import { headerFont, monospace, fontS, fontXXXL } from "../utils/fonts";
 import { textColor } from "../utils/colors";
 
+export const Bar = styled.div`
+  padding: 4rem;
+  transition: background 0.24s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.09);
+  }
+`;
+
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 260px auto;
@@ -14,7 +22,7 @@ export const Wrapper = styled.div`
   grid-template-areas: "cup card";
   position: relative;
   width: 720px;
-  margin: 4.2rem auto;
+  margin: 0 auto;
 `;
 
 export const Cup = styled.section`
@@ -57,26 +65,28 @@ export const Address = styled.address`
 `;
 
 const CupItem = ({ post }) => (
-  <Wrapper>
-    <Card>
-      <Link route="post" params={{ slug: post.slug }}>
-        <a>
-          <H2>{post.name}</H2>
-          <Address>{post.address}</Address>
-        </a>
-      </Link>
-    </Card>
-    <Cup>
-      <Link route="post" params={{ slug: post.slug }}>
-        <a>
-          <Img
-            src={`/static/cups/${post.slug}@S.png`}
-            alt={`${post.name} coffee cup`}
-          />
-        </a>
-      </Link>
-    </Cup>
-  </Wrapper>
+  <Bar>
+    <Wrapper>
+      <Card>
+        <Link route="post" params={{ slug: post.slug }}>
+          <a>
+            <H2>{post.name}</H2>
+            <Address>{post.address}</Address>
+          </a>
+        </Link>
+      </Card>
+      <Cup>
+        <Link route="post" params={{ slug: post.slug }}>
+          <a>
+            <Img
+              src={`/static/cups/${post.slug}@S.png`}
+              alt={`${post.name} coffee cup`}
+            />
+          </a>
+        </Link>
+      </Cup>
+    </Wrapper>
+  </Bar>
 );
 
 export default CupItem;
