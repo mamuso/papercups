@@ -1,0 +1,12 @@
+{
+  "slug": "andytown-coffee-roasters-san-francisco-usa",
+  "name": "Andytown Coffee Roasters",
+  "address": "3655 Lawton St, San Francisco, CA 94122, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-03-22",
+  "location": {
+    "lat": 37.7566719,
+    "lng": -122.5022955
+  }
+}

@@ -50,14 +50,6 @@ const resetStyles = `
   }
 
   @media all and (max-width: 1000px) {
-    html, body {
-      font-size: 16px;
-    }
-
-    li {
-      list-style-position: outside;
-      margin-left: 1em;
-    }
   }
 `;
 
