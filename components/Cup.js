@@ -3,26 +3,30 @@ import { Link } from "../routes";
 import styled from "styled-components";
 import { transparentize } from "polished";
 import { headerFont, monospace, fontS, fontXXXL } from "../utils/fonts";
-import { textColor } from "../utils/colors";
+import { textColor, grey } from "../utils/colors";
 
 export const Bar = styled.div`
   padding: 4rem;
   transition: background 0.24s;
   &:hover {
-    background: rgba(0, 0, 0, 0.09);
+    background: ${grey};
   }
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 260px auto;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas: "cup card";
-  position: relative;
   width: 720px;
   margin: 0 auto;
+  transition: margin 0.24s;
+  ${Bar}:hover & {
+    margin-top: 1.8rem;
+  }
 `;
 
 export const Cup = styled.section`
