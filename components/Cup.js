@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "../routes";
 import styled from "styled-components";
-import { transparentize } from "polished";
+import { transparentize, darken, desaturate } from "polished";
 import { headerFont, monospace, fontS, fontXXXL } from "../utils/fonts";
-import { textColor, grey } from "../utils/colors";
+import { textColor, paleGrey } from "../utils/colors";
 
 export const Bar = styled.div`
   padding: 4rem;
   transition: background 0.24s;
   &:hover {
-    background: ${grey};
+    background: ${desaturate(0.04, darken(0.04, paleGrey))};
   }
 `;
 
@@ -25,7 +25,8 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   transition: margin 0.24s;
   ${Bar}:hover & {
-    margin-top: 1.8rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.44rem;
   }
 `;
 
