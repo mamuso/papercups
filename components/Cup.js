@@ -25,8 +25,8 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   transition: margin 0.24s;
   ${Bar}:hover & {
-    margin-top: 1.2rem;
-    margin-bottom: 0.44rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
   }
 `;
 
