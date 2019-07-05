@@ -8,7 +8,7 @@ export const Content = styled.div`
   padding: 6rem 8rem 4rem;
 `;
 
-export default ({ children, title = "This is the default title" }) => (
+export default ({ children, title = "☕️ Paper Cups" }) => (
   <Wrapper>
     <Head>
       <title>{title}</title>
