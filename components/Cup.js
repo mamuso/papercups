@@ -41,8 +41,7 @@ export const Card = styled.section`
 `;
 
 export const Img = styled.img`
-  widht: 30rem;
-  height: 30rem;
+  width: 30rem;
 `;
 
 export const H2 = styled.h2`

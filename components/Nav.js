@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "../routes";
 import styled from "styled-components";
-import { fontXXL } from "../utils/fonts";
+import { fontXXL, monospace } from "../utils/fonts";
 
 export const Nav = styled.nav`
   display: block;
@@ -25,7 +25,8 @@ export const Navlink = styled.span`
   display: inline-block;
   padding: 2.6rem 2rem;
   line-height: 1;
-  opacity: 0.7;
+  opacity: 0.8;
+  font-family: ${monospace};
 `;
 
 const NavItem = ({ post }) => (
