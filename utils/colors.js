@@ -1,2 +1,2 @@
-export const paleGrey = "#F1F5F9";
+export const paleGrey = "#EDF1F5";
 export const textColor = "#2E444E";

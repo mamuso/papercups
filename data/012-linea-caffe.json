@@ -1,0 +1,12 @@
+{
+  "slug": "linea-caffe-san-francisco-usa",
+  "name": "Linea Caffe",
+  "address": "3417 18th St, San Francisco, CA 94110, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-04-17",
+  "location": {
+    "lat": 37.7616766,
+    "lng": -122.4199847
+  }
+}

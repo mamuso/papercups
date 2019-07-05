@@ -1,0 +1,12 @@
+{
+  "slug": "good-coffee-portland-usa",
+  "name": "Good Coffee",
+  "address": "4747 SE Division St, Portland, OR 97206, USA",
+  "city": "Portland",
+  "country": "US",
+  "created_at": "2018-08-06",
+  "location": {
+    "lat": 45.5053899,
+    "lng": -122.6134053
+  }
+}

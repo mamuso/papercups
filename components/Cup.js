@@ -24,7 +24,7 @@ export const Cup = styled.section`
 export const Card = styled.section`
   grid-area: card;
   align-self: end;
-  margin-bottom: 5rem;
+  margin-bottom: 5.4rem;
 `;
 
 export const Img = styled.img`
@@ -71,7 +71,7 @@ const CupItem = ({ post }) => (
         <a>
           <Img
             src={`/static/cups/${post.slug}@S.png`}
-            alt="{post.name} coffee cup"
+            alt={`${post.name} coffee cup`}
           />
         </a>
       </Link>

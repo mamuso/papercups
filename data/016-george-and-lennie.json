@@ -1,0 +1,12 @@
+{
+  "slug": "george-and-lennie-san-francisco-usa",
+  "name": "George And Lennie",
+  "address": "277 Golden Gate Ave, San Francisco, CA 94102, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-05-03",
+  "location": {
+    "lat": 37.7815648,
+    "lng": -122.4150428
+  }
+}

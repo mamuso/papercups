@@ -1,0 +1,12 @@
+{
+  "slug": "lady-falcon-coffee-club-san-francisco-usa",
+  "name": "Lady Falcon Coffee Club",
+  "address": "Alamo Square, San Francisco, CA 94117, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-06-15",
+  "location": {
+    "lat": 37.7760914,
+    "lng": -122.4340057
+  }
+}

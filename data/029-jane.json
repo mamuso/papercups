@@ -1,0 +1,12 @@
+{
+  "slug": "jane-on-fillmore-san-francisco-usa",
+  "name": "Jane on Fillmore",
+  "address": "2123 Fillmore Street, San Francisco, CA 94115, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-08-25",
+  "location": {
+    "lat": 37.7891993,
+    "lng": -122.434004
+  }
+}

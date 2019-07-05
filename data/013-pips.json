@@ -1,0 +1,12 @@
+{
+  "slug": "pips-original-doughnuts-portland-usa",
+  "name": "Pip's Original Doughnuts",
+  "address": "4759 NE Fremont St, Portland, OR 97213, USA",
+  "city": "Portland",
+  "country": "US",
+  "created_at": "2018-04-19",
+  "location": {
+    "lat": 45.5483793,
+    "lng": -122.6138045
+  }
+}

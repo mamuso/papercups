@@ -1,0 +1,12 @@
+{
+  "slug": "shoreditch-grind-london-uk",
+  "name": "Shoreditch Grind",
+  "address": "213 Old St, London EC1V 9NR, UK",
+  "city": "London",
+  "country": "UK",
+  "created_at": "2018-05-08",
+  "location": {
+    "lat": 51.525853,
+    "lng": -0.088266
+  }
+}

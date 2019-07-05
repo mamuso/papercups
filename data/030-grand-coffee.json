@@ -1,0 +1,12 @@
+{
+  "slug": "grand-coffee-san-francisco-usa",
+  "name": "Grand Coffee",
+  "address": "2663 Mission St, San Francisco, CA 94110, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-12-10",
+  "location": {
+    "lat": 37.7937413,
+    "lng": -122.3925681
+  }
+}

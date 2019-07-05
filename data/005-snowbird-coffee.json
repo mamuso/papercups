@@ -1,0 +1,12 @@
+{
+  "slug": "snowbird-coffee-san-francisco-usa",
+  "name": "Snowbird Coffee",
+  "address": "1352 9th Ave A, San Francisco, CA 94122, USA",
+  "city": "San Francisco",
+  "country": "US",
+  "created_at": "2018-03-30",
+  "location": {
+    "lat": 37.7631617,
+    "lng": -122.4659739
+  }
+}

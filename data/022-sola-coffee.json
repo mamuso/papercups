@@ -1,0 +1,12 @@
+{
+  "slug": "sola-coffee-raleigh-usa",
+  "name": "Sola Coffee",
+  "address": "7705 Lead Mine Rd, Raleigh, NC 27615, USA",
+  "city": "Raleigh",
+  "country": "US",
+  "created_at": "2018-06-01",
+  "location": {
+    "lat": 35.8853193,
+    "lng": -78.66014489999999
+  }
+}

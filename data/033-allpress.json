@@ -1,0 +1,12 @@
+{
+  "slug": "allpress-london-uk",
+  "name": "Allpress",
+  "address": "58 Redchurch St, Shoreditch, London E2 7DP, UK",
+  "city": "London",
+  "country": "UK",
+  "created_at": "2018-12-18",
+  "location": {
+    "lat": 51.524297,
+    "lng": -0.074501
+  }
+}
