@@ -6,7 +6,7 @@ I also enjoy the graphics aspects of the coffee culture. I realized that my phot
 
 I started posting them to Instagram, but I thought that I could find a better home for them here :)
 
-## Where did I sip coffee?
+## Where did we sip coffee?
 
 ### Barcelona, ES
 
