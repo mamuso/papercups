@@ -10,189 +10,189 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Barcelona, ES
 
-- ~~Satan's Coffee~~
-- ~~Nømad Coffee~~
+- [x] Nømad Coffee
+- [x] Satan's Coffee
 
 ### Madrid, ES
 
-- The Fix
-- Toma Cafe
+- [ ] The Fix
+- [ ] Toma Cafe
 
 ### Copenhagen, DK
 
-- Lagkagehuset
+- [ ] Lagkagehuset
 
 ### London, UK
 
-- Monmouth Coffee
-- Flat White
-- Nude Espresso
-- Kaffeine
-- Ozone Coffee Roasters
-- Sharps Barber and Shop
-- Fernandez & Wells
-- Philz Coffee
-- Bread & Bean
-- ~~Look mum no hands~~
-- ~~Timberyard~~
-- ~~Prufrock Coffee~~
-- ~~Department of Coffee Affairs~~
-- ~~Shoreditch Grind~~
-- ~~Koa Coffee~~
-- ~~Allpress~~
+- [x] Allpress
+- [ ] Bread & Bean
+- [x] Department of Coffee Affairs
+- [ ] Fernandez & Wells
+- [ ] Flat White
+- [ ] Kaffeine
+- [x] Koa Coffee
+- [x] Look mum no hands
+- [ ] Monmouth Coffee
+- [ ] Nude Espresso
+- [ ] Ozone Coffee Roasters
+- [x] Prufrock Coffee
+- [ ] Sharps Barber and Shop
+- [x] Shoreditch Grind
+- [x] Timberyard
 
 ### Stockholm, SE
 
-- Wayne's Coffee
+- [ ] Wayne's Coffee
 
 ### Hyderabad, IN
 
-- Barista
-- Café Coffee Day
+- [ ] Barista
+- [ ] Café Coffee Day
 
 ### Berkeley, CA, US
 
-- Timeless
-- ~~Rasa Caffe~~
+- [x] Rasa Caffe
+- [ ] Timeless
 
 ### Los Angeles, CA, US
 
-- Smith & Tait
-- 10 speed coffee
-- Eightfold
-- G&B Grand Central
-- Intelligentsia Coffee
-- La Colombe
-- Lamill Coffee
-- Alfred Coffee
-- The Good People
-- Dinosaur Coffee
-- Colectivo Coffee
-- Commissary
-- ~~Menottis~~
-- ~~Woodcat~~
+- [ ] Alfred Coffee
+- [ ] Colectivo Coffee
+- [ ] Commissary
+- [ ] Dinosaur Coffee
+- [ ] Eightfold
+- [ ] G&B Grand Central
+- [ ] Intelligentsia Coffee
+- [ ] La Colombe
+- [ ] Lamill Coffee
+- [x] Menottis
+- [ ] Smith & Tait
+- [ ] The Good People
+- [x] Woodcat
+- [ ] 10 speed coffee
 
 ### Mill Valley, CA, US
 
-- Equator Coffee
+- [ ] Equator Coffee
 
 ### Monterey, CA, US
 
-- Tidal
-- Captain + Stoker
+- [ ] Captain + Stoker
+- [ ] Tidal
 
 ### Oakland, CA, US
 
-- Bicycle Coffee
-- Snow White
-- Coloso
-- Wilde Brothers Coffee
-- Highwire Coffee
-- ~~Red Bay Coffee~~
+- [ ] Bicycle Coffee
+- [ ] Coloso
+- [ ] Highwire Coffee
+- [x] Red Bay Coffee
+- [ ] Snow White
+- [ ] Wilde Brothers Coffee
 
 ### Pasadena, CA, US
 
-- Rosebud
+- [ ] Rosebud
 
 ### Sacramento, CA, US
 
-- Temple Coffee
+- [ ] Temple Coffee
 
 ### San Diego, CA, US
 
-- Heartsleeves Coffee
+- [ ] Heartsleeves Coffee
 
 ### San Francisco, CA, US
 
-- Reveille
-- Hollow Coffee
-- Fiore Caffe
-- Mazarine
-- Matching Half
-- Coffee Cultures
-- Sextant Coffee
-- La Capra
-- Haus
-- Fayes Coffee
-- Wrecking Ball Coffee Roasters
-- Sightglass
-- Four Barrel
-- Vega
-- Ritual
-- Saint Frank
-- Blue Bottle
-- Native Twins Coffee
-- Dynamo Donuts
-- ~~Andytown~~
-- ~~Snowbird~~
-- ~~Pentacle~~
-- ~~Linea Cafe~~
-- ~~Chapel Coffee~~
-- ~~George and Lennie~~
-- ~~Lady Falcon Coffee Club~~
-- ~~Jane~~
-- ~~Grand Coffee~~
+- [x] Andytown
+- [ ] Blue Bottle
+- [x] Chapel Coffee
+- [ ] Coffee Cultures
+- [ ] Dynamo Donuts
+- [ ] Fayes Coffee
+- [ ] Fiore Caffe
+- [ ] Four Barrel
+- [x] George and Lennie
+- [x] Grand Coffee
+- [ ] Haus
+- [ ] Hollow Coffee
+- [x] Jane
+- [ ] La Capra
+- [x] Lady Falcon Coffee Club
+- [x] Linea Cafe
+- [ ] Matching Half
+- [ ] Mazarine
+- [ ] Native Twins Coffee
+- [x] Pentacle
+- [ ] Philz Coffee
+- [ ] Reveille
+- [ ] Ritual
+- [ ] Saint Frank
+- [ ] Sextant Coffee
+- [ ] Sightglass
+- [x] Snowbird
+- [ ] Vega
+- [ ] Wrecking Ball Coffee Roasters
 
 ### Santa Cruz, CA, US
 
-- Verve
-- ~~Cat and cloud~~
+- [x] Cat and cloud
+- [ ] Verve
 
 ### Santa Rosa, CA, US
 
-- Crooks Coffee
+- [ ] Crooks Coffee
 
 ### Petaluma, CA, US
 
-- Acre Coffee Roasters
+- [ ] Acre Coffee Roasters
 
 ### Walnut Creek, CA, US
 
-- Coffee Shop
+- [ ] Coffee Shop
 
 ### Chicago, IL, US
 
-- Fairgrounds
-- Elaine's
+- [ ] Elaine's
+- [ ] Fairgrounds
 
 ### Raleigh, NC, US
 
-- Cup-a-Joe
-- Benelux
-- Morning Times
-- ~~Sola Coffee~~
-- ~~Jubala~~
+- [ ] Benelux
+- [ ] Cup-a-Joe
+- [x] Jubala
+- [ ] Morning Times
+- [x] Sola Coffee
 
 ### Las Vegas, NV, US
 
-- ~~Milk~~
+- [x] Milk
 
 ### Bend, OR, US
 
-- Backporch
+- [ ] Backporch
 
 ### Portland, OR, US
 
-- Barista
-- Dapper and Wise
-- Flying Cat Coffee
-- Heart
-- Stumptown Coffee
-- ~~Never Coffee Labs~~
-- ~~Coava~~
-- ~~Pip's Original Doughnuts~~
-- ~~Good~~
+- [ ] Barista
+- [x] Coava
+- [ ] Dapper and Wise
+- [ ] Flying Cat Coffee
+- [x] Good
+- [ ] Heart
+- [x] Never Coffee Labs
+- [x] Pip's Original Doughnuts
+- [ ] Stumptown Coffee
 
 ### Austin, TX, US
 
-- Houndstooth
+- [ ] Houndstooth
 
 ### Seattle, WA, US
 
-- La Marzocco Cafe
-- Anchorhead
-- Mr West
-- Seattle Coffee Works
-- ~~Little Oddfellows~~
-- ~~Victrola~~
-- ~~Vita~~
+- [ ] Anchorhead
+- [ ] La Marzocco Cafe
+- [x] Little Oddfellows
+- [ ] Mr West
+- [ ] Seattle Coffee Works
+- [x] Victrola
+- [x] Vita
