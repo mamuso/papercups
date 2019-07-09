@@ -8,10 +8,10 @@ export const Content = styled.div`
   padding: 4rem 0 6rem;
 `;
 
-export default ({ children, title = "☕️ Paper Cups" }) => (
+export default ({ children, title = "☕Paper Cups" }) => (
   <Wrapper>
     <Head>
-      <title>{title}</title>
+      <title>️☕️ {title}</title>
     </Head>
     <header />
     <main>
