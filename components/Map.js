@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Head from "next/head";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet-universal";
+import { Map, TileLayer, Marker, ZoomControl } from "react-leaflet-universal";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import styled from "styled-components";
@@ -14,9 +14,10 @@ L.Icon.Default.mergeOptions({
 });
 
 export const Wrapper = styled.div`
+  position: relative;
+  z-index: 1;
   width: 100%;
-  height: 100vh;
-  opacity: 0.8;
+  height: 36rem;
   & .leaflet-container {
     width: 100%;
     height: 100%;
@@ -34,11 +35,12 @@ class MapItem extends Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <Wrapper>
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={position} zoom={this.state.zoom} zoomControl={false}>
           <TileLayer
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
           />
+          {/* <ZoomControl position="topright" /> */}
           <Marker position={position} />
         </Map>
       </Wrapper>

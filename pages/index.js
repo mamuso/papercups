@@ -13,7 +13,7 @@ const IndexPage = () => (
   <Layout>
     <Cups>
       {data.map(p => (
-        <Cup key={p.slug} post={p} />
+        <Cup key={p.slug} cup={p} />
       ))}
     </Cups>
   </Layout>

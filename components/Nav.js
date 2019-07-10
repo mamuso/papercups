@@ -31,7 +31,7 @@ export const Navlink = styled.span`
   font-family: ${monospace};
 `;
 
-const NavItem = ({ post }) => (
+const NavItem = ({ cup }) => (
   <Nav>
     <Link route="home">
       <a title="Paper Cups">
