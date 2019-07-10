@@ -11,12 +11,9 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-optipng": "^7.0.0",
-    "imagemin-svgo": "^7.0.0",
     "leaflet": "^1.5.1",
     "next": "^8.1.0",
-    "next-optimized-images": "^2.5.3",
+    "next-images": "^1.1.2",
     "next-routes": "^1.4.2",
     "polished": "^3.4.1",
     "react": "^16.8.6",

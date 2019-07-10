@@ -1,8 +1,8 @@
 const data = require("./data.json");
 const withCSS = require("@zeit/next-css");
-const withOptimizedImages = require("next-optimized-images");
+const withImages = require("next-images");
 
-module.exports = withOptimizedImages(
+module.exports = withImages(
   withCSS({
     exportPathMap: async function() {
       const pages = data.reduce(
