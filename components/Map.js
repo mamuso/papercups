@@ -8,14 +8,14 @@ import styled from "styled-components";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+  iconRetinaUrl: "https://twemoji.maxcdn.com/v/12.1.2/svg/2615.svg",
+  iconUrl: "https://twemoji.maxcdn.com/v/12.1.2/svg/2615.svg",
+  shadowUrl: ""
 });
 
 export const Wrapper = styled.div`
-  width: 1000px;
-  height: 1000px;
+  width: 100%;
+  height: 100vh;
   opacity: 0.8;
   & .leaflet-container {
     width: 100%;
@@ -27,7 +27,7 @@ class MapItem extends Component {
   state = {
     lat: this.props.cup.location.lat,
     lng: this.props.cup.location.lng,
-    zoom: 16
+    zoom: 14
   };
 
   render() {

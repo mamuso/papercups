@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "../routes";
+import Twemoji from "react-twemoji";
 import styled from "styled-components";
 import { fontXXL, monospace } from "../utils/fonts";
 
@@ -16,9 +17,10 @@ export const Homelink = styled.span`
   float: left;
   padding: 2rem;
   font-size: ${fontXXL};
-  line-height: 1;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+  line-height: 0.6;
+  & img {
+    width: 3rem;
+  }
 `;
 
 export const Navlink = styled.span`
@@ -32,8 +34,17 @@ export const Navlink = styled.span`
 const NavItem = ({ post }) => (
   <Nav>
     <Link route="home">
-      <a>
-        <Homelink>☕️</Homelink>
+      <a title="Paper Cups">
+        <Homelink>
+          <Twemoji
+            options={{
+              folder: "svg",
+              ext: ".svg"
+            }}
+          >
+            ☕️
+          </Twemoji>
+        </Homelink>
       </a>
     </Link>
     <Link route="map">

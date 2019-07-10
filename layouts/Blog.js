@@ -4,9 +4,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div``;
 
-export const Content = styled.div`
-  padding: 4rem 0 6rem;
-`;
+export const Content = styled.section``;
 
 export default ({ children, title = "Paper Cups" }) => (
   <Wrapper>
