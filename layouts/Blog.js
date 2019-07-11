@@ -12,7 +12,7 @@ export const Content = styled.section`
   }
 `;
 
-export default ({ children, title = "Paper Cups", classname }) => (
+export default ({ children, title = "Paper Cups", context }) => (
   <Wrapper>
     <Head>
       <title>️☕️ {title}</title>
@@ -20,7 +20,7 @@ export default ({ children, title = "Paper Cups", classname }) => (
     <header />
     <main>
       <Nav />
-      <Content className={classname}>{children}</Content>
+      <Content className={context}>{children}</Content>
     </main>
   </Wrapper>
 );

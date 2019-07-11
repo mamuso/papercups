@@ -23,7 +23,7 @@ export const Card = styled.section`
 export const H2 = styled.h2`
   position: relative;
   z-index: 1;
-  width: 46rem;
+  width: 40rem;
   margin: 0;
   font-family: ${headerFont};
   font-size: ${fontXXXL};

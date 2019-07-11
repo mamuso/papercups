@@ -5,17 +5,11 @@ import styled from "styled-components";
 
 import Cup from "../components/Cup";
 
-export const Cups = styled.section`
-  padding: 4rem 0 6rem;
-`;
-
 const IndexPage = () => (
-  <Layout>
-    <Cups>
-      {data.map(p => (
-        <Cup key={p.slug} cup={p} />
-      ))}
-    </Cups>
+  <Layout context="home">
+    {data.map(p => (
+      <Cup key={p.slug} cup={p} />
+    ))}
   </Layout>
 );
 

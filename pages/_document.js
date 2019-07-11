@@ -21,21 +21,6 @@ const resetStyles = `
     -webkit-font-smoothing: subpixel-antialiased;
   }
 
-  .root {
-    position: relative;
-    overflow: auto;
-  }
-
-  .small {
-    color: white;
-    font-size: 0.5em;
-  }
-
-  .big {
-    color: white;
-    font-size: 1.4em;
-  }
-
   ul, ol {
     padding-left: 0;
   }
@@ -49,7 +34,17 @@ const resetStyles = `
     line-height: 1.6;
   }
 
-  @media all and (max-width: 1000px) {
+  .home {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.6rem;
+  }
+
+  @media all and (max-width: 1400px) {
+    .home {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
