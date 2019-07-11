@@ -15,14 +15,18 @@ export const Bar = styled.div`
   border-radius: 0.4rem;
   overflow: hidden;
   &:hover {
-    background-image: linear-gradient(${transparentize(0.25, desaturate(0.04, darken(0.04, paleGrey)))}, ${desaturate(0.04, darken(0.04, paleGrey))}), url("/static/maps/${props => props.slug}.png");
+    background-image: linear-gradient(${transparentize(
+      0.25,
+      desaturate(0.04, darken(0.04, paleGrey))
+    )}, ${desaturate(
+  0.04,
+  darken(0.04, paleGrey)
+)}), url("/static/maps/${props => props.slug}.png");
     background-color: ${desaturate(0.04, darken(0.04, paleGrey))};
   }
 `;
 
 export const Wrapper = styled.div`
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 22rem auto;
   grid-template-rows: 1fr;

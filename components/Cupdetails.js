@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "../routes";
 import styled from "styled-components";
 import { transparentize } from "polished";
 import {
@@ -16,7 +15,9 @@ export const Card = styled.section`
   align-self: end;
   margin-bottom: 5.4rem;
   &.bigcup {
-    margin-bottom: 3.2rem;
+    align-self: center;
+    margin-top: 13.2rem;
+    margin-bottom: 2.4rem;
   }
 `;
 
@@ -30,6 +31,8 @@ export const H2 = styled.h2`
   line-height: 1;
   &.bigcup {
     font-size: ${fontXXXXL};
+    width: 80%;
+    max-width: 60rem;
   }
 `;
 

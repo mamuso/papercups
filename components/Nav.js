@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "../routes";
 import Twemoji from "react-twemoji";
 import styled from "styled-components";
-import { fontXXL, monospace } from "../utils/fonts";
+import { fontM, fontXXL, monospace } from "../utils/fonts";
 
 export const Nav = styled.nav`
   display: block;
@@ -29,6 +29,7 @@ export const Navlink = styled.span`
   line-height: 1;
   opacity: 0.8;
   font-family: ${monospace};
+  font-size: ${fontM};
 `;
 
 const NavItem = ({ cup }) => (

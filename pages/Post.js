@@ -23,13 +23,13 @@ export const Map = styled.div`
   overflow: hidden;
   border-radius: 0.4rem;
   mix-blend-mode: luminosity;
-  opacity: 0.45;
+  opacity: 0.55;
 `;
 
 const PostPage = ({ cup }) => (
   <Layout
     title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
-    classname="cup"
+    context="cup"
   >
     <Wrapper>
       <Cup>

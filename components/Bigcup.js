@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 58rem auto;
+  grid-template-columns: 52rem auto;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -20,7 +20,8 @@ export const Cup = styled.div`
   & img {
     position: absolute;
     width: 64rem;
-    bottom: -22rem;
+    margin-left: -6rem;
+    bottom: -20rem;
   }
 `;
 
