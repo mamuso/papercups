@@ -1,22 +1,28 @@
 import React from "react";
 import { Link } from "../routes";
 import styled from "styled-components";
-import { darken, desaturate } from "polished";
+import { darken, desaturate, transparentize } from "polished";
 import { paleGrey } from "../utils/colors";
 
 import Cupdetails from "./Cupdetails";
 
 export const Bar = styled.div`
-  padding: 3.2rem;
+  position: relative;
+  padding: 4.2rem 3.2rem 3.2rem 3.2rem;
   transition: background 0.24s;
+  background-position: center center;
+  background-size: cover;
   border-radius: 0.4rem;
+  overflow: hidden;
   &:hover {
+    background-image: linear-gradient(${transparentize(0.25, desaturate(0.04, darken(0.04, paleGrey)))}, ${desaturate(0.04, darken(0.04, paleGrey))}), url("/static/maps/${props => props.slug}.png");
     background-color: ${desaturate(0.04, darken(0.04, paleGrey))};
   }
 `;
 
 export const Wrapper = styled.div`
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 22rem auto;
   grid-template-rows: 1fr;
@@ -25,9 +31,6 @@ export const Wrapper = styled.div`
   grid-template-areas: "cup card";
   max-width: 64rem;
   margin: 0 auto;
-  transition: margin 0.24s;
-  ${Bar}:hover & {
-  }
 `;
 
 export const Cup = styled.section`
@@ -42,7 +45,7 @@ export const Img = styled.img`
 const CupItem = ({ cup }) => (
   <Link route="cup" params={{ slug: cup.slug }}>
     <a>
-      <Bar>
+      <Bar slug={cup.slug}>
         <Wrapper>
           <Cupdetails cup={cup} />
           <Cup>

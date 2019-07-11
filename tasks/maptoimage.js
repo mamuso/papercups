@@ -3,11 +3,12 @@ const fs = require("fs");
 const data = require("../data.json");
 
 const StaticMaps = require("staticmaps");
+
 const options = {
   width: 1000,
   height: 1000,
   tileUrl:
-    "https://d.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png"
+    "http://d.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png"
 };
 
 const map = new StaticMaps(options);

@@ -49,12 +49,8 @@ export const Address = styled.address`
 
 const CupdetailsItem = ({ cup, classname }) => (
   <Card className={classname}>
-    <Link route="cup" params={{ slug: cup.slug }}>
-      <a>
-        <H2 className={classname}>{cup.name}</H2>
-        <Address className={classname}>{cup.address}</Address>
-      </a>
-    </Link>
+    <H2 className={classname}>{cup.name}</H2>
+    <Address className={classname}>{cup.address}</Address>
   </Card>
 );
 
