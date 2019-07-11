@@ -1,4 +1,4 @@
-const data = require("./data.json");
+const data = require("./data/data.json");
 const withCSS = require("@zeit/next-css");
 const withImages = require("next-images");
 

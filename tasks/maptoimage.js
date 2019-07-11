@@ -1,6 +1,6 @@
 const glob = require("glob");
 const fs = require("fs");
-const data = require("../data.json");
+const data = require("../data/data.json");
 
 const StaticMaps = require("staticmaps");
 
