@@ -7,7 +7,7 @@
     "build": "next build",
     "stitchjson": "node tasks/stitchjson.js",
     "mapimages": "node tasks/maptoimage.js",
-    "deploy": "export NODE_ENV=production && ./deploy.sh"
+    "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
