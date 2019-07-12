@@ -1,12 +1,11 @@
 import React from "react";
-import Layout from "../layouts/Blog";
+import Layout from "../layouts/Layout";
 import data from "../data/data.json";
-import styled from "styled-components";
 
 import Cup from "../components/Cup";
 
 const IndexPage = () => (
-  <Layout context="home">
+  <Layout>
     {data.map(p => (
       <Cup key={p.slug} cup={p} />
     ))}

@@ -20,10 +20,7 @@ CSS.defaultProps = {
       line-height: ${theme.lineHeight};
       -webkit-font-smoothing: subpixel-antialiased;
     }
-    a { text-decoration: none; }
-
-    // Grids
-      
+    a { text-decoration: none; }      
   `
 };
 

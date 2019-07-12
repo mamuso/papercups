@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+
 import Meta from "../components/Meta";
 import CSS from "../components/CSS";
 
@@ -23,17 +24,11 @@ export default class MyDocument extends Document {
         <Head>
           <Meta />
           <CSS />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Playfair+Display:700&display=swap"
-          />
           {styleElements}
         </Head>
         <body>
-          <div className="root">
-            <Main />
-            <NextScript />
-          </div>
+          <Main />
+          <NextScript />
         </body>
       </html>
     );

@@ -11,6 +11,10 @@ const Meta = () => (
     <link rel="icon" type="image/png" href="/static/favicon.png" />
     <link rel="manifest" href="/static/manifest.json" />
     <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Playfair+Display:700&display=swap"
+    />
   </React.Fragment>
 );
 
