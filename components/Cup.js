@@ -28,6 +28,15 @@ export const CupImg = styled.div`
 
 export const CupMeta = styled.div`
   grid-area: card;
+
+  .small & {
+    align-self: end;
+    margin-bottom: 5.3rem;
+  }
+
+  .large & {
+    align-self: center;
+  }
 `;
 
 export const Img = styled.img`
@@ -41,9 +50,37 @@ export const Img = styled.img`
   }
 `;
 
-export const CupTitle = styled.h2``;
+export const CupTitle = styled.h2`
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: ${props => props.theme.fonts.heading};
+  line-height: 1;
 
-export const CupAddress = styled.address``;
+  .small & {
+    font-size: ${props => props.theme.fontSizes.xlarge};
+    max-width: 80%;
+  }
+
+  .large & {
+    width: 80%;
+    max-width: 60rem;
+  }
+`;
+
+export const CupAddress = styled.address`
+  position: relative;
+  left: -1.6rem;
+  top: -1.2rem;
+  width: 36rem;
+  padding: 1.8rem 1.6rem;
+  background: white;
+  border-radius: ${props => props.theme.radii};
+  font-family: ${props => props.theme.fonts.mono};
+  font-size: ${props => props.theme.fontSizes.small};
+  font-style: normal;
+  color: ${props => props.theme.colors.lighttext};
+`;
 
 const CupItem = ({ cup, size }) => (
   <CupGrid className={size}>

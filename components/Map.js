@@ -8,8 +8,8 @@ import styled from "styled-components";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://twemoji.maxcdn.com/v/12.1.2/svg/2615.svg",
-  iconUrl: "https://twemoji.maxcdn.com/v/12.1.2/svg/2615.svg",
+  iconRetinaUrl: "/static/coffee.png",
+  iconUrl: "/static/coffee.png",
   shadowUrl: ""
 });
 
