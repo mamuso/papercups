@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "../layouts/Blog";
+import Layout from "../layouts/Layout";
 import data from "../data/data.json";
 import Bigcup from "../components/Bigcup";
 import styled from "styled-components";

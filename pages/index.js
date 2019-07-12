@@ -1,14 +1,17 @@
 import React from "react";
-import Layout from "../layouts/Layout";
 import data from "../data/data.json";
 
-import Cup from "../components/Cup";
+import Layout from "../layouts/Layout";
+import Gridhome from "../components/Gridhome";
+import Cupcontainer from "../components/Cupcontainer";
 
 const IndexPage = () => (
   <Layout>
-    {data.map(p => (
-      <Cup key={p.slug} cup={p} />
-    ))}
+    <Gridhome>
+      {data.map(p => (
+        <Cupcontainer key={p.slug} cup={p} />
+      ))}
+    </Gridhome>
   </Layout>
 );
 

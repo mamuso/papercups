@@ -1,67 +1,63 @@
-import React from "react";
-import { Link } from "../routes";
 import styled from "styled-components";
-import { darken, desaturate, transparentize } from "polished";
-import { paleGrey } from "../utils/colors";
 
 import Cupdetails from "./Cupdetails";
 
-export const Bar = styled.div`
-  position: relative;
-  padding: 4.2rem 3.2rem 3.2rem 3.2rem;
-  transition: background 0.24s;
-  background-position: center center;
-  background-size: cover;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  &:hover {
-    background-image: linear-gradient(${transparentize(
-      0.25,
-      desaturate(0.04, darken(0.04, paleGrey))
-    )}, ${desaturate(
-  0.04,
-  darken(0.04, paleGrey)
-)}), url("/static/maps/${props => props.slug}.png");
-    background-color: ${desaturate(0.04, darken(0.04, paleGrey))};
-  }
-`;
-
-export const Wrapper = styled.div`
+export const CupGrid = styled.div`
   display: grid;
-  grid-template-columns: 22rem auto;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas: "cup card";
-  max-width: 64rem;
   margin: 0 auto;
+
+  &.small {
+    grid-template-columns: 20rem auto;
+    max-width: 64rem;
+  }
+
+  &.large {
+    position: relative;
+    z-index: 2;
+    grid-template-columns: 52rem auto;
+  }
 `;
 
-export const Cup = styled.section`
+export const CupImg = styled.div`
   grid-area: cup;
 `;
 
-export const Img = styled.img`
-  width: 30rem;
-  margin-left: -4rem;
+export const CupMeta = styled.div`
+  grid-area: card;
 `;
 
-const CupItem = ({ cup }) => (
-  <Link route="cup" params={{ slug: cup.slug }}>
-    <a>
-      <Bar slug={cup.slug}>
-        <Wrapper>
-          <Cupdetails cup={cup} />
-          <Cup>
-            <Img
-              src={`/static/cups/${cup.slug}@S.png`}
-              alt={`${cup.name} coffee cup`}
-            />
-          </Cup>
-        </Wrapper>
-      </Bar>
-    </a>
-  </Link>
+export const Img = styled.img`
+  .small & {
+    width: 30rem;
+    margin-left: -6rem;
+  }
+
+  .large & {
+    width: 60rem;
+  }
+`;
+
+export const CupTitle = styled.h2``;
+
+export const CupAddress = styled.address``;
+
+const CupItem = ({ cup, size }) => (
+  <CupGrid className={size}>
+    <CupMeta>
+      <CupTitle>{cup.name}</CupTitle>
+      <CupAddress>{cup.address}</CupAddress>
+    </CupMeta>
+    <CupImg>
+      <Img
+        src={`/static/cups/${cup.slug}@${size}.png`}
+        alt={`${cup.name} coffee cup`}
+      />
+    </CupImg>
+  </CupGrid>
 );
 
 export default CupItem;

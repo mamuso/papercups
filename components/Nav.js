@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "../routes";
 import styled from "styled-components";
-import { fontM, fontXXL, monospace } from "../utils/fonts";
 
 export const Nav = styled.nav`
   display: block;
@@ -22,10 +21,9 @@ export const Homelink = styled.a`
 export const Navlink = styled.span`
   display: inline-block;
   padding: 2.6rem 2rem;
-  line-height: 1;
   opacity: 0.8;
-  font-family: ;
-  font-size: ${fontM};
+  font-family: ${props => props.theme.fonts.mono};
+  font-size: ${props => props.theme.fontSizes.xsmall};
 `;
 
 const NavItem = ({ props, cup }) => (

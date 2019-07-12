@@ -1,17 +1,22 @@
 import { darken, desaturate, transparentize } from "polished";
 
 const theme = {
-  breakpoints: ["544px", "768px", "1012px", "1280px"],
-  maxWidths: {
-    small: "544px",
-    medium: "768px",
-    large: "1012px",
-    xlarge: "1280px"
+  breakpoints: ["425px", "768px", "1012px", "1280px", "1440px"],
+  device: {
+    small: "(max-width: 425px)",
+    medium: "(max-width: 768px)",
+    large: "(max-width: 1012px)",
+    xlarge: "(max-width: 1280px)",
+    xxlarge: "(max-width: 1440px)"
   },
   colors: {
     bodytext: "#2E444E",
     lighttext: transparentize(0.3, "#2E444E"),
-    gray: ["#EDF1F5", desaturate(0.04, darken(0.04, "#EDF1F5"))]
+    gray: [
+      "#EDF1F5",
+      desaturate(0.04, darken(0.06, "#EDF1F5")),
+      transparentize(0.35, desaturate(0.04, darken(0.06, "#EDF1F5")))
+    ]
   },
   lineHeight: 1.5,
   fonts: {
@@ -20,13 +25,14 @@ const theme = {
     heading: '"Playfair Display",serif',
     mono: '"IBM Plex Mono",monospace'
   },
+  radii: "0.4rem",
   fontSizes: {
     xsmall: "1.2rem",
     small: "1.6rem",
     medium: "3.6rem",
     large: "4.2rem",
     xlarge: "5rem",
-    xlarge: "7.2rem"
+    xxlarge: "7.2rem"
   }
 };
 
