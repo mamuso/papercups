@@ -9,7 +9,7 @@ module.exports = withImages(
         (pages, cup) =>
           Object.assign({}, pages, {
             [`/pour/${cup.slug}`]: {
-              page: "/Post",
+              page: "/cup",
               query: { slug: cup.slug }
             }
           }),

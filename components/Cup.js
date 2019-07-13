@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Cupdetails from "./Cupdetails";
-
 export const CupGrid = styled.div`
   display: grid;
   grid-template-rows: 1fr;
@@ -63,6 +61,8 @@ export const CupTitle = styled.h2`
   }
 
   .large & {
+    font-size: ${props => props.theme.fontSizes.xxlarge};
+    color: ${props => props.theme.colors.bodytext};
     width: 80%;
     max-width: 60rem;
   }

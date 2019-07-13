@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Layout from "../layouts/Layout";
-import data from "../data/data.json";
-import Bigcup from "../components/Bigcup";
 import styled from "styled-components";
+import data from "../data/data.json";
+import Cup from "../components/Cup";
 
 import dynamic from "next/dynamic";
 const DynamicComponentWithNoSSR = dynamic(() => import("../components/Map"), {
@@ -12,10 +12,9 @@ const DynamicComponentWithNoSSR = dynamic(() => import("../components/Map"), {
 export const Wrapper = styled.section`
   position: relative;
   padding-bottom: 1.6rem;
+  background: ${props => props.theme.colors.gray[1]};
   overflow: hidden;
 `;
-
-export const Cup = styled.div``;
 
 export const Map = styled.div`
   margin: 1.6rem 1.6rem 0;
@@ -26,15 +25,14 @@ export const Map = styled.div`
   opacity: 0.55;
 `;
 
-const PostPage = ({ cup }) => (
+const CupPage = ({ cup }) => (
   <Layout
     title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
     context="cup"
   >
+    <script>console.log(props) </script>
     <Wrapper>
-      <Cup>
-        <Bigcup cup={cup} />
-      </Cup>
+      <Cup cup={cup} size="large" />
       <Map>
         <DynamicComponentWithNoSSR cup={cup} />
       </Map>
@@ -42,7 +40,7 @@ const PostPage = ({ cup }) => (
   </Layout>
 );
 
-PostPage.getInitialProps = async ({ query }) => {
+CupPage.getInitialProps = async ({ query }) => {
   return {
     cup: data.filter(function(coffee) {
       return coffee.slug === query.slug;
@@ -50,4 +48,4 @@ PostPage.getInitialProps = async ({ query }) => {
   };
 };
 
-export default PostPage;
+export default CupPage;

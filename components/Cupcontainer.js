@@ -6,11 +6,11 @@ import Cup from "./Cup";
 export const CupContainer = styled.div`
   position: relative;
   padding: 4.2rem 3.2rem 3.2rem 3.2rem;
-  transition: background 0.24s;
   background-position: center center;
   background-size: cover;
   border-radius: ${props => props.theme.radii};
   overflow: hidden;
+  transition: background 0.33s;
   &:hover {
     background-image: linear-gradient(33deg, 
       ${props => props.theme.colors.gray[1]}, 

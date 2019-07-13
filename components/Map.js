@@ -10,7 +10,8 @@ delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "/static/coffee.png",
   iconUrl: "/static/coffee.png",
-  shadowUrl: ""
+  shadowUrl: null,
+  iconSize: [32, 32]
 });
 
 export const Wrapper = styled.div`

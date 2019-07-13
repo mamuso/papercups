@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Cupdetails from "./Cupdetails";
-
 export const Wrapper = styled.div`
   position: relative;
   z-index: 2;
@@ -33,7 +31,6 @@ const BigcupItem = ({ cup }) => (
         alt={`${cup.name} coffee cup`}
       />
     </Cup>
-    <Cupdetails cup={cup} classname="bigcup" />
   </Wrapper>
 );
 
