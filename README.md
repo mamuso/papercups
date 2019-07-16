@@ -187,6 +187,8 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [ ] Flat Track Coffee
 - [ ] Houndstooth
+- [ ] Jo's Coffee
+- [ ] Little Brother
 
 ### Seattle, WA, US
 
