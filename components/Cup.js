@@ -14,9 +14,11 @@ export const CupGrid = styled.div`
   }
 
   &.large {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    grid-template-columns: 52rem auto;
+    top: 0;
+    pointer-events: none;
+    grid-template-columns: 64rem auto;
   }
 `;
 
@@ -33,7 +35,8 @@ export const CupMeta = styled.div`
   }
 
   .large & {
-    align-self: center;
+    align-self: start;
+    margin-top: 10rem;
   }
 `;
 
@@ -45,6 +48,7 @@ export const Img = styled.img`
 
   .large & {
     width: 60rem;
+    margin-left: -2rem;
   }
 `;
 

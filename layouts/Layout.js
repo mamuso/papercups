@@ -8,7 +8,7 @@ export default ({ children, title = "Paper Cups", context }) => (
     </Head>
     <header />
     <main>
-      <Nav />
+      <Nav context={context} />
       {children}
     </main>
   </div>

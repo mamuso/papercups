@@ -8,7 +8,9 @@ export const Nav = styled.nav`
   width: 100%;
   text-align: right;
   overflow: hidden;
-  ${props => console.log(props)}
+  &.cup {
+    background: ${props => props.theme.colors.gray[1]};
+  }
 `;
 
 export const Homelink = styled.a`
@@ -27,8 +29,8 @@ export const Navlink = styled.span`
   font-size: ${props => props.theme.fontSizes.xsmall};
 `;
 
-const NavItem = ({ cup }) => (
-  <Nav>
+const NavItem = ({ cup, context }) => (
+  <Nav className={context}>
     <Homelink href="/">
       <img src="/static/coffee.png" alt="Paper Cups" />
     </Homelink>

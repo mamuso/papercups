@@ -17,8 +17,9 @@ export const Wrapper = styled.section`
 `;
 
 export const Map = styled.div`
-  margin: 1.6rem 1.6rem 0;
-  height: 36rem;
+  position: relative;
+  margin: 1.6rem 1.6rem 0 56rem;
+  height: 86vh;
   overflow: hidden;
   border-radius: 0.4rem;
   mix-blend-mode: luminosity;
@@ -30,12 +31,11 @@ const CupPage = ({ cup }) => (
     title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
     context="cup"
   >
-    <script>console.log(props) </script>
     <Wrapper>
-      <Cup cup={cup} size="large" />
       <Map>
         <DynamicComponentWithNoSSR cup={cup} />
       </Map>
+      <Cup cup={cup} size="large" />
     </Wrapper>
   </Layout>
 );
