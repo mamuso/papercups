@@ -10,7 +10,7 @@ export const CupContainer = styled.div`
   background-size: cover;
   border-radius: ${props => props.theme.radii};
   overflow: hidden;
-  transition: background 0.33s;
+  transition: background 0.35s;
   &:hover {
     background-image: linear-gradient(33deg, 
       ${props => props.theme.colors.gray[1]}, 
@@ -18,12 +18,15 @@ export const CupContainer = styled.div`
       url("/static/maps/${props => props.slug}.png");
     background-color: ${props => props.theme.colors.gray[1]};
   }
+  &:hover .small {
+    top: 0;
+  }
 `;
 
 const CupcontainerItem = ({ cup }) => (
   <Link route="cup" params={{ slug: cup.slug }}>
     <a>
-      <CupContainer slug={cup.slug}>
+      <CupContainer slug={cup.slug} className="cup">
         <Cup cup={cup} size="small" />
       </CupContainer>
     </a>

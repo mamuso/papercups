@@ -9,8 +9,11 @@ export const CupGrid = styled.div`
   margin: 0 auto;
 
   &.small {
+    position: relative;
+    top: 0.2rem;
     grid-template-columns: 20rem auto;
     max-width: 64rem;
+    transition: all 0.2s ease;
   }
 
   &.large {

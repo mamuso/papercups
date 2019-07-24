@@ -19,7 +19,7 @@ export const Wrapper = styled.section`
 export const Map = styled.div`
   position: relative;
   margin: 1.6rem 1.6rem 0 56rem;
-  height: 86vh;
+  height: 86.5vh;
   overflow: hidden;
   border-radius: 0.4rem;
   mix-blend-mode: luminosity;

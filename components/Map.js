@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 86vh;
+  height: 75rem;
   & .leaflet-container {
     width: 100%;
     height: 100%;
