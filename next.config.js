@@ -18,7 +18,8 @@ module.exports = withImages(
 
       // combine the map of post pages with the home
       return Object.assign({}, pages, {
-        "/": { page: "/" }
+        "/": { page: "/" },
+        "/map": { page: "/map" }
       });
     }
   })

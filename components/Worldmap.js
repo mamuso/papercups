@@ -1,8 +1,9 @@
 import { Component } from "react";
-import { Map, TileLayer, Marker } from "react-leaflet-universal";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet-universal";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import styled from "styled-components";
+import data from "../data/data.json";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -17,34 +18,42 @@ export const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 75rem;
+  height: 60rem;
   & .leaflet-container {
     width: 100%;
     height: 100%;
   }
 `;
 
-class MapItem extends Component {
-  state = {
-    lat: this.props.cup.location.lat,
-    lng: this.props.cup.location.lng,
-    zoom: 14
-  };
-
+class WorldmapItem extends Component {
   render() {
-    const position = [this.state.lat, this.state.lng];
+    const bounds = L.latLngBounds([0, 0]);
+    data.map(p => {
+      bounds.extend([p.location.lat, p.location.lng]);
+    });
+
     return (
       <Wrapper>
-        <Map center={position} zoom={this.state.zoom} zoomControl={false}>
+        <Map bounds={bounds} zoomControl={false}>
           <TileLayer
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
           />
           {/* <ZoomControl position="topright" /> */}
-          <Marker position={position} />
+          {data.map(p => (
+            <Marker position={[p.location.lat, p.location.lng]}>
+              <Popup>
+                <strong>
+                  <a href={`/pour/${p.slug}`}>{p.name}</a>
+                </strong>
+                <br />
+                {p.address}
+              </Popup>
+            </Marker>
+          ))}
         </Map>
       </Wrapper>
     );
   }
 }
-export default MapItem;
+export default WorldmapItem;
