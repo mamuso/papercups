@@ -24,6 +24,17 @@ export const Map = styled.div`
   border-radius: 0.4rem;
   mix-blend-mode: luminosity;
   opacity: 0.55;
+  @media ${props => props.theme.device.large} {
+    & {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 40rem;
+      margin: 0;
+    }
+  }
 `;
 
 const CupPage = ({ cup }) => (
