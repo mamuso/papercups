@@ -39,11 +39,11 @@ const NavItem = ({ cup, context }) => (
         <Navlink>Map</Navlink>
       </a>
     </Link>
-    <Link href="/about">
+    {/* <Link href="/about">
       <a>
         <Navlink>About</Navlink>
       </a>
-    </Link>
+    </Link> */}
   </Nav>
 );
 

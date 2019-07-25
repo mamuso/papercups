@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 60rem;
+  height: 40rem;
   & .leaflet-container {
     width: 100%;
     height: 100%;
@@ -34,7 +34,11 @@ class WorldmapItem extends Component {
 
     return (
       <Wrapper>
-        <Map bounds={bounds} zoomControl={false}>
+        <Map
+          bounds={bounds}
+          boundsOptions={{ padding: [50, 50] }}
+          zoomControl={false}
+        >
           <TileLayer
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
             url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
