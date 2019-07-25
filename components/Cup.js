@@ -23,6 +23,15 @@ export const CupGrid = styled.div`
     pointer-events: none;
     grid-template-columns: 64rem auto;
   }
+
+  @media ${props => props.theme.device.medium} {
+    & {
+      max-width: 100%;
+      grid-template-areas:
+        "cup cup"
+        "card card";
+    }
+  }
 `;
 
 export const CupImg = styled.div`
@@ -41,6 +50,12 @@ export const CupMeta = styled.div`
     align-self: start;
     margin-top: 10rem;
   }
+
+  @media ${props => props.theme.device.medium} {
+    .small & {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 export const Img = styled.img`
@@ -52,6 +67,14 @@ export const Img = styled.img`
   .large & {
     width: 60rem;
     margin-left: -2rem;
+  }
+
+  @media ${props => props.theme.device.medium} {
+    .small & {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: -4.8rem;
+    }
   }
 `;
 
@@ -73,6 +96,13 @@ export const CupTitle = styled.h2`
     width: 80%;
     max-width: 60rem;
   }
+
+  @media ${props => props.theme.device.medium} {
+    .small & {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 `;
 
 export const CupAddress = styled.address`
@@ -87,6 +117,12 @@ export const CupAddress = styled.address`
   font-size: ${props => props.theme.fontSizes.small};
   font-style: normal;
   color: ${props => props.theme.colors.lighttext};
+  @media ${props => props.theme.device.medium} {
+    .small & {
+      width: 104%;
+      left: -0.8rem;
+    }
+  }
 `;
 
 const CupItem = ({ cup, size }) => (

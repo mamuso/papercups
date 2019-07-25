@@ -21,6 +21,13 @@ export const CupContainer = styled.div`
   &:hover .small {
     top: 0;
   }
+  @media ${props => props.theme.device.large} {
+    & {
+      padding: 1rem 3.2rem 2rem 3.2rem;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
 `;
 
 const CupcontainerItem = ({ cup }) => (
