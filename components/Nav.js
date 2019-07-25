@@ -34,12 +34,12 @@ const NavItem = ({ cup, context }) => (
     <Homelink href="/">
       <img src="/static/coffee.png" alt="Paper Cups" />
     </Homelink>
-    <Link route="map">
+    <Link href="/map">
       <a>
         <Navlink>Map</Navlink>
       </a>
     </Link>
-    <Link route="about">
+    <Link href="/about">
       <a>
         <Navlink>About</Navlink>
       </a>
