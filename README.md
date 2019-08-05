@@ -83,7 +83,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### Oakland, CA, US
 
 - [ ] Bicycle Coffee
-- [ ] Coloso
+- [x] Coloso
 - [ ] Highwire Coffee
 - [x] Red Bay Coffee
 - [ ] Snow White
