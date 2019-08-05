@@ -72,7 +72,7 @@ parse_args() {
 	# vars should be declared here, with sane defaults if applicable.
 
 	# Source directory & target branch.
-	deploy_directory=${GIT_DEPLOY_DIR:-dist}
+	deploy_directory=${GIT_DEPLOY_DIR:-out}
 	deploy_branch=${GIT_DEPLOY_BRANCH:-gh-pages}
 
 	#if no user identity is already set in the current git environment, use this:
@@ -92,13 +92,12 @@ main() {
 
 	# Do and export
 	rm -rf node_modules/.cache
-	rm -rf dist
+	rm -rf out
 	npm run stitchjson
 	node_modules/.bin/next build
 	node_modules/.bin/next export
 	touch out/.nojekyll
 	echo 'papercups.mamuso.net' > out/CNAME
-	mv out dist
 
 
 	enable_expanded_output
@@ -150,7 +149,7 @@ main() {
 
 	restore_head
 
-	rm -rf dist
+	rm -rf out
 }
 
 initial_deploy() {
