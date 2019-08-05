@@ -1,0 +1,12 @@
+{
+  "slug": "coloso-oakland-us",
+  "name": "Coloso",
+  "address": "58 Redchurch St, Shoreditch, London E2 7DP, UK",
+  "city": "Oakland",
+  "country": "US",
+  "created_at": "2019-08-04",
+  "location": {
+    "lat": 51.524297,
+    "lng": -0.074501
+  }
+}
