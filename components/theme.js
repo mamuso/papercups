@@ -15,7 +15,9 @@ const theme = {
     gray: [
       "#EDF1F5",
       desaturate(0.04, darken(0.15, "#EDF1F5")),
-      transparentize(0.3, desaturate(0.04, darken(0.15, "#EDF1F5")))
+      transparentize(0.3, desaturate(0.04, darken(0.15, "#EDF1F5"))),
+      desaturate(0.04, darken(0.22, "#EDF1F5")),
+      transparentize(0.3, desaturate(0.04, darken(0.22, "#EDF1F5")))
     ]
   },
   lineHeight: 1.5,

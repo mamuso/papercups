@@ -12,11 +12,11 @@ export const CupContainer = styled.div`
   overflow: hidden;
   transition: background 0.35s;
   &:hover {
-    background-image: linear-gradient(33deg, 
-      ${props => props.theme.colors.gray[1]}, 
-      ${props => props.theme.colors.gray[2]}), 
+    background-image: linear-gradient(40deg, 
+      ${props => props.theme.colors.gray[3]} 20%, 
+      ${props => props.theme.colors.gray[4]}), 
       url("/static/maps/${props => props.slug}.png");
-    background-color: ${props => props.theme.colors.gray[1]};
+    background-color: ${props => props.theme.colors.gray[3]};
   }
   &:hover .small {
     top: 0;
