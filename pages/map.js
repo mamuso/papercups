@@ -26,6 +26,8 @@ export const Map = styled.div`
   overflow: hidden;
   mix-blend-mode: luminosity;
   opacity: 0.55;
+  overflow: hidden;
+  border-radius: 0.4rem;
 `;
 
 export const H2 = styled.h2`
@@ -33,7 +35,8 @@ export const H2 = styled.h2`
   z-index: 2;
   width: 80%;
   max-width: 60rem;
-  margin: -7.2rem 3.2rem 1rem;
+  margin: -7.2rem 3.2rem 2.4rem;
+  font-family: ${props => props.theme.fonts.heading};
   font-size: ${props => props.theme.fontSizes.xxlarge};
   color: ${props => props.theme.colors.bodytext};
 `;
@@ -62,7 +65,7 @@ const CupPage = ({ cup }) => (
         <DynamicComponentWithNoSSR />
       </Map>
     </Wrapper>
-    <H2>The cups:</H2>
+    <H2>Paper Cups</H2>
     <Maplist>
       {uniqueCities.map(city => (
         <div>
