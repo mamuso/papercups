@@ -2,6 +2,8 @@ import React from "react";
 import App, { Container } from "next/app";
 import { ThemeProvider } from "styled-components";
 import theme from "../components/theme";
+import Router from "next/router";
+import withGA from "next-ga";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -27,4 +29,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withGA("UA-262914-15", Router)(MyApp);
