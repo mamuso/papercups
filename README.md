@@ -131,6 +131,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Sightglass
 - [x] Snowbird
 - [ ] Vega
+- [ ] Wise Sons
 - [ ] Wrecking Ball Coffee Roasters
 
 ### Santa Cruz, CA, US
