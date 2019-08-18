@@ -1,0 +1,12 @@
+{
+  "slug": "smithandtait-los-angeles-usa",
+  "name": "Smith & Tait",
+  "address": "866 Huntley Dr, West Hollywood, CA 90069, USA",
+  "city": "Los Angeles",
+  "country": "US",
+  "created_at": "2018-08-18",
+  "location": {
+    "lat": 34.086817,
+    "lng": -118.380464
+  }
+}
