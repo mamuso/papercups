@@ -84,6 +84,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [ ] Bicycle Coffee
 - [x] Coloso
+- [ ] Farley's East
 - [ ] Highwire Coffee
 - [x] Red Bay Coffee
 - [ ] Snow White
