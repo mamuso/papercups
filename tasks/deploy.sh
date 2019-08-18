@@ -12,7 +12,7 @@ fi
 touch out/.nojekyll
 echo 'papercups.mamuso.net' > out/CNAME
 
-gh-pages -d $PUBLIC_PATH -b gh-pages -r "https://${$GITHUB_TOKEN}@github.com/mamuso/papercups.git" - -u "github-actions-bot <support+actions@github.com>"
+gh-pages -d $PUBLIC_PATH -b gh-pages -r "https://${GITHUB_TOKEN}@github.com/mamuso/papercups.git" - -u "github-actions-bot <support+actions@github.com>"
 retval=$?
 if [ $retval -ne 0 ]; then
   echo "gh-pages failed: $retval"
