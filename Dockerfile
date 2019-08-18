@@ -1,4 +1,4 @@
-FROM node:10.15-jessie
+FROM node:12.7-alpine
 
 RUN apk update && apk upgrade && \
   apk add --no-cache bash git openssh curl
