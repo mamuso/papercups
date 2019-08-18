@@ -18,4 +18,10 @@ jobs:
         npm install
         npm run stitchjson
         npm run build
-        npm run deploy
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v1.1.0
+      if: contains(github.ref, 'master')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./out
