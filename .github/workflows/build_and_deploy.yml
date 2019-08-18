@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build and deploy to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
           npm run stitchjson
