@@ -4,14 +4,17 @@ on:
   push:
     branches:
       - master
-        
+
 jobs:
   build_and_deploy:
+    name: Build and deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
-      - name: Build Docker image to run tests and deploy to gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: docker build -t ${{github.repository}}:${{github.sha}} .
+      - uses: actions/checkout@v1
+      - name: Build and deploy to gh-pages
+        run: |
+          npm install
+          npm run stitchjson
+          npm run build
+          npm run export
+          npm run deploy

@@ -28,4 +28,3 @@ git add --all
 timestamp=$(date -u)
 git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
 git push origin "${remote_branch}" --force
-
