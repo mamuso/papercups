@@ -12,7 +12,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm stitchjson
-RUN npm build
-RUN npm export
-RUN npm deploy
+RUN npm run stitchjson
+RUN npm run build
+RUN npm run export
+RUN npm run deploy
