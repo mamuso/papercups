@@ -5,10 +5,6 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /workspace
 
-ARG GITHUB_TOKEN
-RUN git config --global url."https://$GITHUB_TOKEN:@github.com/".insteadOf "https://github.com/"
-RUN git config --global --add url."https://$GITHUB_TOKEN:@github.com/".insteadOf "ssh://git@github.com/"
-
 COPY package.json .
 COPY package-lock.json .
 RUN npm install -g gh-pages

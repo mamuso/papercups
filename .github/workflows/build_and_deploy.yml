@@ -14,4 +14,4 @@ jobs:
       - name: Build Docker image to run tests and deploy to gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: docker build --build-arg GITHUB_TOKEN=${GITHUB_TOKEN} -t ${{github.repository}}:${{github.sha}} .
+        run: docker build -t ${{github.repository}}:${{github.sha}} .

@@ -1,20 +1,31 @@
 #!/bin/sh
 
-if [ ! -n "$PUBLIC_PATH" ]; then
-  PUBLIC_PATH=out
+# check values
+if [ -z "${GITHUB_TOKEN}" ]; then
+    echo "error: not found GITHUB_TOKEN"
+    exit 1
 fi
 
-if [ ! -n "$GITHUB_TOKEN" ]; then
-  echo "You need to supply GITHUB_TOKEN"
-  exit 1
+if [ -z "${PUBLISH_BRANCH}" ]; then
+	PUBLISH_BRANCH=gh-pages
 fi
 
+cd out || exit 1
 touch out/.nojekyll
 echo 'papercups.mamuso.net' > out/CNAME
 
-gh-pages -d $PUBLIC_PATH -b gh-pages - -u "github-actions-bot <support+actions@github.com>"
-retval=$?
-if [ $retval -ne 0 ]; then
-  echo "gh-pages failed: $retval"
-  exit 2
-fi
+# initialize git
+remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+remote_branch="${PUBLISH_BRANCH}"
+git init
+git config user.name "${GITHUB_ACTOR}"
+git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git remote add origin "${remote_repo}"
+
+# push to publishing branch
+git checkout "${remote_branch}" || git checkout --orphan "${remote_branch}"
+git add --all
+timestamp=$(date -u)
+git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
+git push origin "${remote_branch}" --force
+
