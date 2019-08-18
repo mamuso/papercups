@@ -14,3 +14,5 @@ COPY . .
 
 RUN npm stitchjson
 RUN npm build
+RUN npm export
+RUN npm deploy

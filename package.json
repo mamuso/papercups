@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "stitchjson": "node tasks/stitchjson.js",
     "mapimages": "node tasks/maptoimage.js",
     "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
