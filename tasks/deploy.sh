@@ -11,8 +11,8 @@ if [ -z "${PUBLISH_BRANCH}" ]; then
 fi
 
 cd out || exit 1
-touch out/.nojekyll
-echo 'papercups.mamuso.net' > out/CNAME
+touch .nojekyll
+echo 'papercups.mamuso.net' > CNAME
 
 # initialize git
 remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
