@@ -1,0 +1,19 @@
+name: Build and deploy
+
+on: [push, pull_request]
+  branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build and deploy to gh-pages
+      run: |
+        npm install
+        npm run stitchjson
+        npm run build
+        npm run deploy
