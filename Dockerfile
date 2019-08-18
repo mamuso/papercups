@@ -1,5 +1,6 @@
 FROM node:12.7-alpine
 
+ARG GITHUB_TOKEN
 ENV GITHUB_TOKEN ${GITHUB_TOKEN}
 
 RUN apk update && apk upgrade && \
