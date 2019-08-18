@@ -12,4 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
       - name: Build Docker image to run tests and deploy to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: docker build -t ${{github.repository}}:${{github.sha}} .
