@@ -66,7 +66,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] La Colombe
 - [ ] Lamill Coffee
 - [x] Menottis
-- [ ] Smith & Tait
+- [x] Smith & Tait
 - [ ] The Good People
 - [x] Woodcat
 - [ ] 10 speed coffee
@@ -84,6 +84,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [ ] Bicycle Coffee
 - [x] Coloso
+- [ ] Farley's East
 - [ ] Highwire Coffee
 - [x] Red Bay Coffee
 - [ ] Snow White
@@ -200,4 +201,3 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Seattle Coffee Works
 - [x] Victrola
 - [x] Vita
-
