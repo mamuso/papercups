@@ -23,9 +23,8 @@ git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git remote add origin "${remote_repo}"
 
 # push to publishing branch
-git checkout -t upstream/"${remote_branch}" || git checkout --orphan "${remote_branch}"
-git fetch
+git checkout "${remote_branch}" || git checkout --orphan "${remote_branch}"
 git add --all
 timestamp=$(date -u)
 git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
-git push origin "${remote_branch}"
+git push origin "${remote_branch}" --force
