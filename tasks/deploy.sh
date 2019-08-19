@@ -24,6 +24,7 @@ git remote add origin "${remote_repo}"
 
 # push to publishing branch
 git checkout -t upstream/"${remote_branch}" || git checkout --orphan "${remote_branch}"
+git fetch
 git add --all
 timestamp=$(date -u)
 git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
