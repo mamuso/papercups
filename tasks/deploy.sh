@@ -27,4 +27,4 @@ git remote add origin "${remote_repo}"
 git add --all
 timestamp=$(date -u)
 git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
-git push --force  master:"${remote_branch}"
+git push --force  origin "${remote_branch}"
