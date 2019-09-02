@@ -1,0 +1,12 @@
+{
+    "slug": "barista-hyderabad-india",
+    "name": "Barista",
+    "address": "Microsoft Campus, ISB Rd, Gachibowli, Hyderabad, Telangana 500032, India",
+    "city": "Hyderabad",
+    "country": "IN",
+    "created_at": "2018-09-01",
+    "location": {
+        "lat": 17.431692,
+        "lng": 78.343067
+    }
+}
