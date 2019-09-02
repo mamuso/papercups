@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "website for papercups.mamuso.net",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 8080",
     "build": "next build",
     "export": "next export",
     "stitchjson": "node tasks/stitchjson.js",
