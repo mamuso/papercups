@@ -46,7 +46,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Hyderabad, IN
 
-- [ ] Barista
+- [x] Barista
 - [ ] Café Coffee Day
 
 ### Berkeley, CA, US
