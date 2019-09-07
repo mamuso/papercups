@@ -1,0 +1,12 @@
+{
+    "slug": "dinosaur-coffee-los-angeles-usa",
+    "name": "Dinosaur Coffee",
+    "address": "4334 Sunset Blvd, Los Angeles, CA 90029, USA",
+    "city": "Los Angeles",
+    "country": "US",
+    "created_at": "2019-09-05",
+    "location": {
+        "lat": 34.096340,
+        "lng": -118.283805
+    }
+}

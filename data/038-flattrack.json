@@ -1,0 +1,12 @@
+{
+    "slug": "flat-track-austin-usa",
+    "name": "Flat Track Coffee",
+    "address": "1619 E Cesar Chavez St, Austin, TX 78702, USA",
+    "city": "Austin",
+    "country": "US",
+    "created_at": "2019-09-05",
+    "location": {
+        "lat": 30.258270,
+        "lng": -97.728350
+    }
+}

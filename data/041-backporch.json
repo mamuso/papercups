@@ -1,0 +1,12 @@
+{
+    "slug": "backporch-coffee-roasters-bend-usa",
+    "name": "Backporch Coffee Roasters",
+    "address": "1052 NW Newport Ave #103, Bend, OR 97701, USA",
+    "city": "Bend",
+    "country": "US",
+    "created_at": "2019-09-05",
+    "location": {
+        "lat": 44.062645,
+        "lng": -121.327383
+    }
+}

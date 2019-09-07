@@ -32,7 +32,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Kaffeine
 - [x] Koa Coffee
 - [x] Look mum no hands
-- [ ] Monmouth Coffee
+- [x] Monmouth Coffee
 - [ ] Nude Espresso
 - [ ] Ozone Coffee Roasters
 - [x] Prufrock Coffee
@@ -59,7 +59,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Alfred Coffee
 - [ ] Colectivo Coffee
 - [ ] Commissary
-- [ ] Dinosaur Coffee
+- [x] Dinosaur Coffee
 - [ ] Eightfold
 - [ ] G&B Grand Central
 - [ ] Intelligentsia Coffee
@@ -171,7 +171,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Bend, OR, US
 
-- [ ] Backporch
+- [x] Backporch
 
 ### Portland, OR, US
 
@@ -187,7 +187,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Austin, TX, US
 
-- [ ] Flat Track Coffee
+- [x] Flat Track Coffee
 - [ ] Houndstooth
 - [ ] Jo's Coffee
 - [ ] Little Brother
