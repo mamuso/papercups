@@ -1,0 +1,12 @@
+{
+    "slug": "lagkagehuset-cph-dk",
+    "name": "Lagkagehuset",
+    "address": "Torvegade 45, 1400 København, Denmark",
+    "city": "Copenhagen",
+    "country": "DK",
+    "created_at": "2019-12-26",
+    "location": {
+        "lat": 55.672470,
+        "lng": 12.591670
+    }
+}
