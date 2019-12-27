@@ -178,6 +178,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Barista
 - [x] Coava
 - [ ] Dapper and Wise
+- [ ] Deadstock Coffee
 - [ ] Flying Cat Coffee
 - [x] Good
 - [ ] Heart
