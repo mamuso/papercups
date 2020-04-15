@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "../components/theme";
 import Router from "next/router";
 import withGA from "next-ga";
+import "leaflet/dist/leaflet.css";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

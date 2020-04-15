@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet-universal";
-import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import styled from "styled-components";
 import data from "../data/data.json";
@@ -11,7 +10,7 @@ L.Icon.Default.mergeOptions({
   iconRetinaUrl: "/static/coffee.png",
   iconUrl: "/static/coffee.png",
   shadowUrl: null,
-  iconSize: [32, 32]
+  iconSize: [32, 32],
 });
 
 export const Wrapper = styled.div`
@@ -28,7 +27,7 @@ export const Wrapper = styled.div`
 class WorldmapItem extends Component {
   render() {
     const bounds = L.latLngBounds([0, 0]);
-    data.map(p => {
+    data.map((p) => {
       bounds.extend([p.location.lat, p.location.lng]);
     });
 
@@ -44,7 +43,7 @@ class WorldmapItem extends Component {
             url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
           />
           {/* <ZoomControl position="topright" /> */}
-          {data.map(p => (
+          {data.map((p) => (
             <Marker position={[p.location.lat, p.location.lng]}>
               <Popup>
                 <strong>

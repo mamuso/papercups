@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Map, TileLayer, Marker } from "react-leaflet-universal";
-import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import styled from "styled-components";
 
@@ -10,7 +9,7 @@ L.Icon.Default.mergeOptions({
   iconRetinaUrl: "/static/coffee.png",
   iconUrl: "/static/coffee.png",
   shadowUrl: null,
-  iconSize: [32, 32]
+  iconSize: [32, 32],
 });
 
 export const Wrapper = styled.div`
@@ -22,7 +21,7 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  @media ${props => props.theme.device.large} {
+  @media ${(props) => props.theme.device.large} {
     & {
       height: 40rem;
     }
@@ -33,7 +32,7 @@ class MapItem extends Component {
   state = {
     lat: this.props.cup.location.lat,
     lng: this.props.cup.location.lng,
-    zoom: 14
+    zoom: 14,
   };
 
   render() {
