@@ -20,7 +20,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Copenhagen, DK
 
-- [ ] Lagkagehuset
+- [x] Lagkagehuset
 
 ### London, UK
 
