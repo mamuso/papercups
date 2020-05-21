@@ -1,0 +1,12 @@
+{
+    "slug": "anchorhead-seattle-usa",
+    "name": "Anchorhead",
+    "address": "1600 7th Ave Ste 105, Seattle, WA 98101",
+    "city": "Seattle",
+    "country": "USA",
+    "created_at": "2020-05-20",
+    "location": {
+        "lat": 47.613240,
+        "lng": -122.334400
+    }
+}
