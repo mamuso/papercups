@@ -195,7 +195,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ### Seattle, WA, US
 
-- [ ] Anchorhead
+- [x] Anchorhead
 - [ ] La Marzocco Cafe
 - [x] Little Oddfellows
 - [ ] Mr West
