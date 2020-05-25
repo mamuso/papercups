@@ -1,0 +1,12 @@
+{
+    "slug": "tidal-coffee-monterey-usa",
+    "name": "Tidal Coffee",
+    "address": "400 Cannery Row, Monterey, CA 93940, USA",
+    "city": "Monterey",
+    "country": "USA",
+    "created_at": "2020-05-24",
+    "location": {
+        "lat": 36.612133,
+        "lng": -121.897926
+    }
+}

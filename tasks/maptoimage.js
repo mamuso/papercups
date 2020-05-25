@@ -15,12 +15,14 @@ const map = new StaticMaps(options);
 const zoom = 18;
 
 data.forEach(function(cup) {
-  const center = [cup.location.lng, cup.location.lat];
-  map
-    .render(center, zoom)
-    .then(() => map.image.save(`static/maps/${cup.slug}.png`))
-    .then(() => console.log(`${cup.name} Saved!`))
-    .catch(function(err) {
-      console.log(err);
-    });
+  if(!fs.existsSync(`static/maps/${cup.slug}.png`)){
+    const center = [cup.location.lng, cup.location.lat];
+    map
+      .render(center, zoom)
+      .then(() => map.image.save(`static/maps/${cup.slug}.png`))
+      .then(() => console.log(`${cup.name} Saved!`))
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
 });
