@@ -78,7 +78,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### Monterey, CA, US
 
 - [ ] Captain + Stoker
-- [ ] Tidal
+- [x] Tidal
 
 ### Oakland, CA, US
 
