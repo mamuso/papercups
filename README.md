@@ -16,7 +16,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### Madrid, ES
 
 - [x] The Fix
-- [ ] Toma Cafe
+- [x] Toma Cafe
 
 ### Copenhagen, DK
 
