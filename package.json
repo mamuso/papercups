@@ -2,6 +2,10 @@
   "name": "papercups",
   "version": "1.0.0",
   "description": "website for papercups.mamuso.net",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamuso/papercups.git"
+  },
   "scripts": {
     "dev": "next -p 8000",
     "build": "next build",
