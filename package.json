@@ -15,7 +15,7 @@
     "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
   },
   "dependencies": {
-    "leaflet": "^1.6.0",
+    "leaflet": "^1.7.1",
     "lodash": "^4.17.20",
     "next": "^9.4.4",
     "next-ga": "^2.3.4",
