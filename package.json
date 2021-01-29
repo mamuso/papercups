@@ -27,7 +27,7 @@
     "react-leaflet": "^2.7.0",
     "react-leaflet-universal": "^2.2.1",
     "standard": "^12.0.1",
-    "staticmaps": "^1.4.0",
+    "staticmaps": "^1.4.2",
     "styled-components": "^4.3.2"
   },
   "license": "ISC"
