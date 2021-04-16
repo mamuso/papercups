@@ -17,7 +17,7 @@
   "dependencies": {
     "leaflet": "^1.6.0",
     "lodash": "^4.17.21",
-    "next": "^9.4.4",
+    "next": "^9.5.4",
     "next-ga": "^2.3.4",
     "next-images": "^1.4.0",
     "next-routes": "^1.4.2",
