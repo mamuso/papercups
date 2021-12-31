@@ -1,11 +1,12 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import { ReactElement } from 'react';
 import { ServerStyleSheet } from "styled-components";
 
 import Meta from "../components/Meta";
 import CSS from "../components/CSS";
 
-export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+class MyDocument extends Document {
+  static async getInitialProps({renderPage}: DocumentContext) {
     const sheet = new ServerStyleSheet();
 
     const page = renderPage(Component => props =>
@@ -17,10 +18,10 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const { styleElements } = this.props;
+    const { styleElements }: any = this.props;
 
     return (
-      <html lang="en">
+      <Html>
         <Head>
           <Meta />
           <CSS />
@@ -30,7 +31,9 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
-    );
+      </Html>
+    )
   }
 }
+
+export default MyDocument

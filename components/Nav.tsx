@@ -1,16 +1,13 @@
-import React from "react";
-import { Link } from "../routes";
+import Link from 'next/link'
 import styled from "styled-components";
 
 export const Nav = styled.nav`
   display: block;
-  padding: 0 1.2rem;
+  padding: 1rem 2.4rem;
   width: 100%;
   text-align: right;
   overflow: hidden;
-  &.cup {
-    background: ${props => props.theme.colors.gray[1]};
-  }
+  background: ${props => props.theme.colors.gray[1]};
 `;
 
 export const Homelink = styled.a`
@@ -29,10 +26,10 @@ export const Navlink = styled.span`
   font-size: ${props => props.theme.fontSizes.xsmall};
 `;
 
-const NavItem = ({ cup, context }) => (
+const NavItem = ({ cup, context }: any) => (
   <Nav className={context}>
     <Homelink href="/">
-      <img src="/static/coffee.png" alt="Paper Cups" />
+      <img src="/coffee.png" alt="Paper Cups" />
     </Homelink>
     <Link href="/map">
       <a>

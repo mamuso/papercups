@@ -6,7 +6,7 @@ const theme = {
     small: "(max-width: 425px)",
     medium: "(max-width: 768px)",
     large: "(max-width: 1012px)",
-    xlarge: "(max-width: 1280px)",
+    xlarge: "(max-width: 1316px)",
     xxlarge: "(max-width: 1440px)"
   },
   colors: {
@@ -27,7 +27,10 @@ const theme = {
     heading: '"Playfair Display",serif',
     mono: '"IBM Plex Mono",monospace'
   },
-  radii: "0.4rem",
+  radii: {
+    large: "1.2rem",
+    small: "0.3rem"
+  },
   fontSizes: {
     xsmall: "1.4rem",
     small: "1.6rem",
