@@ -8,7 +8,6 @@ export default ({ children, title = "Paper Cups", context }: any) => {
       <Head>
         <title>️☕️ {title}</title>
       </Head>
-      <header />
       <main>
         <Nav context={context} />
         {children}
