@@ -2,7 +2,9 @@ const Cup = ({ cup, size }: any) => (
   <section className={`cup ${size}`}>
     <div className="meta">
       <h2>{cup.name}</h2>
-      <address>{cup.address}</address>
+      <address>
+        <span>{cup.address}</span>
+      </address>
     </div>
     <div className="cup">
       <img
