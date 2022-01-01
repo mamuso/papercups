@@ -24,8 +24,8 @@ const theme = {
   fonts: {
     body:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    heading: '"Playfair Display",serif',
-    mono: '"IBM Plex Mono",monospace'
+    heading: '"Bodoni",serif',
+    mono: '"Jetbrains mono",monospace'
   },
   radii: {
     large: "1.2rem",

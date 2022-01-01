@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { ServerStyleSheet } from "styled-components";
 
 import Meta from "../components/Meta";
-import CSS from "../components/CSS";
+// import CSS from "../components/CSS";
 
 class MyDocument extends Document {
   static async getInitialProps({renderPage}: DocumentContext) {
@@ -24,7 +24,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <Meta />
-          <CSS />
+          {/* <CSS /> */}
           {styleElements}
         </Head>
         <body>

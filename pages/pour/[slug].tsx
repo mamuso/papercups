@@ -1,17 +1,8 @@
 import type { NextPage } from 'next'
-import styled from "styled-components";
 import data from "../../data/data.json";
 
 import Layout from "../../layouts/Layout";
 import Cup from "../../components/Cup";
-
-export const Wrapper = styled.section`
-  position: relative;
-  padding-bottom: 1.6rem;
-  background: ${props => props.theme.colors.gray[1]};
-  overflow: hidden;
-`;
-
 
 const CupPage: NextPage = ({ cup }: any) => {
   return (
@@ -19,9 +10,9 @@ const CupPage: NextPage = ({ cup }: any) => {
     title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
     context="cup"
   >
-    <Wrapper>
+    <section>
       <Cup cup={cup} size="large" />
-    </Wrapper>
+    </section>
   </Layout>
   )
 }

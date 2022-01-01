@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Router from 'next/router';
 import { AppProps } from "next/app";
-import theme from "../components/theme";
-import { ThemeProvider } from "styled-components";
 import * as Fathom from 'fathom-client';
+
+import '../styles/global.scss';
 
 // Record a pageview when route changes
 Router.events.on('routeChangeComplete', () => {
@@ -19,9 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
-    </ThemeProvider>
   )
 }
 
