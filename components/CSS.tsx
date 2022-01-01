@@ -1,7 +1,7 @@
 import React from "react";
 import theme from "./theme";
 
-const CSS = ({ css }) => (
+const CSS = ({ css }: any) => (
   <style
     dangerouslySetInnerHTML={{
       __html: css
@@ -16,7 +16,6 @@ CSS.defaultProps = {
     body {
       margin: 0;
       border: 1.2rem solid #fff;
-      background: ${theme.colors.gray[1]};
       font-family: ${theme.fonts.body}
       line-height: ${theme.lineHeight};
       -webkit-font-smoothing: subpixel-antialiased;

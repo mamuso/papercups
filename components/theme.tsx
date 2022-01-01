@@ -6,7 +6,7 @@ const theme = {
     small: "(max-width: 425px)",
     medium: "(max-width: 768px)",
     large: "(max-width: 1012px)",
-    xlarge: "(max-width: 1280px)",
+    xlarge: "(max-width: 1316px)",
     xxlarge: "(max-width: 1440px)"
   },
   colors: {
@@ -24,10 +24,13 @@ const theme = {
   fonts: {
     body:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    heading: '"Playfair Display",serif',
-    mono: '"IBM Plex Mono",monospace'
+    heading: '"Bodoni",serif',
+    mono: '"Jetbrains mono",monospace'
   },
-  radii: "0.4rem",
+  radii: {
+    large: "1.2rem",
+    small: "0.3rem"
+  },
   fontSizes: {
     xsmall: "1.4rem",
     small: "1.6rem",
