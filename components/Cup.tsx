@@ -1,5 +1,5 @@
 const Cup = ({ cup, size }: any) => (
-  <section className={size}>
+  <section className={`cup ${size}`}>
     <div className="meta">
       <h2>{cup.name}</h2>
       <address>{cup.address}</address>

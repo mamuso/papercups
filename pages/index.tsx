@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
         {data.map(p => (
-          <Cup key={p.slug} cup={p} />
+          <Cup key={p.slug} cup={p} size='small' />
         ))}
     </Layout>
 
