@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next export",
     "stitchjson": "node tasks/stitchjson.js",
     "mapimages": "node tasks/maptoimage.js",
     "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
