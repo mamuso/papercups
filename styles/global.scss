@@ -43,6 +43,23 @@ a {
 */
 nav {
   background: $color-gray-2;
+  display: grid;
+  grid-template-columns: 4rem auto;
+  padding: 3.2rem 4.8rem;
+  .logo img {
+    width: 3.2rem;
+  }
+  ul {
+    list-style: none;
+    text-align: right;
+    font-family: $font-mono;
+    font-size: $font-size-xsmall;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin: 0 0 0 3rem;
+    }
+  }
 }
 
 /*
@@ -50,6 +67,27 @@ nav {
 */
 main {
   background: $color-gray-2;
+  padding: 3.2rem 4.8rem;
+}
+
+.homegrid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cup {
+  h2 {
+    font-family: $font-heading;
+    font-size: $font-size-xlarge;
+    font-weight: 100;
+    margin: 0;
+  }
+  address {
+    font-family: $font-mono;
+    font-size: $font-size-small;
+    font-style: normal;
+  }
 }
 
 /*
@@ -57,4 +95,15 @@ main {
 */
 footer {
   background: $color-gray-2;
+  padding: 6.4rem 4.8rem 3.2rem;
+  ul {
+    list-style: none;
+    font-family: $font-mono;
+    font-size: $font-size-xsmall;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin: 0 3rem 0 0;
+    }
+  }
 }

@@ -7,9 +7,11 @@ import Cup from "../components/Cup";
 const Home: NextPage = () => {
   return (
     <Layout>
+      <section class='homegrid'>
         {data.map(p => (
           <Cup key={p.slug} cup={p} size='small' />
         ))}
+      </section>
     </Layout>
 
   )

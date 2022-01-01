@@ -1,15 +1,17 @@
 import Link from 'next/link'
 
 const NavItem = ({ cup, context }: any) => (
-  <nav className={context}>
-    <a href="/">
+  <nav class={context}>
+    <a href="/" class='logo'>
       <img src="/coffee.png" alt="Paper Cups" />
     </a>
-    <Link href="/map">
-      <a>
-        <span>Map</span>
-      </a>
-    </Link>
+    <ul>
+      <li>
+        <Link href="/map">
+          <a>Map</a>
+        </Link>
+      </li>
+    </ul>
   </nav>
 );
 

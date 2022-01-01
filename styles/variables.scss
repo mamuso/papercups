@@ -1,9 +1,16 @@
 /*
   Font
 */
-$font-body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-$font-heading: 'Butler, serif';
-$font-mono: '"Jetbrains mono",monospace';
+$font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-heading: Butler, serif;
+$font-mono: 'Jetbrains mono', monospace;
+
+$font-size-xsmall: 1.4rem;
+$font-size-small: 1.6rem;
+$font-size-medium: 3.6rem;
+$font-size-large: 4.2rem;
+$font-size-xlarge: 5rem;
+$font-size-xxlarge: 7.2rem;
 
 /*
   Color
@@ -12,3 +19,5 @@ $color-bodytext: #2e444e;
 $color-lighttext: transparentize($color-bodytext, 0.5);
 $color-gray-1: #edf1f5;
 $color-gray-2: desaturate(darken($color-gray-1, 15%), 4%);
+$color-gray-3: transparentize($color-gray-2, 0.3);
+$color-gray-4: desaturate(darken($color-gray-1, 15%), 4%);
