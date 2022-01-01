@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 
-import Meta from "../components/Meta";
-
 class MyDocument extends Document {
 
   render() {
@@ -9,7 +7,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <Meta />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+          <meta name="author" content="mamuso" />
+          <link rel="icon" type="image/png" href="/favicon.png" />
         </Head>
         <body>
           <Main />
