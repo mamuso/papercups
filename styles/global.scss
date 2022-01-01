@@ -24,13 +24,37 @@ html {
   font-size: 62.5%;
 }
 body {
-  margin: 0;
   border: 1.2rem solid #fff;
+  background: #fff;
   font-family: $font-body;
+  height: auto;
   line-height: 1.5;
+  margin: 0;
+  min-height: 100%;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 a {
   color: $color-bodytext;
   text-decoration: none;
+}
+
+/*
+  Top navigation
+*/
+nav {
+  background: $color-gray-2;
+}
+
+/*
+  Main area
+*/
+main {
+  background: $color-gray-2;
+}
+
+/*
+  Footer
+*/
+footer {
+  background: $color-gray-2;
 }

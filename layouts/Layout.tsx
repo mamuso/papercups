@@ -8,11 +8,11 @@ export default ({ children, title = "Paper Cups", context }: any) => {
       <Head>
         <title>️☕️ {title}</title>
       </Head>
-      <main>
         <Nav context={context} />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
-      </main>
     </div>
   );
 };
