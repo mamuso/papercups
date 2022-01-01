@@ -15,3 +15,22 @@
   font-weight: 100 1000;
   src: url(/fonts/jetbrainsmono-wght.ttf) format('truetype-variations');
 }
+
+/* 
+  CSS
+*/
+html {
+  background: #fff;
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  border: 1.2rem solid #fff;
+  font-family: $font-body;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+a {
+  color: $color-bodytext;
+  text-decoration: none;
+}
