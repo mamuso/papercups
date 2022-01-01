@@ -1,10 +1,11 @@
-@import './reset.scss';
+@import './reset';
+@import './variables';
 
-// Variables
-
-// Typography
+/* 
+  Importing fonts
+*/
 @font-face {
-  font-family: Bodoni;
+  font-family: Butler;
   src: url(/fonts/butler-extrabold.otf) format('openType');
 }
 
