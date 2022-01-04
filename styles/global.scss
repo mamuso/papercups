@@ -42,7 +42,7 @@ a {
   Top navigation
 */
 nav {
-  background: $color-gray-2;
+  @include noise;
   display: grid;
   grid-template-columns: 4rem auto;
   padding: 3.2rem 4.8rem;
@@ -66,7 +66,7 @@ nav {
   Main area
 */
 main {
-  background: $color-gray-2;
+  @include noise;
   padding: 3.2rem 4.8rem;
 }
 
@@ -94,7 +94,7 @@ main {
   Footer
 */
 footer {
-  background: $color-gray-2;
+  @include noise;
   padding: 6.4rem 4.8rem 3.2rem;
   ul {
     list-style: none;
