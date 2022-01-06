@@ -1,6 +1,4 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-
-import Meta from "../components/Meta";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
 
@@ -8,9 +6,7 @@ class MyDocument extends Document {
 
     return (
       <Html>
-        <Head>
-          <Meta />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
