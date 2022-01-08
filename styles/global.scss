@@ -72,21 +72,69 @@ main {
 
 .homegrid {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2.8rem 0.4rem;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-.cup {
+.card {
+  border-radius: $radii-large;
+  display: grid;
+  position: relative;
   h2 {
     font-family: $font-heading;
     font-size: $font-size-xlarge;
     font-weight: 100;
+    line-height: 1;
     margin: 0;
   }
   address {
     font-family: $font-mono;
     font-size: $font-size-small;
     font-style: normal;
+  }
+  .cup {
+    grid-area: cup;
+  }
+  .meta {
+    align-self: self-end;
+    grid-area: meta;
+    margin-bottom: 4.6rem;
+    position: relative;
+    transition: all 0.15s ease-in;
+    address {
+      background-color: transparentize(#fff, 0.35);
+      border-radius: $radii-small;
+      color: $color-lighttext;
+      margin: -2.2rem 0 0 -2rem;
+      padding: 1.8rem 2rem 1.2rem;
+      transition: all 0.15s ease-in;
+    }
+  }
+  &.small {
+    grid-template-columns: 25rem auto;
+    grid-template-areas: 'cup meta';
+    grid-gap: 0.8rem;
+    .cup img {
+      left: -4rem;
+      position: relative;
+      width: 35rem;
+      margin-bottom: -5rem;
+      max-width: 40rem;
+      top: -2rem;
+    }
+    .meta {
+      width: 85%;
+    }
+    &:hover {
+      background: linear-gradient($color-gray-2, $color-gray-3);
+      .meta {
+        margin-bottom: 4.7rem;
+      }
+      address {
+        background-color: #fff;
+      }
+    }
   }
 }
 
