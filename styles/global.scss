@@ -84,9 +84,10 @@ main {
   h2 {
     font-family: $font-heading;
     font-size: $font-size-xlarge;
+    font-size: 3.5vw;
     font-weight: 100;
     line-height: 1;
-    margin: 0;
+    margin: 2rem 0 0 0;
   }
   address {
     font-family: $font-mono;
@@ -94,6 +95,7 @@ main {
     font-style: normal;
   }
   .cup {
+    align-self: self-end;
     grid-area: cup;
   }
   .meta {
@@ -111,6 +113,9 @@ main {
       transition: all 0.15s ease-in;
     }
   }
+  /*
+    Small cards (with links)
+  */
   &.small {
     grid-template-columns: 25rem auto;
     grid-template-areas: 'cup meta';
@@ -128,9 +133,6 @@ main {
     }
     &:hover {
       background: linear-gradient($color-gray-2, $color-gray-3);
-      .meta {
-        margin-bottom: 4.7rem;
-      }
       address {
         background-color: #fff;
       }
@@ -152,6 +154,62 @@ footer {
     li {
       display: inline-block;
       margin: 0 3rem 0 0;
+    }
+  }
+}
+
+/*
+  Media queries
+*/
+@media (max-width: $breakpoint-xlarge) {
+  .card.small {
+    grid-template-columns: 20rem auto;
+    .meta {
+      width: 90%;
+    }
+    .cup img {
+      left: -5rem;
+      margin-bottom: -4.2rem;
+      max-width: 32rem;
+      width: 32rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) {
+  main {
+    padding: 3.2rem 1.2rem;
+  }
+  .homegrid {
+    grid-gap: 1.2rem 0.4rem;
+    grid-template-columns: 100%;
+  }
+  .card.small {
+    align-self: center;
+    grid-template-columns: 12rem auto;
+    grid-template-areas: 'cup meta';
+    margin: 0 auto;
+    max-width: 60rem;
+    h2 {
+      font-size: $font-size-medium;
+      margin-top: 2.4rem;
+    }
+    .meta {
+      width: 90%;
+      margin-bottom: 3rem;
+      address {
+        font-size: $font-size-xsmall;
+        margin: -1.4rem 0 0 -2rem;
+      }
+    }
+    .cup {
+      img {
+        margin-bottom: -1rem;
+        margin-left: -3.5rem;
+        max-width: 18rem;
+        position: static;
+        width: 18rem;
+      }
     }
   }
 }

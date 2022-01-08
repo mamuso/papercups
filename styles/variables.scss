@@ -7,9 +7,9 @@ $font-mono: 'Jetbrains mono', monospace;
 
 $font-size-xsmall: 1.4rem;
 $font-size-small: 1.6rem;
-$font-size-medium: 3.6rem;
+$font-size-medium: 2.8rem;
 $font-size-large: 4.2rem;
-$font-size-xlarge: 5rem;
+$font-size-xlarge: 4.8rem;
 $font-size-xxlarge: 7.2rem;
 
 /*
@@ -38,3 +38,11 @@ $color-gray-4: desaturate(darken($color-gray-1, 15%), 4%);
   background-repeat: repeat;
   background-blend-mode: multiply;
 }
+
+/*
+  Breakpoints
+*/
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1280px;
