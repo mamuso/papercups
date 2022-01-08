@@ -75,6 +75,8 @@ main {
   grid-gap: 2.8rem 0.4rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  max-width: 140rem;
+  margin: 0 auto;
 }
 
 .card {
@@ -84,7 +86,6 @@ main {
   h2 {
     font-family: $font-heading;
     font-size: $font-size-xlarge;
-    font-size: 3.5vw;
     font-weight: 100;
     line-height: 1;
     margin: 2rem 0 0 0;
@@ -191,7 +192,7 @@ footer {
     margin: 0 auto;
     max-width: 60rem;
     h2 {
-      font-size: $font-size-medium;
+      font-size: $font-size-large;
       margin-top: 2.4rem;
     }
     .meta {
@@ -210,6 +211,14 @@ footer {
         position: static;
         width: 18rem;
       }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .card.small {
+    h2 {
+      font-size: $font-size-medium;
     }
   }
 }
