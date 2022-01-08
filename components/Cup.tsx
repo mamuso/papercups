@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CupContent = ({ cup, size }: any) => {
   return (
-    <section className={`cup ${size}`}>
+    <section className={`card ${size}`}>
       <div className="meta">
         <h2>{cup.name}</h2>
         <address>

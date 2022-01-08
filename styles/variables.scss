@@ -15,8 +15,8 @@ $font-size-xxlarge: 7.2rem;
 /*
   Border radius
 */
-$radii-large: 0.6rem;
-$radii-small: 0.3rem;
+$radii-large: 0.8rem;
+$radii-small: 0.6rem;
 
 /*
   Color
@@ -24,8 +24,8 @@ $radii-small: 0.3rem;
 $color-bodytext: #2d2e37;
 $color-lighttext: transparentize($color-bodytext, 0.5);
 $color-gray-1: #d6d6d0;
-$color-gray-2: desaturate(darken($color-gray-1, 15%), 4%);
-$color-gray-3: transparentize($color-gray-2, 0.3);
+$color-gray-2: desaturate(darken($color-gray-1, 10%), 4%);
+$color-gray-3: transparentize($color-gray-2, 0.4);
 $color-gray-4: desaturate(darken($color-gray-1, 15%), 4%);
 
 /*
