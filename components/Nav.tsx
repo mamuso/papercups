@@ -7,7 +7,7 @@ const NavItem = ({ cup, context }: any) => (
     </a>
     <ul>
       <li>
-        <Link href="/map">
+        <Link href="/about">
           <a>Map</a>
         </Link>
       </li>

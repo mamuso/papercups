@@ -22,9 +22,10 @@ const CupContent = ({ cup, size }: any) => {
           mapTypeControl: false,
           streetViewControl: false,
         });
-
+        
         new google.maps.Marker({
           position: latLng,
+          icon: {url: "/marker.png", scaledSize: new google.maps.Size(40, 40), },
           map,
         });
 
