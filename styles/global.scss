@@ -240,31 +240,59 @@ footer {
     grid-gap: 1.2rem 0.4rem;
     grid-template-columns: 100%;
   }
-  .card.small {
-    align-self: center;
-    grid-template-columns: 12rem auto;
-    grid-template-areas: 'cup meta';
-    margin: 0 auto;
-    max-width: 60rem;
-    h2 {
-      font-size: $font-size-large;
-      margin-top: 2.4rem;
-    }
-    .meta {
-      width: 90%;
-      margin-bottom: 3rem;
-      address {
-        font-size: $font-size-xsmall;
-        margin: -1.4rem 0 0 -2rem;
+  .card {
+    &.small {
+      align-self: center;
+      grid-template-columns: 12rem auto;
+      grid-template-areas: 'cup meta';
+      margin: 0 auto;
+      max-width: 60rem;
+      h2 {
+        font-size: $font-size-large;
+        margin-top: 2.4rem;
+      }
+      .meta {
+        width: 90%;
+        margin-bottom: 3rem;
+        address {
+          font-size: $font-size-xsmall;
+          margin: -1.4rem 0 0 -2rem;
+        }
+      }
+      .cup {
+        img {
+          margin-bottom: -1rem;
+          margin-left: -3.5rem;
+          max-width: 18rem;
+          position: static;
+          width: 18rem;
+        }
       }
     }
-    .cup {
-      img {
-        margin-bottom: -1rem;
-        margin-left: -3.5rem;
-        max-width: 18rem;
-        position: static;
-        width: 18rem;
+    &.large {
+      align-self: center;
+      grid-template:
+        'cup' 100%
+        'meta' 100%;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      max-width: 96%;
+      .cup {
+        align-self: center;
+        img {
+          width: 130%;
+          max-width: 130%;
+          margin-left: -15%;
+          margin-top: -8%;
+          margin-bottom: -20%;
+          position: static;
+          display: inline-block;
+        }
+      }
+      .meta {
+        address {
+          margin: -2.2rem 0 0 0;
+        }
       }
     }
   }
