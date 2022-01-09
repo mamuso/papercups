@@ -14,7 +14,7 @@ const CupContent = ({ cup, size }: any) => {
       let map;
       loader.load().then(() => {
         const google = window.google;
-        map = new google.maps.Map(googlemap.current, {
+        map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
           center: { lat: -34.397, lng: 150.644 },
           zoom: 8,
         });
@@ -44,7 +44,7 @@ const CupContent = ({ cup, size }: any) => {
 export function CupMap({ googlemap, size }: any) {
   const mapped = (size == 'large')
   return (
-    (mapped) ? <div id="map" ref={googlemap} ></div> : ''
+    (mapped) ? <div id="map" ref={googlemap} ></div> : <span></span>
   )
 }
 
