@@ -12,12 +12,22 @@ const CupContent = ({ cup, size }: any) => {
         version: 'weekly',
       });
       let map;
+      const latLng = { lat: cup.location.lat, lng: cup.location.lng };
       loader.load().then(() => {
         const google = window.google;
         map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-          center: { lat: -34.397, lng: 150.644 },
-          zoom: 8,
+          center: latLng,
+          zoom: 15,
+          fullscreenControl: false,
+          mapTypeControl: false,
+          streetViewControl: false,
         });
+
+        new google.maps.Marker({
+          position: latLng,
+          map,
+        });
+
       });
     });
   }
