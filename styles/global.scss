@@ -46,6 +46,8 @@ nav {
   display: grid;
   grid-template-columns: 4rem auto;
   padding: 3.2rem 4.8rem;
+  position: relative;
+  z-index: 1;
   .logo img {
     width: 3.2rem;
   }
@@ -136,6 +138,58 @@ main {
       background: linear-gradient($color-gray-2, $color-gray-3);
       address {
         background-color: #fff;
+      }
+    }
+  }
+  /*
+    Large cards
+  */
+  &.large {
+    grid-template-columns: 42rem auto;
+    grid-template-areas: 'cup meta';
+    max-width: 100rem;
+    margin: 5rem auto 0;
+    .cup {
+      grid-area: cup;
+      align-self: self-end;
+      img {
+        left: -18rem;
+        position: relative;
+        width: 70rem;
+        margin: 0 0 -20rem 0;
+        max-width: 70rem;
+        top: -8rem;
+      }
+    }
+    .meta {
+      align-self: self-start;
+      grid-area: meta;
+      margin-bottom: 2.6rem;
+      margin-top: 5rem;
+      transition: all 0.15s ease-in;
+      h2 {
+        font-size: $font-size-xlarge;
+        margin: 0;
+      }
+      address {
+        background-color: #fff;
+        border-radius: $radii-small;
+        color: $color-lighttext;
+        margin: -2.2rem 0 0 -2rem;
+        overflow: hidden;
+        padding: 0;
+        transition: all 0.15s ease-in;
+        span {
+          display: block;
+          padding: 1.8rem 2rem 1.2rem;
+        }
+        #map {
+          background: yellow;
+          display: block;
+          height: 32rem;
+          padding: 0;
+          width: 100%;
+        }
       }
     }
   }

@@ -7,6 +7,7 @@ const CupContent = ({ cup, size }: any) => {
         <h2>{cup.name}</h2>
         <address>
           <span>{cup.address}</span>
+          <span id="map"></span>
         </address>
       </div>
       <div className="cup">
