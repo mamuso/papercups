@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import data from "../../data/data.json";
-
 import Layout from "../../layouts/Layout";
 import Cup from "../../components/Cup";
 
@@ -11,19 +10,11 @@ const CupPage: NextPage = ({ cup }: any) => {
     context="cup"
   >
     <section>
-      <Cup cup={cup} size="large" />
+        <Cup cup={cup} size="large" />  
     </section>
   </Layout>
   )
 }
-
-// CupPage.getInitialProps = async ({ query }) => {
-//   return {
-//     cup: data.filter(function(coffee) {
-//       return coffee.slug === query.slug;
-//     })[0]
-//   };
-// };
 
 // This function gets called at build time
 export async function getStaticPaths() {
