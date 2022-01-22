@@ -206,3 +206,12 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### New York, NY, US
 
 - [ ] Brooklyn Roasting Company
+
+### Miami, FL, US
+
+- [ ] Panther Coffee
+- [ ] Cortadito
+- [ ] XO Coffee
+- [ ] Pasion del Cielo Coffee
+- [ ] Walt Grace Vintage
+- [ ] Las Palmas Cafeteria
