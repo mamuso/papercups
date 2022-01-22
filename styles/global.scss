@@ -219,6 +219,7 @@ main {
     ul {
       list-style-type: '– ';
       margin-bottom: 2.4rem;
+      padding-left: 3ch;
     }
     li {
       font-size: $font-size-small;
@@ -232,7 +233,7 @@ main {
   .citylist {
     display: grid;
     column-gap: 2.4rem;
-    grid-template-columns: repeat(auto-fill, 24rem);
+    grid-template-columns: repeat(auto-fill, 26.5rem);
     place-content: start space-evenly;
     max-width: 140rem;
   }
