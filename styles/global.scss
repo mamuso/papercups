@@ -196,6 +196,48 @@ main {
   }
 }
 
+.about {
+  .blurb {
+    width: 90%;
+    margin: 0 auto 3.2rem;
+    h2 {
+      font-size: $font-size-xxlarge;
+      font-family: $font-heading;
+      line-height: 1;
+      letter-spacing: -0.1rem;
+      margin: 0;
+    }
+    h3 {
+      font-size: $font-size-medium;
+      line-height: 1;
+      margin: 0 0 0.5rem 0;
+    }
+    p {
+      font-size: $font-size-small;
+      margin: 1.6rem 0;
+    }
+    ul {
+      list-style-type: '– ';
+      margin-bottom: 2.4rem;
+    }
+    li {
+      font-size: $font-size-small;
+    }
+  }
+  #map {
+    height: 34rem;
+    margin: 0 auto 3.2rem;
+    width: 100%;
+  }
+  .citylist {
+    display: grid;
+    column-gap: 2.4rem;
+    grid-template-columns: repeat(auto-fill, 24rem);
+    place-content: start space-evenly;
+    max-width: 140rem;
+  }
+}
+
 /*
   Footer
 */
