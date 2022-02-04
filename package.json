@@ -11,7 +11,7 @@
     "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.13.1",
+    "@googlemaps/js-api-loader": "^1.13.2",
     "fathom-client": "^3.2.0",
     "next": "^12.0.7",
     "react": "17.0.2",
