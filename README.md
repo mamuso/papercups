@@ -53,6 +53,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [x] Rasa Caffe
 - [ ] Timeless
+- [ ] The hidden cafe
 
 ### Los Angeles, CA, US
 
@@ -70,6 +71,10 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] The Good People
 - [x] Woodcat
 - [ ] 10 speed coffee
+
+### Martinez, CA, US
+
+- [ ] States
 
 ### Mill Valley, CA, US
 
@@ -89,6 +94,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [x] Red Bay Coffee
 - [ ] Snow White
 - [ ] Wilde Brothers Coffee
+- [ ] Motivat
 
 ### Pasadena, CA, US
 
@@ -134,6 +140,14 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Vega
 - [ ] Wise Sons
 - [ ] Wrecking Ball Coffee Roasters
+- [ ] Cento Coffee
+
+### San Luis Obispo, CA, US
+
+- [ ] Kreuzberg
+- [ ] Kraken
+- [ ] Field Day Coffee
+- [ ] 
 
 ### Santa Cruz, CA, US
 
@@ -169,6 +183,10 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [x] Milk
 
+### Reno, NV, US
+
+- [ ] Old World Coffee Lab
+
 ### Bend, OR, US
 
 - [x] Backporch
@@ -176,6 +194,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### Portland, OR, US
 
 - [ ] Barista
+- [ ] Case Study
 - [x] Coava
 - [ ] Dapper and Wise
 - [ ] Deadstock Coffee
@@ -206,6 +225,14 @@ I started posting them to Instagram, but I thought that I could find a better ho
 ### New York, NY, US
 
 - [ ] Brooklyn Roasting Company
+- [ ] Culture Espresso
+- [ ] Gregorys Coffee
+- [ ] St Kilda Coffee
+- [ ] Partners Coffee
+
+### Jersey City, NJ, US
+
+- [ ] Lackawanna
 
 ### Miami, FL, US
 
@@ -215,3 +242,9 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Pasion del Cielo Coffee
 - [ ] Walt Grace Vintage
 - [ ] Las Palmas Cafeteria
+
+### Nashville, TN, US
+
+- [ ] Crema
+- [ ] Drug Store
+
