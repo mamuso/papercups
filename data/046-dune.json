@@ -1,0 +1,12 @@
+{
+  "slug": "dune-santa-barbara-usa",
+  "name": "Dune Coffee Roasters",
+  "address": "528 Anacapa Street, Santa Barbara, CA 93101",
+  "city": "Santa Barbara",
+  "country": "USA",
+  "created_at": "2022-04-28",
+  "location": {
+    "lat": 34.41876,
+    "lng": -119.6951
+  }
+}
