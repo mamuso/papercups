@@ -149,6 +149,12 @@ I started posting them to Instagram, but I thought that I could find a better ho
 - [ ] Field Day Coffee
 - [ ] 
 
+### Santa Barbara, CA, US
+
+- [x] Dune Coffee Roasters
+- [ ] Handlebar
+- [ ] Low Pigeon
+
 ### Santa Cruz, CA, US
 
 - [x] Cat and cloud
