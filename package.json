@@ -16,7 +16,7 @@
     "next": "^12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.45.2"
+    "sass": "^1.79.0"
   },
   "devDependencies": {
     "@types/google.maps": "^3.47.2",
