@@ -1,37 +1,53 @@
-import {useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 import Link from "next/link";
+import type { CupData, CupSize } from "../types/cup";
 
-const CupContent = ({ cup, size }: any) => {
-  const googlemap = useRef(null);
-  if (size === 'large') {
+type CupContentProps = {
+  cup: CupData;
+  size: CupSize;
+};
 
-    useEffect(() => {
-      const loader = new Loader({
-        apiKey: `${process.env.NEXT_PUBLIC_GMAPS}`,
-        version: 'weekly',
+type CupMapProps = {
+  googlemap: React.RefObject<HTMLDivElement | null>;
+  size: CupSize;
+};
+
+const CupContent = ({ cup, size }: CupContentProps) => {
+  const googlemap = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (size !== 'large' || !googlemap.current) {
+      return;
+    }
+
+    const loader = new Loader({
+      apiKey: process.env.NEXT_PUBLIC_GMAPS ?? "",
+      version: 'weekly',
+    });
+    const latLng = { lat: cup.location.lat, lng: cup.location.lng };
+
+    loader.load().then(() => {
+      if (!googlemap.current) {
+        return;
+      }
+
+      const google = window.google;
+      const map = new google.maps.Map(googlemap.current, {
+        center: latLng,
+        zoom: 15,
+        fullscreenControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
       });
-      let map;
-      const latLng = { lat: cup.location.lat, lng: cup.location.lng };
-      loader.load().then(() => {
-        const google = window.google;
-        map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-          center: latLng,
-          zoom: 15,
-          fullscreenControl: false,
-          mapTypeControl: false,
-          streetViewControl: false,
-        });
-        
-        new google.maps.Marker({
-          position: latLng,
-          icon: {url: "/marker.png", scaledSize: new google.maps.Size(40, 40), },
-          map,
-        });
 
+      new google.maps.Marker({
+        position: latLng,
+        icon: { url: "/marker.png", scaledSize: new google.maps.Size(40, 40) },
+        map,
       });
     });
-  }
+  }, [cup.location.lat, cup.location.lng, size]);
 
   return (
     <section className={`card ${size}`}>
@@ -52,21 +68,16 @@ const CupContent = ({ cup, size }: any) => {
   );
 }
 
-export function CupMap({ googlemap, size }: any) {
-  const mapped = (size == 'large')
-  return (
-    (mapped) ? <div id="map" ref={googlemap} ></div> : <span></span>
-  )
+export function CupMap({ googlemap, size }: CupMapProps) {
+  return size === 'large' ? <div id="map" ref={googlemap}></div> : null;
 }
 
-export function Cup({ cup, size }: any) {
-  const linked = (size == 'small')
+export function Cup({ cup, size }: CupContentProps) {
+  const linked = size === 'small';
   return (
     (linked) ?
-      <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
-        <a>
-          <CupContent cup={cup} size={size} />
-        </a>
+      <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
+        <CupContent cup={cup} size={size} />
       </Link>
     : <CupContent cup={cup} size={size} />
   )

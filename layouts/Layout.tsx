@@ -1,8 +1,15 @@
 import Head from "next/head";
+import type { ReactNode } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
-export default ({ children, title = "Paper Cups", context }: any) => {
+type LayoutProps = {
+  children: ReactNode;
+  title?: string;
+  context?: string;
+};
+
+export default function Layout({ children, title = "Paper Cups", context }: LayoutProps) {
   return (
     <div>
       <Head>
@@ -15,4 +22,4 @@ export default ({ children, title = "Paper Cups", context }: any) => {
         <Footer />
     </div>
   );
-};
+}

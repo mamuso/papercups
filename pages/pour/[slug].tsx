@@ -1,12 +1,19 @@
-import type { NextPage } from 'next'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import data from "../../data/data.json";
 import Layout from "../../layouts/Layout";
 import Cup from "../../components/Cup";
+import type { CupData } from "../../types/cup";
 
-const CupPage: NextPage = ({ cup }: any) => {
+type CupPageProps = {
+  cup: CupData;
+};
+
+const cups = data as CupData[];
+
+const CupPage: NextPage<CupPageProps> = ({ cup }) => {
   return (
   <Layout
-    title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
+    title={`Sipped some coffee at ${cup.name}, ${cup.city} ${cup.country}`}
     context="cup"
   >
     <section>
@@ -17,9 +24,9 @@ const CupPage: NextPage = ({ cup }: any) => {
 }
 
 // This function gets called at build time
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on posts
-  const paths = data.map((cup) => ({
+  const paths = cups.map((cup) => ({
     params: { slug: cup.slug },
   }))
 
@@ -28,15 +35,19 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({params}: any) {
+export const getStaticProps: GetStaticProps<CupPageProps> = async ({ params }) => {
+  const slug = params?.slug;
+  const cup = cups.find((coffee) => coffee.slug === slug);
 
-  // By returning { props: { post } }, the Blog component
-  // will receive the specific `post` as a prop at build time
+  if (!cup) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      cup: data.filter(function (coffee) {
-        return coffee.slug === params.slug;
-      })[0]
+      cup,
     }
   };
 }

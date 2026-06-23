@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react';
-import Router from 'next/router';
 import Head from 'next/head';
 import { AppProps } from "next/app";
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import * as Fathom from 'fathom-client';
 
 import '../styles/global.scss';
 
-// Record a pageview when route changes
-Router.events.on('routeChangeComplete', () => {
-  Fathom.trackPageview();
-});
-
 function MyApp({ Component, pageProps }: AppProps) {
-  // Initialize Fathom when the app loads
+  const router = useRouter();
+
   useEffect(() => {
     Fathom.load('XRUGMNZE', {
       includedDomains: ['papercups.mamuso.net']
     });
-  }, []);
+
+    const onRouteChangeComplete = () => {
+      Fathom.trackPageview();
+    };
+
+    router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete);
+    };
+  }, [router.events]);
 
   return (
     <>
