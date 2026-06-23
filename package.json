@@ -13,15 +13,15 @@
     "node": ">=24 <25"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.13.1",
     "fathom-client": "^3.2.0",
+    "leaflet": "^1.9.4",
     "next": "^16.2.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sass": "^1.45.2"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.47.2",
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

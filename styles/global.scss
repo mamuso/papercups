@@ -185,7 +185,7 @@ main {
           display: block;
           padding: 1.8rem 2rem 1.2rem;
         }
-        #map {
+        .map {
           display: block;
           height: 32rem;
           padding: 0;
@@ -225,7 +225,7 @@ main {
       font-size: $font-size-small;
     }
   }
-  #map {
+  .map {
     height: 34rem;
     margin: 0 auto 3.2rem;
     width: 100%;

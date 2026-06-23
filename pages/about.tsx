@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
 import Link from "next/link";
-import {useEffect, useRef} from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
 import data from "../data/data.json";
 import Layout from "../layouts/Layout";
+import MapView from "../components/MapView";
 import type { CupData } from "../types/cup";
 
 /*
@@ -13,72 +12,6 @@ const cups = data as CupData[];
 const uniqueCities = Array.from(new Set(cups.map((item) => item.city)));
 
 const AboutPage: NextPage = () => {
-  const googlemap = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    if (!googlemap.current) {
-      return;
-    }
-
-    const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GMAPS ?? "",
-      version: 'weekly',
-    });
-
-    loader.load().then(() => {
-      if (!googlemap.current) {
-        return;
-      }
-
-      const google = window.google;
-      let prevInfowindow: google.maps.InfoWindow | null = null;
-
-      const map = new google.maps.Map(googlemap.current, {
-        center: { lat: 40.4637, lng: 3.7492 },
-        zoom: 15,
-        fullscreenControl: false,
-        mapTypeControl: false,
-        streetViewControl: false,
-      });
-
-      const bounds = new google.maps.LatLngBounds();
-
-      cups.forEach(p => {
-        const latLng = { lat: p.location.lat, lng: p.location.lng };
-        const contentString = `<a href="/pour/${p.slug}">${p.name}</a>`;
-        const infowindow = new google.maps.InfoWindow({
-          content: contentString,
-        });
-        
-        const marker = new google.maps.Marker({
-          position: latLng,
-          icon: { url: "/marker.png", scaledSize: new google.maps.Size(40, 40), },
-          title: p.name,  
-          map,
-        });
-
-        marker.addListener("click", () => {
-          if (prevInfowindow) {
-            prevInfowindow.close();
-          }
-          prevInfowindow = infowindow;
-          
-          infowindow.open({
-            anchor: marker,
-            map,
-            shouldFocus: true,
-          });
-        });
-        
-        bounds.extend(latLng);
-      });
-      
-      map.fitBounds(bounds);
-
-      });
-  }, []);
-  
-
   return (
     <Layout>
       <div className="about">
@@ -89,7 +22,14 @@ const AboutPage: NextPage = () => {
         <p>I started posting them to Instagram, but I thought that I could find a better home for them here :)</p>
       </section>
 
-      <div id="map" ref={googlemap}></div>
+      <MapView
+        fitBounds
+        markers={cups.map((cup) => ({
+          href: `/pour/${encodeURIComponent(cup.slug)}`,
+          position: cup.location,
+          title: cup.name,
+        }))}
+      />
       
       <section className='blurb citylist'>
         {uniqueCities.map(city => (
