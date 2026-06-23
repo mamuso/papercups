@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 type NavItemProps = {
@@ -7,7 +8,7 @@ type NavItemProps = {
 const NavItem = ({ context }: NavItemProps) => (
   <nav className={context}>
     <Link href="/" className='logo'>
-      <img src="/coffee.png" alt="Paper Cups" />
+      <Image src="/coffee.png" alt="Paper Cups" width={160} height={160} priority />
     </Link>
     <ul>
       <li>

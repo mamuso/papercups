@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
+import Image from "next/image";
 import Link from "next/link";
 import type { CupData, CupSize } from "../types/cup";
 
@@ -15,6 +16,7 @@ type CupMapProps = {
 
 const CupContent = ({ cup, size }: CupContentProps) => {
   const googlemap = useRef<HTMLDivElement>(null);
+  const imageSize = size === "large" ? 1200 : 600;
 
   useEffect(() => {
     if (size !== 'large' || !googlemap.current) {
@@ -59,9 +61,13 @@ const CupContent = ({ cup, size }: CupContentProps) => {
         </address>
       </div>
       <div className="cup">
-        <img
+        <Image
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
+          width={imageSize}
+          height={imageSize}
+          sizes={size === "large" ? "(max-width: 1024px) 130vw, 700px" : "(max-width: 1024px) 180px, 350px"}
+          priority={size === "large"}
         />
       </div>
       </section>
