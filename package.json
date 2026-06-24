@@ -6,8 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "stitchjson": "node tasks/stitchjson.js",
-    "deploy": "export NODE_ENV=production && ./tasks/deploy.sh"
+    "stitchjson": "node tasks/stitchjson.js"
   },
   "engines": {
     "node": ">=24 <25"

@@ -8,7 +8,7 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 ## Working on the site
 
-This is a statically exported Next.js site. Use Node 24.
+This is a Next.js site deployed on Vercel. Use Node 24.
 
 ```sh
 fnm exec --using 24 npm install
@@ -35,7 +35,11 @@ fnm exec --using 24 npm run build
 fnm exec --using 24 npm run stitchjson
 ```
 
-`npm run build` writes the static export to `out/`.
+Vercel runs `npm run build` for deployments.
+
+### Deployment
+
+Deploy through Vercel's Git integration. Configure the project with the Next.js framework preset and add `NEXT_PUBLIC_MAPTILER_KEY` in Vercel's Environment Variables for Preview and Production.
 
 ### Adding a cup
 
