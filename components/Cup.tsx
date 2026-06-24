@@ -1,37 +1,18 @@
-import {useEffect, useRef} from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
+import type { CupData, CupSize } from "../types/cup";
 
-const CupContent = ({ cup, size }: any) => {
-  const googlemap = useRef(null);
-  if (size === 'large') {
+const MapView = dynamic(() => import("./MapView"), { ssr: false });
 
-    useEffect(() => {
-      const loader = new Loader({
-        apiKey: `${process.env.NEXT_PUBLIC_GMAPS}`,
-        version: 'weekly',
-      });
-      let map;
-      const latLng = { lat: cup.location.lat, lng: cup.location.lng };
-      loader.load().then(() => {
-        const google = window.google;
-        map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-          center: latLng,
-          zoom: 15,
-          fullscreenControl: false,
-          mapTypeControl: false,
-          streetViewControl: false,
-        });
-        
-        new google.maps.Marker({
-          position: latLng,
-          icon: {url: "/marker.png", scaledSize: new google.maps.Size(40, 40), },
-          map,
-        });
+type CupContentProps = {
+  cup: CupData;
+  size: CupSize;
+};
 
-      });
-    });
-  }
+const CupContent = ({ cup, size }: CupContentProps) => {
+  const imageSize = size === "large" ? 1200 : 600;
 
   return (
     <section className={`card ${size}`}>
@@ -39,34 +20,40 @@ const CupContent = ({ cup, size }: any) => {
         <h2>{cup.name}</h2>
         <address>
           <span>{cup.address}</span>
-          <CupMap googlemap={googlemap} size={size} />
+          <CupMap cup={cup} size={size} />
         </address>
       </div>
       <div className="cup">
-        <img
+        <Image
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
+          width={imageSize}
+          height={imageSize}
+          sizes={size === "large" ? "(max-width: 1024px) 130vw, 700px" : "(max-width: 1024px) 180px, 350px"}
+          priority={size === "large"}
         />
       </div>
       </section>
   );
 }
 
-export function CupMap({ googlemap, size }: any) {
-  const mapped = (size == 'large')
-  return (
-    (mapped) ? <div id="map" ref={googlemap} ></div> : <span></span>
-  )
+export function CupMap({ cup, size }: CupContentProps) {
+  const markers = useMemo(
+    () => [{ position: cup.location, title: cup.name }],
+    [cup]
+  );
+
+  return size === "large" ? (
+    <MapView center={cup.location} markers={markers} />
+  ) : null;
 }
 
-export function Cup({ cup, size }: any) {
-  const linked = (size == 'small')
+export function Cup({ cup, size }: CupContentProps) {
+  const linked = size === 'small';
   return (
     (linked) ?
-      <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
-        <a>
-          <CupContent cup={cup} size={size} />
-        </a>
+      <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
+        <CupContent cup={cup} size={size} />
       </Link>
     : <CupContent cup={cup} size={size} />
   )

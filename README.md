@@ -6,6 +6,50 @@ I also enjoy the graphics aspects of the coffee culture. I realized that my phot
 
 I started posting them to Instagram, but I thought that I could find a better home for them here :)
 
+## Working on the site
+
+This is a Next.js site deployed on Vercel. Use Node 24.
+
+```sh
+fnm exec --using 24 npm install
+fnm exec --using 24 npm run dev
+```
+
+The development server runs at `http://localhost:3000`.
+
+### Environment
+
+Maps use Leaflet with MapTiler Dataviz Light tiles. Create `.env.local` from `.env.example` and add a MapTiler browser key:
+
+```sh
+NEXT_PUBLIC_MAPTILER_KEY=your_maptiler_key
+```
+
+The key is public in the browser, so restrict it to the production domain in MapTiler.
+
+### Useful commands
+
+```sh
+fnm exec --using 24 npm run lint
+fnm exec --using 24 npm run build
+fnm exec --using 24 npm run stitchjson
+```
+
+Vercel runs `npm run build` for deployments.
+
+### Deployment
+
+Deploy through Vercel's Git integration. Configure the project with the Next.js framework preset and add `NEXT_PUBLIC_MAPTILER_KEY` in Vercel's Environment Variables for Preview and Production.
+
+### Adding a cup
+
+1. Add a numbered JSON file under `data/`.
+2. Add matching cup images under `public/cups/`:
+   - `{slug}@small.png`, 600 by 600
+   - `{slug}@large.png`, 1200 by 1200
+3. Run `fnm exec --using 24 npm run stitchjson`.
+4. Run lint and build before committing.
+
 ## Where did we sip coffee?
 
 ### Barcelona, ES
@@ -253,4 +297,3 @@ I started posting them to Instagram, but I thought that I could find a better ho
 
 - [ ] Crema
 - [ ] Drug Store
-

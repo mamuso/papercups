@@ -1,16 +1,29 @@
 "use strict";
 const fs = require("fs");
-const glob = require("glob");
+const path = require("path");
+
+const dataDir = "data";
 const filePath = "data/data.json";
+const tempFilePath = `${filePath}.tmp`;
 
-let json = [];
+const files = fs
+  .readdirSync(dataDir)
+  .filter((filename) => /^\d{3}-.+\.json$/.test(filename))
+  .sort()
+  .reverse()
+  .map((filename) => path.join(dataDir, filename));
 
-fs.unlinkSync(filePath);
-glob("data/**/*.json", (error, files) => {
-  files.reverse().forEach(filename => {
-    const contents = JSON.parse(fs.readFileSync(filename, "utf8"));
-    json = json.concat(contents);
-  });
-  console.log(json);
-  fs.writeFileSync(filePath, JSON.stringify(json));
+const cups = files.map((filename) => {
+  const contents = JSON.parse(fs.readFileSync(filename, "utf8"));
+
+  if (!contents.slug) {
+    throw new Error(`${filename} is missing a slug`);
+  }
+
+  return contents;
 });
+
+fs.writeFileSync(tempFilePath, JSON.stringify(cups));
+fs.renameSync(tempFilePath, filePath);
+
+console.log(`Wrote ${cups.length} cups to ${filePath}`);
