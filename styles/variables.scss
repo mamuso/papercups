@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /*
   Font
 */
@@ -22,11 +24,11 @@ $radii-small: 0.6rem;
   Color
 */
 $color-bodytext: #2d2e37;
-$color-lighttext: transparentize($color-bodytext, 0.5);
+$color-lighttext: color.adjust($color-bodytext, $alpha: -0.5);
 $color-gray-1: #d6d6d0;
-$color-gray-2: desaturate(darken($color-gray-1, 10%), 4%);
-$color-gray-3: transparentize($color-gray-2, 0.4);
-$color-gray-4: desaturate(darken($color-gray-1, 15%), 4%);
+$color-gray-2: color.adjust(color.adjust($color-gray-1, $lightness: -10%), $saturation: -4%);
+$color-gray-3: color.adjust($color-gray-2, $alpha: -0.4);
+$color-gray-4: color.adjust(color.adjust($color-gray-1, $lightness: -15%), $saturation: -4%);
 
 /*
   Noise mixing

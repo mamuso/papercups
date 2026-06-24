@@ -1,6 +1,6 @@
-@import './variables';
-
-@import './reset';
+@use "sass:color";
+@use './variables' as *;
+@use './reset';
 
 /* 
   Importing fonts
@@ -112,7 +112,7 @@ main {
     margin-bottom: 4.6rem;
     position: relative;
     address {
-      background-color: transparentize(#fff, 0.35);
+      background-color: color.adjust(#fff, $alpha: -0.35);
       border-radius: $radii-small;
       color: $color-lighttext;
       margin: -2.2rem 0 0 -2rem;

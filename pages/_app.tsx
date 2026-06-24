@@ -1,31 +1,10 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import * as Fathom from 'fathom-client';
 import 'leaflet/dist/leaflet.css';
 
 import '../styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  useEffect(() => {
-    Fathom.load('XRUGMNZE', {
-      includedDomains: ['papercups.mamuso.net'],
-    });
-
-    const onRouteChangeComplete = () => {
-      Fathom.trackPageview();
-    };
-
-    router.events.on('routeChangeComplete', onRouteChangeComplete);
-
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete);
-    };
-  }, [router.events]);
-
   return (
     <>
       <Head>
