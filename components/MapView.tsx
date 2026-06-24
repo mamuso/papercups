@@ -37,9 +37,10 @@ export default function MapView({
   zoom = 15,
 }: MapViewProps) {
   const mapElement = useRef<HTMLDivElement>(null);
+  const showFallback = !tileUrl || markers.length === 0;
 
   useEffect(() => {
-    if (!mapElement.current || !tileUrl || markers.length === 0) {
+    if (!mapElement.current || showFallback) {
       return;
     }
 
@@ -104,7 +105,15 @@ export default function MapView({
       cancelled = true;
       cleanup();
     };
-  }, [center, fitBounds, markers, zoom]);
+  }, [center, fitBounds, markers, showFallback, zoom]);
 
-  return <div className="map" ref={mapElement} />;
+  return (
+    <div className="map" ref={mapElement}>
+      {showFallback ? (
+        <div className="map-fallback">
+          <span>Map unavailable</span>
+        </div>
+      ) : null}
+    </div>
+  );
 }

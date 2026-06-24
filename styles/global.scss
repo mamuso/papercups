@@ -239,6 +239,23 @@ main {
   }
 }
 
+.map {
+  background: $color-gray-2;
+  min-height: 24rem;
+  overflow: hidden;
+  position: relative;
+  .map-fallback {
+    align-items: center;
+    color: $color-lighttext;
+    display: flex;
+    font-family: $font-mono;
+    font-size: $font-size-xsmall;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
+  }
+}
+
 /*
   Footer
 */
