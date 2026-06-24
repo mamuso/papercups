@@ -1,6 +1,41 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import type { CupMapMarker } from '../types/cup';
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 type LatLng = { lat: number; lng: number };
+
+const LEAFLET_CSS = '/leaflet/leaflet.css';
+const LEAFLET_FIXES_CSS = '/leaflet-fixes.css';
+
+let leafletModule: Promise<typeof import('leaflet')> | undefined;
+
+function loadStylesheet(href: string): Promise<void> {
+  if (document.querySelector(`link[href="${href}"]`)) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.onload = () => resolve();
+    link.onerror = () => reject(new Error(`Failed to load ${href}`));
+    document.head.appendChild(link);
+  });
+}
+
+function loadLeaflet() {
+  if (!leafletModule) {
+    leafletModule = Promise.all([
+      loadStylesheet(LEAFLET_CSS),
+      loadStylesheet(LEAFLET_FIXES_CSS),
+    ]).then(() => import('leaflet'));
+  }
+
+  return leafletModule;
+}
 
 function useMapTiler() {
   return process.env.NEXT_PUBLIC_MAP_PROVIDER === 'maptiler';
@@ -72,11 +107,7 @@ function refreshMap(map: LeafletMap) {
 }
 
 function scheduleMapRefresh(map: LeafletMap) {
-  const run = () => refreshMap(map);
-  map.whenReady(run);
-  requestAnimationFrame(run);
-  window.setTimeout(run, 0);
-  window.setTimeout(run, 100);
+  map.whenReady(() => refreshMap(map));
 }
 
 function observeMapResize(container: HTMLElement, map: LeafletMap) {
@@ -89,11 +120,15 @@ function containerIsReady(container: HTMLElement) {
   return container.offsetWidth > 0 && container.offsetHeight > 0;
 }
 
+function getCupMapKey(cups: CupMapMarker[]) {
+  return cups.map((cup) => cup.slug).join(',');
+}
+
 // Renders a single marker centered on the cup location.
 export function useSingleCupMap(location: LatLng) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const container = ref.current;
     if (!container || !canRenderMap()) return;
 
@@ -108,7 +143,7 @@ export function useSingleCupMap(location: LatLng) {
         return;
       }
 
-      import('leaflet').then((L) => {
+      loadLeaflet().then((L) => {
         if (cancelled || !ref.current || !containerIsReady(container)) return;
 
         const cupMap = L.map(container, {
@@ -139,10 +174,11 @@ export function useSingleCupMap(location: LatLng) {
 
 // Renders all cups as markers; fits bounds to show them all. Markers open
 // a popup with a link to the cup detail page on click.
-export function useSurveyMap(cups: Array<{ slug: string; name: string; location: LatLng }>) {
+export function useSurveyMap(cups: CupMapMarker[]) {
   const ref = useRef<HTMLDivElement>(null);
+  const cupMapKey = getCupMapKey(cups);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const container = ref.current;
     if (!container || cups.length === 0 || !canRenderMap()) return;
 
@@ -157,7 +193,7 @@ export function useSurveyMap(cups: Array<{ slug: string; name: string; location:
         return;
       }
 
-      import('leaflet').then((L) => {
+      loadLeaflet().then((L) => {
         if (cancelled || !ref.current || !containerIsReady(container)) return;
 
         const surveyMap = L.map(container, {
@@ -193,7 +229,9 @@ export function useSurveyMap(cups: Array<{ slug: string; name: string; location:
       observer?.disconnect();
       map?.remove();
     };
-  }, [cups]);
+    // cups is keyed by cupMapKey from static props.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cupMapKey]);
 
   return ref;
 }

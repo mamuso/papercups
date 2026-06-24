@@ -1,44 +1,40 @@
-import type { NextPage } from 'next'
-import data from "../../data/data.json";
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Layout from "../../layouts/Layout";
 import { CupDetail } from "../../components/Cup";
+import { getAllCups, getCupBySlug } from '../../lib/cups';
+import type { Cup } from '../../types/cup';
 
-const CupPage: NextPage = ({ cup }: any) => {
+interface CupPageProps {
+  cup: Cup;
+}
+
+const CupPage: NextPage<CupPageProps> = ({ cup }) => {
   return (
-  <Layout
-    title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
-    context="cup"
-  >
-    <section>
+    <Layout
+      title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
+      context="cup"
+    >
+      <section>
         <CupDetail cup={cup} />
-    </section>
-  </Layout>
-  )
-}
+      </section>
+    </Layout>
+  );
+};
 
-// This function gets called at build time
-export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on posts
-  const paths = data.map((cup) => ({
-    params: { slug: cup.slug },
-  }))
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getAllCups().map((cup) => ({ params: { slug: cup.slug } })),
+  fallback: false,
+});
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
+export const getStaticProps: GetStaticProps<CupPageProps> = async ({ params }) => {
+  const slug = params?.slug as string;
+  const cup = getCupBySlug(slug);
 
-export async function getStaticProps({params}: any) {
+  if (!cup) {
+    return { notFound: true };
+  }
 
-  // By returning { props: { post } }, the Blog component
-  // will receive the specific `post` as a prop at build time
-  return {
-    props: {
-      cup: data.filter(function (coffee) {
-        return coffee.slug === params.slug;
-      })[0]
-    }
-  };
-}
+  return { props: { cup } };
+};
 
-export default CupPage
+export default CupPage;

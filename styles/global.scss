@@ -243,6 +243,11 @@ main {
     grid-template-columns: repeat(auto-fill, 26.5rem);
     place-content: start space-evenly;
     max-width: 140rem;
+
+    .city {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 12rem;
+    }
   }
 }
 

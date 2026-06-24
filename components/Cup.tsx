@@ -1,17 +1,8 @@
 import Link from 'next/link';
 import { useSingleCupMap } from '../hooks/useLeafletMap';
+import type { Cup, CupThumbnail } from '../types/cup';
 
-interface Cup {
-  slug: string;
-  name: string;
-  address: string;
-  city: string;
-  country: string;
-  created_at: string;
-  location: { lat: number; lng: number };
-}
-
-export function CupThumbnail({ cup }: { cup: Cup }) {
+export function CupThumbnail({ cup }: { cup: CupThumbnail }) {
   return (
     <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
       <a>

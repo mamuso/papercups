@@ -1,23 +1,18 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Link from "next/link";
-import data from "../data/data.json";
 import Layout from "../layouts/Layout";
+import { getCities, getMapMarkers, groupCupsByCity } from '../lib/cups';
 import { useSurveyMap } from '../hooks/useLeafletMap';
-
-interface Cup {
-  slug: string;
-  name: string;
-  city: string;
-  location: { lat: number; lng: number };
-}
+import type { CupListItem, CupMapMarker } from '../types/cup';
 
 interface Props {
   cities: string[];
-  cups: Cup[];
+  cupsByCity: Record<string, CupListItem[]>;
+  mapCups: CupMapMarker[];
 }
 
-const AboutPage: NextPage<Props> = ({ cities, cups }) => {
-  const mapRef = useSurveyMap(cups);
+const AboutPage: NextPage<Props> = ({ cities, cupsByCity, mapCups }) => {
+  const mapRef = useSurveyMap(mapCups);
 
   return (
     <Layout>
@@ -32,19 +27,17 @@ const AboutPage: NextPage<Props> = ({ cities, cups }) => {
         <div id="map" ref={mapRef}></div>
 
         <section className='blurb citylist'>
-          {cities.map(city => (
+          {cities.map((city) => (
             <div className='city' key={city}>
               <h3>{city}</h3>
               <ul>
-                {cups
-                  .filter(cup => cup.city === city)
-                  .map(cup => (
-                    <li key={cup.slug}>
-                      <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
-                        <a>{cup.name}</a>
-                      </Link>
-                    </li>
-                  ))}
+                {cupsByCity[city].map((cup) => (
+                  <li key={cup.slug}>
+                    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
+                      <a>{cup.name}</a>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
@@ -52,11 +45,14 @@ const AboutPage: NextPage<Props> = ({ cities, cups }) => {
       </div>
     </Layout>
   );
-}
+};
 
-export function getStaticProps() {
-  const cities = Array.from(new Set(data.map((cup) => cup.city)));
-  return { props: { cities, cups: data } };
-}
+export const getStaticProps: GetStaticProps<Props> = async () => ({
+  props: {
+    cities: getCities(),
+    cupsByCity: groupCupsByCity(),
+    mapCups: getMapMarkers(),
+  },
+});
 
 export default AboutPage;
