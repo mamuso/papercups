@@ -1,20 +1,16 @@
-export interface CupLocation {
-  lat: number;
-  lng: number;
-}
-
-export interface Cup {
+export type CupData = {
   slug: string;
   name: string;
   address: string;
   city: string;
   country: string;
   created_at: string;
-  location: CupLocation;
-}
+  location: {
+    lat: number;
+    lng: number;
+  };
+};
 
-export type CupThumbnail = Pick<Cup, 'slug' | 'name' | 'address'>;
+export type CupSize = 'small' | 'large';
 
-export type CupMapMarker = Pick<Cup, 'slug' | 'name' | 'location'>;
-
-export type CupListItem = Pick<Cup, 'slug' | 'name'>;
+export type CupListItem = Pick<CupData, 'slug' | 'name'>;

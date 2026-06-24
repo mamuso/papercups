@@ -51,6 +51,8 @@ nav {
     position: relative;
     z-index: 1;
     img {
+      display: block;
+      height: auto;
       width: 3.2rem;
     }
   }
@@ -126,6 +128,7 @@ main {
     grid-template-areas: 'cup meta';
     grid-gap: 0.8rem;
     .cup img {
+      height: auto;
       left: -4rem;
       position: relative;
       width: 35rem;
@@ -156,6 +159,7 @@ main {
       grid-area: cup;
       align-self: self-end;
       img {
+        height: auto;
         left: -18rem;
         position: relative;
         width: 70rem;
@@ -186,7 +190,7 @@ main {
           display: block;
           padding: 1.8rem 2rem 1.2rem;
         }
-        #map {
+        .map {
           border-radius: 0 0 $radii-small $radii-small;
           display: block;
           height: 32rem;
@@ -229,7 +233,7 @@ main {
       font-size: $font-size-small;
     }
   }
-  #map {
+  .map {
     border-radius: $radii-small;
     height: 34rem;
     margin: 0 auto 3.2rem;
@@ -248,6 +252,23 @@ main {
       content-visibility: auto;
       contain-intrinsic-size: auto 12rem;
     }
+  }
+}
+
+.map {
+  background: $color-gray-2;
+  min-height: 24rem;
+  overflow: hidden;
+  position: relative;
+  .map-fallback {
+    align-items: center;
+    color: $color-lighttext;
+    display: flex;
+    font-family: $font-mono;
+    font-size: $font-size-xsmall;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
   }
 }
 
@@ -279,6 +300,7 @@ footer {
       width: 90%;
     }
     .cup img {
+      height: auto;
       left: -5rem;
       margin-bottom: -4.2rem;
       max-width: 32rem;
@@ -316,6 +338,7 @@ footer {
       }
       .cup {
         img {
+          height: auto;
           margin-bottom: -1rem;
           margin-left: -3.5rem;
           max-width: 18rem;
@@ -335,6 +358,7 @@ footer {
       .cup {
         align-self: center;
         img {
+          height: auto;
           width: 130%;
           max-width: 130%;
           margin-left: -15%;

@@ -1,20 +1,20 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import { CupThumbnail } from '../components/Cup';
-import { getThumbnailCups } from '../lib/cups';
+import Cup from '../components/Cup';
 import Layout from '../layouts/Layout';
-import type { CupThumbnail as CupThumbnailType } from '../types/cup';
+import { getAllCups } from '../lib/cups';
+import type { CupData } from '../types/cup';
 
 interface HomeProps {
-  cups: CupThumbnailType[];
+  cups: CupData[];
 }
 
 const Home: NextPage<HomeProps> = ({ cups }) => {
   return (
     <Layout>
-      <section className='homegrid'>
+      <section className="homegrid">
         {cups.map((cup) => (
-          <CupThumbnail key={cup.slug} cup={cup} />
+          <Cup key={cup.slug} cup={cup} size="small" />
         ))}
       </section>
     </Layout>
@@ -22,7 +22,7 @@ const Home: NextPage<HomeProps> = ({ cups }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => ({
-  props: { cups: getThumbnailCups() },
+  props: { cups: getAllCups() },
 });
 
 export default Home;

@@ -1,44 +1,56 @@
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useSingleCupMap } from '../hooks/useLeafletMap';
-import type { Cup, CupThumbnail } from '../types/cup';
+import { useMemo } from 'react';
+import type { CupData, CupSize } from '../types/cup';
 
-export function CupThumbnail({ cup }: { cup: CupThumbnail }) {
+const MapView = dynamic(() => import('./MapView'), { ssr: false });
+
+type CupContentProps = {
+  cup: CupData;
+  size: CupSize;
+};
+
+const CupContent = ({ cup, size }: CupContentProps) => {
   return (
-    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
-      <a>
-        <section className="card small">
-          <div className="meta">
-            <h2>{cup.name}</h2>
-            <address>
-              <span>{cup.address}</span>
-            </address>
-          </div>
-          <div className="cup">
-            <img src={`/cups/${cup.slug}@small.png`} alt={`${cup.name} coffee cup`} />
-          </div>
-        </section>
-      </a>
-    </Link>
-  );
-}
-
-export function CupDetail({ cup }: { cup: Cup }) {
-  const mapRef = useSingleCupMap(cup.location);
-
-  return (
-    <section className="card large">
+    <section className={`card ${size}`}>
       <div className="meta">
         <h2>{cup.name}</h2>
         <address>
           <span>{cup.address}</span>
-          <div id="map" ref={mapRef}></div>
+          <CupMap cup={cup} size={size} />
         </address>
       </div>
       <div className="cup">
-        <img src={`/cups/${cup.slug}@large.png`} alt={`${cup.name} coffee cup`} />
+        <img
+          src={`/cups/${cup.slug}@${size}.png`}
+          alt={`${cup.name} coffee cup`}
+        />
       </div>
     </section>
   );
+};
+
+export function CupMap({ cup, size }: CupContentProps) {
+  const markers = useMemo(
+    () => [{ position: cup.location, title: cup.name }],
+    [cup]
+  );
+
+  return size === 'large' ? (
+    <MapView center={cup.location} markers={markers} />
+  ) : null;
 }
 
-export default CupThumbnail;
+export function Cup({ cup, size }: CupContentProps) {
+  const linked = size === 'small';
+
+  return linked ? (
+    <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
+      <CupContent cup={cup} size={size} />
+    </Link>
+  ) : (
+    <CupContent cup={cup} size={size} />
+  );
+}
+
+export default Cup;

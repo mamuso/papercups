@@ -1,24 +1,20 @@
 import data from '../data/data.json';
-import type { Cup, CupListItem, CupMapMarker, CupThumbnail } from '../types/cup';
+import type { CupData, CupListItem } from '../types/cup';
 
-const cups = data as Cup[];
+const cups = data as CupData[];
 
 const cupsBySlug = new Map(cups.map((cup) => [cup.slug, cup]));
 
-export function getAllCups(): Cup[] {
+export function getAllCups(): CupData[] {
   return cups;
 }
 
-export function getCupBySlug(slug: string): Cup | undefined {
+export function getCupBySlug(slug: string): CupData | undefined {
   return cupsBySlug.get(slug);
 }
 
 export function getCities(): string[] {
   return Array.from(new Set(cups.map((cup) => cup.city)));
-}
-
-export function getThumbnailCups(): CupThumbnail[] {
-  return cups.map(({ slug, name, address }) => ({ slug, name, address }));
 }
 
 export function groupCupsByCity(): Record<string, CupListItem[]> {
@@ -31,6 +27,10 @@ export function groupCupsByCity(): Record<string, CupListItem[]> {
   return grouped;
 }
 
-export function getMapMarkers(): CupMapMarker[] {
-  return cups.map(({ slug, name, location }) => ({ slug, name, location }));
+export function getAboutMapMarkers() {
+  return cups.map((cup) => ({
+    href: `/pour/${encodeURIComponent(cup.slug)}`,
+    position: cup.location,
+    title: cup.name,
+  }));
 }

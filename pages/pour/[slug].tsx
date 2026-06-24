@@ -1,21 +1,21 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Layout from "../../layouts/Layout";
-import { CupDetail } from "../../components/Cup";
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Cup from '../../components/Cup';
+import Layout from '../../layouts/Layout';
 import { getAllCups, getCupBySlug } from '../../lib/cups';
-import type { Cup } from '../../types/cup';
+import type { CupData } from '../../types/cup';
 
 interface CupPageProps {
-  cup: Cup;
+  cup: CupData;
 }
 
 const CupPage: NextPage<CupPageProps> = ({ cup }) => {
   return (
     <Layout
-      title={`Sipped some coffe at ${cup.name}, ${cup.city} ${cup.country}`}
+      title={`Sipped some coffee at ${cup.name}, ${cup.city} ${cup.country}`}
       context="cup"
     >
       <section>
-        <CupDetail cup={cup} />
+        <Cup cup={cup} size="large" />
       </section>
     </Layout>
   );
