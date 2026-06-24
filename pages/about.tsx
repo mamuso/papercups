@@ -4,12 +4,19 @@ import data from "../data/data.json";
 import Layout from "../layouts/Layout";
 import MapView from "../components/MapView";
 import type { CupData } from "../types/cup";
+import type { MapMarker } from "../components/MapView";
 
-/*
-  Unique cities
-*/
 const cups = data as CupData[];
 const uniqueCities = Array.from(new Set(cups.map((item) => item.city)));
+const cupsByCity = cups.reduce<Record<string, CupData[]>>((groups, cup) => {
+  (groups[cup.city] ??= []).push(cup);
+  return groups;
+}, {});
+const mapMarkers: MapMarker[] = cups.map((cup) => ({
+  href: `/pour/${encodeURIComponent(cup.slug)}`,
+  position: cup.location,
+  title: cup.name,
+}));
 
 const AboutPage: NextPage = () => {
   return (
@@ -24,11 +31,7 @@ const AboutPage: NextPage = () => {
 
       <MapView
         fitBounds
-        markers={cups.map((cup) => ({
-          href: `/pour/${encodeURIComponent(cup.slug)}`,
-          position: cup.location,
-          title: cup.name,
-        }))}
+        markers={mapMarkers}
       />
       
       <section className='blurb citylist'>
@@ -36,9 +39,7 @@ const AboutPage: NextPage = () => {
           <div className='city' key={city}>
           <h3>{city}</h3>
           <ul>
-            {cups
-              .filter(x => x.city === city)
-              .map(cup => (
+            {cupsByCity[city].map(cup => (
                 <li key={cup.slug}>
                   <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>{cup.name}</Link>
                 </li>

@@ -13,7 +13,7 @@ export default function Layout({ children, title = "Paper Cups", context }: Layo
   return (
     <div>
       <Head>
-        <title>️☕️ {title}</title>
+        <title>{`☕️ ${title}`}</title>
       </Head>
         <Nav context={context} />
         <main>
