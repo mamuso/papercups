@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import data from "../../data/data.json";
 import Layout from "../../layouts/Layout";
-import Cup from "../../components/Cup";
+import { CupDetail } from "../../components/Cup";
 
 const CupPage: NextPage = ({ cup }: any) => {
   return (
@@ -10,7 +10,7 @@ const CupPage: NextPage = ({ cup }: any) => {
     context="cup"
   >
     <section>
-        <Cup cup={cup} size="large" />  
+        <CupDetail cup={cup} />
     </section>
   </Layout>
   )

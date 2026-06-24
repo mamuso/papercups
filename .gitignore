@@ -1,6 +1,8 @@
 node_modules
+package-lock.json
 out
 .next
 .DS_Store
 .vercel
 .env.local
+.env*
