@@ -8,7 +8,7 @@ type NavItemProps = {
 const NavItem = ({ context }: NavItemProps) => (
   <nav className={context}>
     <Link href="/" className='logo'>
-      <Image src="/coffee.png" alt="Paper Cups" width={160} height={160} priority />
+      <Image src="/coffee.png" alt="Paper Cups" width={32} height={32} priority />
     </Link>
     <ul>
       <li>

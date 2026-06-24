@@ -49,10 +49,11 @@ nav {
   .logo {
     position: relative;
     z-index: 1;
-  .logo img {
-    height: auto;
-    width: 3.2rem;
-  }
+    img {
+      display: block;
+      height: auto;
+      width: 3.2rem;
+    }
   }
   ul {
     list-style: none;
