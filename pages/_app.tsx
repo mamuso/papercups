@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { AppProps } from "next/app";
+import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import * as Fathom from 'fathom-client';
@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     Fathom.load('XRUGMNZE', {
-      includedDomains: ['papercups.mamuso.net']
+      includedDomains: ['papercups.mamuso.net'],
     });
 
     const onRouteChangeComplete = () => {
@@ -30,13 +30,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="author" content="mamuso" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="stylesheet" href="/leaflet-fixes.css" />
       </Head>
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

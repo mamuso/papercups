@@ -1,23 +1,28 @@
-import type { NextPage } from 'next'
-import data from "../data/data.json";
+import type { GetStaticProps, NextPage } from 'next';
 
-import Layout from "../layouts/Layout";
-import Cup from "../components/Cup";
-import type { CupData } from "../types/cup";
+import Cup from '../components/Cup';
+import Layout from '../layouts/Layout';
+import { getAllCups } from '../lib/cups';
+import type { CupData } from '../types/cup';
 
-const cups = data as CupData[];
+interface HomeProps {
+  cups: CupData[];
+}
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = ({ cups }) => {
   return (
     <Layout>
-      <section className='homegrid'>
-        {cups.map(p => (
-          <Cup key={p.slug} cup={p} size='small' />
+      <section className="homegrid">
+        {cups.map((cup) => (
+          <Cup key={cup.slug} cup={cup} size="small" />
         ))}
       </section>
     </Layout>
+  );
+};
 
-  )
-}
+export const getStaticProps: GetStaticProps<HomeProps> = async () => ({
+  props: { cups: getAllCups() },
+});
 
-export default Home
+export default Home;

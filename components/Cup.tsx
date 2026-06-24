@@ -1,10 +1,9 @@
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import Link from "next/link";
-import { useMemo } from "react";
-import type { CupData, CupSize } from "../types/cup";
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { useMemo } from 'react';
+import type { CupData, CupSize } from '../types/cup';
 
-const MapView = dynamic(() => import("./MapView"), { ssr: false });
+const MapView = dynamic(() => import('./MapView'), { ssr: false });
 
 type CupContentProps = {
   cup: CupData;
@@ -12,8 +11,6 @@ type CupContentProps = {
 };
 
 const CupContent = ({ cup, size }: CupContentProps) => {
-  const imageSize = size === "large" ? 1200 : 600;
-
   return (
     <section className={`card ${size}`}>
       <div className="meta">
@@ -24,18 +21,14 @@ const CupContent = ({ cup, size }: CupContentProps) => {
         </address>
       </div>
       <div className="cup">
-        <Image
+        <img
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
-          width={imageSize}
-          height={imageSize}
-          sizes={size === "large" ? "(max-width: 1024px) 130vw, 700px" : "(max-width: 1024px) 180px, 350px"}
-          priority={size === "large"}
         />
       </div>
-      </section>
+    </section>
   );
-}
+};
 
 export function CupMap({ cup, size }: CupContentProps) {
   const markers = useMemo(
@@ -43,20 +36,21 @@ export function CupMap({ cup, size }: CupContentProps) {
     [cup]
   );
 
-  return size === "large" ? (
+  return size === 'large' ? (
     <MapView center={cup.location} markers={markers} />
   ) : null;
 }
 
 export function Cup({ cup, size }: CupContentProps) {
   const linked = size === 'small';
-  return (
-    (linked) ?
-      <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
-        <CupContent cup={cup} size={size} />
-      </Link>
-    : <CupContent cup={cup} size={size} />
-  )
+
+  return linked ? (
+    <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
+      <CupContent cup={cup} size={size} />
+    </Link>
+  ) : (
+    <CupContent cup={cup} size={size} />
+  );
 }
 
 export default Cup;

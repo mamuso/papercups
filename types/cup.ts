@@ -11,4 +11,6 @@ export type CupData = {
   };
 };
 
-export type CupSize = "small" | "large";
+export type CupSize = 'small' | 'large';
+
+export type CupListItem = Pick<CupData, 'slug' | 'name'>;
