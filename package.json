@@ -12,7 +12,6 @@
     "node": ">=24 <25"
   },
   "dependencies": {
-    "fathom-client": "^3.2.0",
     "leaflet": "^1.9.4",
     "next": "^16.2.9",
     "react": "^19.2.7",
