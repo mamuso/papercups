@@ -3,7 +3,6 @@ import { AppProps } from "next/app";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import * as Fathom from 'fathom-client';
-import 'leaflet/dist/leaflet.css';
 
 import '../styles/global.scss';
 

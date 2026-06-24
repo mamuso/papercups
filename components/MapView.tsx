@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import "leaflet/dist/leaflet.css";
 
 export type MapMarker = {
   href?: string;
@@ -108,7 +109,7 @@ export default function MapView({
   }, [center, fitBounds, markers, showFallback, zoom]);
 
   return (
-    <div className="map" ref={mapElement}>
+    <div className="map" ref={mapElement} aria-label="Coffee shop locations map">
       {showFallback ? (
         <div className="map-fallback">
           <span>Map unavailable</span>

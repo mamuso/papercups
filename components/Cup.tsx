@@ -1,7 +1,10 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import MapView from "./MapView";
+import { useMemo } from "react";
 import type { CupData, CupSize } from "../types/cup";
+
+const MapView = dynamic(() => import("./MapView"), { ssr: false });
 
 type CupContentProps = {
   cup: CupData;
@@ -35,8 +38,13 @@ const CupContent = ({ cup, size }: CupContentProps) => {
 }
 
 export function CupMap({ cup, size }: CupContentProps) {
+  const markers = useMemo(
+    () => [{ position: cup.location, title: cup.name }],
+    [cup]
+  );
+
   return size === "large" ? (
-    <MapView center={cup.location} markers={[{ position: cup.location, title: cup.name }]} />
+    <MapView center={cup.location} markers={markers} />
   ) : null;
 }
 
