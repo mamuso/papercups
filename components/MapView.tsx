@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import "leaflet/dist/leaflet.css";
 
 export type MapMarker = {
   href?: string;
@@ -21,15 +20,20 @@ type MapViewProps = {
 };
 
 const mapTilerKey = process.env.NEXT_PUBLIC_MAPTILER_KEY;
+const openStreetMapTileUrl = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+const openStreetMapAttribution =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
 const tileUrl =
   process.env.NEXT_PUBLIC_MAP_TILE_URL ??
   (mapTilerKey
     ? `https://api.maptiler.com/maps/dataviz-light/256/{z}/{x}/{y}.png?key=${mapTilerKey}`
-    : undefined);
+    : openStreetMapTileUrl);
 
 const tileAttribution =
   process.env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION ??
-  '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+  (mapTilerKey
+    ? '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    : openStreetMapAttribution);
 
 export default function MapView({
   center,
@@ -96,6 +100,10 @@ export default function MapView({
       if (fitBounds && bounds.isValid()) {
         map.fitBounds(bounds, { padding: [24, 24] });
       }
+
+      requestAnimationFrame(() => {
+        map.invalidateSize();
+      });
 
       cleanup = () => {
         map.remove();
