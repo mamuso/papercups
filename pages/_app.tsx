@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { AppProps } from "next/app";
 
 import '../styles/global.scss';
+import 'leaflet/dist/leaflet.css';
+import '../styles/leaflet-fixes.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

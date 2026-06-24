@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useSingleCupMap } from '../hooks/useGoogleMap';
+import { useSingleCupMap } from '../hooks/useLeafletMap';
 
 interface Cup {
   slug: string;

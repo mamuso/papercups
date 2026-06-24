@@ -1,0 +1,137 @@
+// Must load after global.scss + leaflet.css in _app.tsx.
+.leaflet-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+
+  img.leaflet-tile {
+    mix-blend-mode: normal !important;
+  }
+
+  .leaflet-top,
+  .leaflet-bottom {
+    position: absolute !important;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .leaflet-top {
+    top: 0;
+  }
+
+  .leaflet-bottom {
+    bottom: 0;
+  }
+
+  .leaflet-left {
+    left: 0;
+  }
+
+  .leaflet-right {
+    right: 0;
+  }
+
+  .leaflet-control {
+    float: left;
+    clear: both;
+    pointer-events: auto;
+  }
+
+  .leaflet-right .leaflet-control {
+    float: right;
+  }
+
+  .leaflet-top .leaflet-control {
+    margin-top: 10px;
+  }
+
+  .leaflet-bottom .leaflet-control {
+    margin-bottom: 10px;
+  }
+
+  .leaflet-left .leaflet-control {
+    margin-left: 10px;
+  }
+
+  .leaflet-right .leaflet-control {
+    margin-right: 10px;
+  }
+
+  .leaflet-bar {
+    box-shadow: none;
+    border-radius: 4px;
+    overflow: hidden;
+
+    a {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      box-sizing: border-box;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      padding: 0;
+      margin: 0;
+
+      &:hover,
+      &:focus {
+        background-color: #f4f4f4;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.leaflet-touch .leaflet-bar a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    font: bold 18px/26px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+  }
+
+  &.leaflet-touch .leaflet-control-zoom-in,
+  &.leaflet-touch .leaflet-control-zoom-out {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .leaflet-control-attribution {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0 5px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #333;
+    white-space: nowrap;
+
+    a {
+      color: #0078a8;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      display: inline !important;
+      max-width: none !important;
+      width: 1em;
+      height: 0.6669em;
+      vertical-align: baseline;
+    }
+  }
+}

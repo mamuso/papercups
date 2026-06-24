@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Link from "next/link";
 import data from "../data/data.json";
 import Layout from "../layouts/Layout";
-import { useSurveyMap } from '../hooks/useGoogleMap';
+import { useSurveyMap } from '../hooks/useLeafletMap';
 
 interface Cup {
   slug: string;

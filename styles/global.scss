@@ -1,5 +1,6 @@
-@import './reset';
 @import './variables';
+
+@import './reset';
 
 /* 
   Importing fonts
@@ -108,14 +109,13 @@ main {
     grid-area: meta;
     margin-bottom: 4.6rem;
     position: relative;
-    transition: all 0.15s ease-in;
     address {
       background-color: transparentize(#fff, 0.35);
       border-radius: $radii-small;
       color: $color-lighttext;
       margin: -2.2rem 0 0 -2rem;
       padding: 1.8rem 2rem 1.2rem;
-      transition: all 0.15s ease-in;
+      transition: background-color 0.15s ease-in;
     }
   }
   /*
@@ -151,6 +151,7 @@ main {
     grid-template-areas: 'cup meta';
     max-width: 100rem;
     margin: 0 auto;
+    transition: none;
     .cup {
       grid-area: cup;
       align-self: self-end;
@@ -168,7 +169,7 @@ main {
       grid-area: meta;
       margin-bottom: 2.6rem;
       margin-top: 5rem;
-      transition: all 0.15s ease-in;
+      transition: none;
       h2 {
         font-size: $font-size-xxlarge;
         margin: 0;
@@ -180,15 +181,18 @@ main {
         margin: -2.2rem 0 0 -2rem;
         overflow: hidden;
         padding: 0;
-        transition: all 0.15s ease-in;
-        span {
+        transition: none;
+        > span {
           display: block;
           padding: 1.8rem 2rem 1.2rem;
         }
         #map {
+          border-radius: 0 0 $radii-small $radii-small;
           display: block;
           height: 32rem;
+          overflow: hidden;
           padding: 0;
+          transition: none;
           width: 100%;
         }
       }
@@ -226,8 +230,11 @@ main {
     }
   }
   #map {
+    border-radius: $radii-small;
     height: 34rem;
     margin: 0 auto 3.2rem;
+    overflow: hidden;
+    transition: none;
     width: 100%;
   }
   .citylist {
@@ -348,3 +355,4 @@ footer {
     }
   }
 }
+
