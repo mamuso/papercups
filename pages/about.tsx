@@ -29,14 +29,19 @@ const AboutPage: NextPage<AboutProps> = ({ cities, cupsByCity, mapMarkers }) => 
 
         <MapView fitBounds markers={mapMarkers} />
 
-        <section>
+        <section className="columns-2 gap-8 pt-10 md:columns-3 lg:columns-4 xl:columns-5">
           {cities.map((city) => (
-            <div key={city}>
-              <h3>{city}</h3>
+            <div key={city} className="mb-8 break-inside-avoid">
+              <h3 className="mb-3 font-mono font-semibold uppercase">{city}</h3>
               <ul>
                 {cupsByCity[city].map((cup) => (
                   <li key={cup.slug}>
-                    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>{cup.name}</Link>
+                    <Link
+                      href={`/pour/${encodeURIComponent(cup.slug)}`}
+                      className="-mx-2.5 -my-[6px] block px-2.5 py-1 hover:bg-black/15"
+                    >
+                      {cup.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

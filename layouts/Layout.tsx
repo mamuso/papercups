@@ -15,7 +15,7 @@ export default function Layout({ children, title = "Paper Cups" }: LayoutProps) 
         <title>{`☕️ ${title}`}</title>
       </Head>
       <Nav />
-      <main className="flex-1 pl-16 py-8 pr-6">
+      <main className="flex-1 pl-16 py-10 pr-6">
         {children}
       </main>
       <Footer />

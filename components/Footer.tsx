@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Footer = () => (
-  <footer className="px-6 py-8">
+  <footer className="pl-16 py-8 pr-6">
     <Link
       href="https://twitter.com/mamuso"
       className="font-mono text-sm uppercase no-underline hover:opacity-80"
