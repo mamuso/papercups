@@ -100,8 +100,8 @@ address .map.leaflet-container {
 }
 
 .leaflet-container .leaflet-bar a {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  background-color: var(--app-background);
+  border-bottom: 1px solid color-mix(in srgb, var(--app-foreground) 20%, transparent);
   box-sizing: border-box;
   width: 26px;
   height: 26px;
@@ -109,14 +109,14 @@ address .map.leaflet-container {
   display: block;
   text-align: center;
   text-decoration: none;
-  color: #000;
+  color: var(--app-foreground);
   padding: 0;
   margin: 0;
 }
 
 .leaflet-container .leaflet-bar a:hover,
 .leaflet-container .leaflet-bar a:focus {
-  background-color: #f4f4f4;
+  background-color: color-mix(in srgb, var(--app-foreground) 10%, var(--app-background));
 }
 
 .leaflet-container .leaflet-bar a:last-child {
@@ -142,16 +142,16 @@ address .map.leaflet-container {
 }
 
 .leaflet-container .leaflet-control-attribution {
-  background: rgba(255, 255, 255, 0.8);
+  background: color-mix(in srgb, var(--app-background) 85%, transparent);
   padding: 0 5px;
   font-size: 11px;
   line-height: 1.4;
-  color: #333;
+  color: var(--app-foreground);
   white-space: nowrap;
 }
 
 .leaflet-container .leaflet-control-attribution a {
-  color: #0078a8;
+  color: var(--app-foreground);
   text-decoration: none;
 }
 

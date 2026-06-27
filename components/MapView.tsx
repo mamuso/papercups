@@ -19,21 +19,20 @@ type MapViewProps = {
   zoom?: number;
 };
 
-const mapTilerKey = process.env.NEXT_PUBLIC_MAPTILER_KEY;
-const openStreetMapTileUrl = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
-const openStreetMapAttribution =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-const tileUrl =
-  process.env.NEXT_PUBLIC_MAP_TILE_URL ??
-  (mapTilerKey
-    ? `https://api.maptiler.com/maps/dataviz-light/256/{z}/{x}/{y}.png?key=${mapTilerKey}`
-    : openStreetMapTileUrl);
+const customTileUrl = process.env.NEXT_PUBLIC_MAP_TILE_URL;
+const customTileAttribution = process.env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION;
 
-const tileAttribution =
-  process.env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION ??
-  (mapTilerKey
-    ? '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    : openStreetMapAttribution);
+const cartoAttribution =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+
+function getCartoTileUrl(isDark: boolean) {
+  const variant = isDark ? "dark_all" : "light_all";
+  return `https://cartodb-basemaps-{s}.global.ssl.fastly.net/${variant}/{z}/{x}/{y}.png`;
+}
+
+function prefersDarkMode() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
 
 export default function MapView({
   center,
@@ -42,7 +41,7 @@ export default function MapView({
   zoom = 15,
 }: MapViewProps) {
   const mapElement = useRef<HTMLDivElement>(null);
-  const showFallback = !tileUrl || markers.length === 0;
+  const showFallback = markers.length === 0;
 
   useEffect(() => {
     if (!mapElement.current || showFallback) {
@@ -71,12 +70,23 @@ export default function MapView({
         scrollWheelZoom: false,
       });
 
-      L.tileLayer(tileUrl, {
-        attribution: tileAttribution,
-        crossOrigin: true,
-        maxZoom: 20,
-        minZoom: 1,
-      }).addTo(map);
+      const createTileLayer = (isDark: boolean) =>
+        customTileUrl
+          ? L.tileLayer(customTileUrl, {
+              attribution: customTileAttribution ?? cartoAttribution,
+              crossOrigin: true,
+              maxZoom: 20,
+              minZoom: 1,
+            })
+          : L.tileLayer(getCartoTileUrl(isDark), {
+              attribution: cartoAttribution,
+              crossOrigin: true,
+              maxZoom: 20,
+              minZoom: 1,
+              subdomains: "abcd",
+            });
+
+      let tileLayer = createTileLayer(prefersDarkMode()).addTo(map);
 
       const bounds = L.latLngBounds([]);
 
@@ -108,7 +118,20 @@ export default function MapView({
       requestAnimationFrame(refreshMapSize);
       window.setTimeout(refreshMapSize, 100);
 
+      const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleColorSchemeChange = () => {
+        if (customTileUrl) {
+          return;
+        }
+
+        map.removeLayer(tileLayer);
+        tileLayer = createTileLayer(colorSchemeQuery.matches).addTo(map);
+      };
+
+      colorSchemeQuery.addEventListener("change", handleColorSchemeChange);
+
       cleanup = () => {
+        colorSchemeQuery.removeEventListener("change", handleColorSchemeChange);
         map.remove();
       };
     });
