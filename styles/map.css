@@ -34,6 +34,11 @@ address .map.leaflet-container {
   height: 32rem;
 }
 
+.leaflet-div-icon.map-marker {
+  background: transparent;
+  border: none;
+}
+
 /* Leaflet container + controls (from leaflet-fixes.css) */
 .leaflet-container {
   position: relative;

@@ -15,6 +15,7 @@ type MapViewProps = {
     lng: number;
   };
   fitBounds?: boolean;
+  markerClassName?: string;
   markers: MapMarker[];
   zoom?: number;
 };
@@ -34,9 +35,30 @@ function prefersDarkMode() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
+const markerSvgHtml = `
+<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M10 0C15.5228 0 20 4.47715 20 10C20 12.5778 19.0243 14.9275 17.4225 16.7007L10 24.3888L2.57728 16.7007C0.975524 14.9275 0 12.5777 0 10C0 4.47715 4.47715 0 10 0Z" fill="currentColor"/>
+  <circle cx="10" cy="10" r="6.66667" fill="white"/>
+</svg>
+`.trim();
+
+function createMarkerIcon(
+  L: typeof import("leaflet"),
+  markerClassName: string
+) {
+  return L.divIcon({
+    className: `map-marker ${markerClassName}`,
+    html: markerSvgHtml,
+    iconSize: [20, 25],
+    iconAnchor: [10, 25],
+    popupAnchor: [0, -25],
+  });
+}
+
 export default function MapView({
   center,
   fitBounds = false,
+  markerClassName = "text-foreground",
   markers,
   zoom = 15,
 }: MapViewProps) {
@@ -56,12 +78,7 @@ export default function MapView({
         return;
       }
 
-      const markerIcon = L.icon({
-        iconUrl: "/marker.png",
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-        popupAnchor: [0, -40],
-      });
+      const markerIcon = createMarkerIcon(L, markerClassName);
 
       const initialCenter = center ?? markers[0].position;
       const map = L.map(mapElement.current, {
@@ -140,7 +157,7 @@ export default function MapView({
       cancelled = true;
       cleanup();
     };
-  }, [center, fitBounds, markers, showFallback, zoom]);
+  }, [center, fitBounds, markerClassName, markers, showFallback, zoom]);
 
   return (
     <div className="map" ref={mapElement} aria-label="Coffee shop locations map">
