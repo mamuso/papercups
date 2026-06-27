@@ -13,7 +13,7 @@ const NavItem = () => (
     </Link>
     <Link
       href="/"
-      className="fixed left-8 top-1/2 z-10 origin-left -translate-y-1/2 -rotate-90 font-mono text-sm font-semibold uppercase tracking-wide whitespace-nowrap opacity-60 no-underline hover:opacity-80"
+      className="fixed left-8 top-[55%] z-10 origin-left -translate-y-1/2 -rotate-90 font-mono text-sm font-semibold uppercase tracking-wide whitespace-nowrap opacity-60 no-underline hover:opacity-80"
     >
       Papercups
     </Link>
