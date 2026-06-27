@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import 'leaflet/dist/leaflet.css';
 
-import '../styles/global.scss';
+import '../styles/globals.css';
+import 'leaflet/dist/leaflet.css';
+import '../styles/map.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

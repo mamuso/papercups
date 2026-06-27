@@ -10,10 +10,7 @@ interface CupPageProps {
 
 const CupPage: NextPage<CupPageProps> = ({ cup }) => {
   return (
-    <Layout
-      title={`Sipped some coffee at ${cup.name}, ${cup.city} ${cup.country}`}
-      context="cup"
-    >
+    <Layout title={`Sipped some coffee at ${cup.name}, ${cup.city} ${cup.country}`}>
       <section>
         <Cup cup={cup} size="large" />
       </section>

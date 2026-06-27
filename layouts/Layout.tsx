@@ -6,20 +6,19 @@ import Footer from "../components/Footer";
 type LayoutProps = {
   children: ReactNode;
   title?: string;
-  context?: string;
 };
 
-export default function Layout({ children, title = "Paper Cups", context }: LayoutProps) {
+export default function Layout({ children, title = "Paper Cups" }: LayoutProps) {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Head>
         <title>{`☕️ ${title}`}</title>
       </Head>
-        <Nav context={context} />
-        <main>
-          {children}
-        </main>
-        <Footer />
+      <Nav />
+      <main className="flex-1 pl-16 py-8 pr-6">
+        {children}
+      </main>
+      <Footer />
     </div>
   );
 }

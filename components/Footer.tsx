@@ -1,19 +1,13 @@
 import Link from 'next/link'
 
-type FooterProps = {
-  context?: string;
-};
-
-const Footer = ({ context }: FooterProps) => (
-  <footer className={context}>
-    <ul>
-      <li>
-        <Link href="https://twitter.com/mamuso">twitter</Link>
-      </li>
-      <li>
-        <Link href="http://github.com/mamuso/papercups">github</Link>
-      </li>      
-    </ul>
+const Footer = () => (
+  <footer className="px-6 py-8">
+    <Link
+      href="https://twitter.com/mamuso"
+      className="font-mono text-sm uppercase no-underline hover:opacity-80"
+    >
+      twitter
+    </Link>
   </footer>
 );
 

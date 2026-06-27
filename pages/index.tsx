@@ -12,7 +12,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ cups }) => {
   return (
     <Layout>
-      <section className="homegrid">
+      <section>
         {cups.map((cup) => (
           <Cup key={cup.slug} cup={cup} size="small" />
         ))}

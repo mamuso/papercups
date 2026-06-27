@@ -12,15 +12,15 @@ type CupContentProps = {
 
 const CupContent = ({ cup, size }: CupContentProps) => {
   return (
-    <section className={`card ${size}`}>
-      <div className="meta">
+    <section>
+      <div>
         <h2>{cup.name}</h2>
-        <address>
+        <address className="font-mono text-sm uppercase tracking-wide not-italic">
           <span>{cup.address}</span>
           <CupMap cup={cup} size={size} />
         </address>
       </div>
-      <div className="cup">
+      <div>
         <img
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
@@ -45,7 +45,7 @@ export function Cup({ cup, size }: CupContentProps) {
   const linked = size === 'small';
 
   return linked ? (
-    <Link href={`/pour/${encodeURIComponent(cup.slug)}`} className="card-link">
+    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
       <CupContent cup={cup} size={size} />
     </Link>
   ) : (

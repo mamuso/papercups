@@ -101,9 +101,12 @@ export default function MapView({
         map.fitBounds(bounds, { padding: [24, 24] });
       }
 
-      requestAnimationFrame(() => {
+      const refreshMapSize = () => {
         map.invalidateSize();
-      });
+      };
+
+      requestAnimationFrame(refreshMapSize);
+      window.setTimeout(refreshMapSize, 100);
 
       cleanup = () => {
         map.remove();

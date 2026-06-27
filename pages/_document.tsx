@@ -6,9 +6,7 @@ class MyDocument extends Document {
 
     return (
       <Html lang="en">
-        <Head>
-          <link rel="stylesheet" href="/leaflet-fixes.css" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
