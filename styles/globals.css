@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import "./title-fonts.css";
+
 :root {
   --app-background: #ededed;
   --app-foreground: #1f1f1f;

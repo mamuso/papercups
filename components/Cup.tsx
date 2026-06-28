@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMemo } from 'react';
+import CupTitle from './CupTitle';
 import { DEFAULT_MARKER_COLOR, type CupData, type CupSize } from '../types/cup';
 
 const MapView = dynamic(() => import('./MapView'), { ssr: false });
@@ -14,7 +15,7 @@ const CupContent = ({ cup, size }: CupContentProps) => {
   return (
     <section>
       <div>
-        <h2>{cup.name}</h2>
+        <CupTitle title={cup.name} size={size} />
         <address className="font-mono text-sm uppercase tracking-wide not-italic">
           <span>{cup.address}</span>
           <CupMap cup={cup} size={size} />
