@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMemo } from 'react';
-import type { CupData, CupSize } from '../types/cup';
+import { DEFAULT_MARKER_COLOR, type CupData, type CupSize } from '../types/cup';
 
 const MapView = dynamic(() => import('./MapView'), { ssr: false });
 
@@ -32,7 +32,13 @@ const CupContent = ({ cup, size }: CupContentProps) => {
 
 export function CupMap({ cup, size }: CupContentProps) {
   const markers = useMemo(
-    () => [{ position: cup.location, title: cup.name }],
+    () => [
+      {
+        position: cup.location,
+        title: cup.name,
+        color: cup.markerColor ?? DEFAULT_MARKER_COLOR,
+      },
+    ],
     [cup]
   );
 

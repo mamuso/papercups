@@ -5,6 +5,7 @@
   "city": "Barcelona",
   "country": "ES",
   "created_at": "2018-03-22",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 41.382646,
     "lng": 2.175207

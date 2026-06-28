@@ -5,6 +5,7 @@
   "city": "Portland",
   "country": "US",
   "created_at": "2018-08-06",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 45.5053899,
     "lng": -122.6134053

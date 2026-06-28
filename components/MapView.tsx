@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import { DEFAULT_MARKER_COLOR } from "../types/cup";
 
 export type MapMarker = {
+  color?: string;
   href?: string;
   position: {
     lat: number;
@@ -15,7 +17,6 @@ type MapViewProps = {
     lng: number;
   };
   fitBounds?: boolean;
-  markerClassName?: string;
   markers: MapMarker[];
   zoom?: number;
 };
@@ -44,13 +45,16 @@ const markerSvgHtml = `
 </svg>
 `.trim();
 
-function createMarkerIcon(
-  L: typeof import("leaflet"),
-  markerClassName: string
-) {
+const markerColorPattern = /^#[0-9A-Fa-f]{6}$/;
+
+function resolveMarkerColor(color?: string) {
+  return color && markerColorPattern.test(color) ? color : DEFAULT_MARKER_COLOR;
+}
+
+function createMarkerIcon(L: typeof import("leaflet"), color: string) {
   return L.divIcon({
-    className: `map-marker ${markerClassName}`,
-    html: markerSvgHtml,
+    className: "map-marker",
+    html: `<div style="color: ${color}">${markerSvgHtml}</div>`,
     iconSize: [20, 20],
     iconAnchor: [10, 10],
     popupAnchor: [0, -10],
@@ -60,7 +64,6 @@ function createMarkerIcon(
 export default function MapView({
   center,
   fitBounds = false,
-  markerClassName = "text-foreground",
   markers,
   zoom = 15,
 }: MapViewProps) {
@@ -79,8 +82,6 @@ export default function MapView({
       if (cancelled || !mapElement.current) {
         return;
       }
-
-      const markerIcon = createMarkerIcon(L, markerClassName);
 
       const initialCenter = center ?? markers[0].position;
       const map = L.map(mapElement.current, {
@@ -112,7 +113,7 @@ export default function MapView({
       markers.forEach((marker) => {
         const point: [number, number] = [marker.position.lat, marker.position.lng];
         const leafletMarker = L.marker(point, {
-          icon: markerIcon,
+          icon: createMarkerIcon(L, resolveMarkerColor(marker.color)),
           title: marker.title,
         }).addTo(map);
 
@@ -159,7 +160,7 @@ export default function MapView({
       cancelled = true;
       cleanup();
     };
-  }, [center, fitBounds, markerClassName, markers, showFallback, zoom]);
+  }, [center, fitBounds, markers, showFallback, zoom]);
 
   return (
     <div className="map" ref={mapElement} aria-label="Coffee shop locations map">

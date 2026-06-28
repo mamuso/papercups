@@ -5,6 +5,7 @@
   "city": "Seattle",
   "country": "US",
   "created_at": "2018-12-12",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 47.6138902,
     "lng": -122.3190238

@@ -1,5 +1,5 @@
 import data from '../data/data.json';
-import type { CupData, CupListItem } from '../types/cup';
+import { DEFAULT_MARKER_COLOR, type CupData, type CupListItem } from '../types/cup';
 
 const cups = data as CupData[];
 
@@ -32,5 +32,6 @@ export function getAboutMapMarkers() {
     href: `/pour/${encodeURIComponent(cup.slug)}`,
     position: cup.location,
     title: cup.name,
+    color: cup.markerColor ?? DEFAULT_MARKER_COLOR,
   }));
 }

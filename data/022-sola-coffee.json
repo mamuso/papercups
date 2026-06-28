@@ -5,6 +5,7 @@
   "city": "Raleigh",
   "country": "US",
   "created_at": "2018-06-01",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 35.8853193,
     "lng": -78.66014489999999
