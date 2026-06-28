@@ -36,9 +36,11 @@ function prefersDarkMode() {
 }
 
 const markerSvgHtml = `
-<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M10 0C15.5228 0 20 4.47715 20 10C20 12.5778 19.0243 14.9275 17.4225 16.7007L10 24.3888L2.57728 16.7007C0.975524 14.9275 0 12.5777 0 10C0 4.47715 4.47715 0 10 0Z" fill="currentColor"/>
-  <circle cx="10" cy="10" r="6.66667" fill="white"/>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="10" cy="10" r="10" fill="currentColor"/>
+  <circle cx="10" cy="10" r="9.5" stroke="black" stroke-opacity="0.15"/>
+  <circle cx="10" cy="10" r="5" fill="white"/>
+  <circle cx="10" cy="10" r="5.5" stroke="black" stroke-opacity="0.12"/>
 </svg>
 `.trim();
 
@@ -49,9 +51,9 @@ function createMarkerIcon(
   return L.divIcon({
     className: `map-marker ${markerClassName}`,
     html: markerSvgHtml,
-    iconSize: [20, 25],
-    iconAnchor: [10, 25],
-    popupAnchor: [0, -25],
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -10],
   });
 }
 
