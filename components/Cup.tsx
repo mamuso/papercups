@@ -1,19 +1,32 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMemo } from 'react';
+import type { CSSProperties } from 'react';
 import CupTitle from './CupTitle';
+import { getCardTexture } from '../lib/cardTextures';
 import { DEFAULT_MARKER_COLOR, type CupData, type CupSize } from '../types/cup';
 
 const MapView = dynamic(() => import('./MapView'), { ssr: false });
 
-type CupContentProps = {
+type CupProps = {
   cup: CupData;
   size: CupSize;
 };
 
-const CupContent = ({ cup, size }: CupContentProps) => {
+function cupCardClassName(size: CupSize) {
+  return `cup-card cup-card--${size}`;
+}
+
+function cupCardStyle(textureUrl: string): CSSProperties {
+  return {
+    '--cup-card-texture': `url("${textureUrl}")`,
+    backgroundColor: 'var(--cup-card-background)',
+  } as CSSProperties;
+}
+
+const CupContent = ({ cup, size }: CupProps) => {
   return (
-    <section>
+    <>
       <div>
         <CupTitle title={cup.name} size={size} />
         <address className="font-mono text-sm uppercase tracking-wide not-italic">
@@ -27,11 +40,11 @@ const CupContent = ({ cup, size }: CupContentProps) => {
           alt={`${cup.name} coffee cup`}
         />
       </div>
-    </section>
+    </>
   );
 };
 
-export function CupMap({ cup, size }: CupContentProps) {
+export function CupMap({ cup, size }: CupProps) {
   const markers = useMemo(
     () => [
       {
@@ -48,15 +61,28 @@ export function CupMap({ cup, size }: CupContentProps) {
   ) : null;
 }
 
-export function Cup({ cup, size }: CupContentProps) {
-  const linked = size === 'small';
+export function Cup({ cup, size }: CupProps) {
+  const className = cupCardClassName(size);
+  const texture = getCardTexture(cup.name);
+  const style = cupCardStyle(texture.url);
 
-  return linked ? (
-    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>
+  if (size === 'small') {
+    return (
+      <Link
+        href={`/pour/${encodeURIComponent(cup.slug)}`}
+        className={className}
+        data-cup-texture={texture.id}
+        style={style}
+      >
+        <CupContent cup={cup} size={size} />
+      </Link>
+    );
+  }
+
+  return (
+    <section className={className} data-cup-texture={texture.id} style={style}>
       <CupContent cup={cup} size={size} />
-    </Link>
-  ) : (
-    <CupContent cup={cup} size={size} />
+    </section>
   );
 }
 

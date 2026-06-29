@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import CupTitle from '../components/CupTitle';
 import Layout from '../layouts/Layout';
 import { getAboutMapMarkers, getCities, groupCupsByCity } from '../lib/cups';
 import type { CupListItem } from '../types/cup';
@@ -41,7 +40,7 @@ const AboutPage: NextPage<AboutProps> = ({ cities, cupsByCity, mapMarkers }) => 
                       href={`/pour/${encodeURIComponent(cup.slug)}`}
                       className="-mx-2.5 -my-[6px] block px-2.5 py-1 hover:bg-black/15"
                     >
-                      <CupTitle title={cup.name} as="span" className="text-base" />
+                      {cup.name}
                     </Link>
                   </li>
                 ))}

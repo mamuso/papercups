@@ -1,0 +1,40 @@
+.cup-card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  background-color: var(--cup-card-background);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cup-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--cup-card-texture);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: var(--cup-card-blend-mode);
+  opacity: var(--cup-card-texture-opacity);
+  pointer-events: none;
+}
+
+.cup-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cup-card--small {
+  padding: 1rem;
+}
+
+.cup-card--large {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cup-card--large {
+    padding: 2rem;
+  }
+}

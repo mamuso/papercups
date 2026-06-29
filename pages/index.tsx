@@ -12,7 +12,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ cups }) => {
   return (
     <Layout>
-      <section>
+      <section className="flex flex-col gap-4">
         {cups.map((cup) => (
           <Cup key={cup.slug} cup={cup} size="small" />
         ))}
