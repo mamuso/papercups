@@ -1,7 +1,11 @@
 .cup-card {
   position: relative;
   isolation: isolate;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
   background-color: var(--cup-card-background);
   color: inherit;
   text-decoration: none;
@@ -12,17 +16,41 @@
   position: absolute;
   inset: 0;
   background-image: var(--cup-card-texture);
-  background-size: cover;
+  background-size: 50%;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   mix-blend-mode: var(--cup-card-blend-mode);
   opacity: var(--cup-card-texture-opacity);
   pointer-events: none;
 }
 
-.cup-card > * {
+.cup-card__content {
   position: relative;
   z-index: 1;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cup-card__meta {
+  flex-shrink: 0;
+}
+
+.cup-card__media {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.cup-card__media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .cup-card--small {

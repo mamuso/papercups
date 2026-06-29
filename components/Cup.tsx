@@ -26,21 +26,21 @@ function cupCardStyle(textureUrl: string): CSSProperties {
 
 const CupContent = ({ cup, size }: CupProps) => {
   return (
-    <>
-      <div>
+    <div className="cup-card__content">
+      <div className="cup-card__meta">
         <CupTitle title={cup.name} size={size} />
         <address className="font-mono text-sm uppercase tracking-wide not-italic">
           <span>{cup.address}</span>
           <CupMap cup={cup} size={size} />
         </address>
       </div>
-      <div>
+      <div className="cup-card__media">
         <img
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
         />
       </div>
-    </>
+    </div>
   );
 };
 
