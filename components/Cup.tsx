@@ -1,9 +1,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMemo } from 'react';
-import type { CSSProperties } from 'react';
 import CupTitle from './CupTitle';
-import { getCardTexture } from '../lib/cardTextures';
 import { DEFAULT_MARKER_COLOR, type CupData, type CupSize } from '../types/cup';
 
 const MapView = dynamic(() => import('./MapView'), { ssr: false });
@@ -11,37 +9,6 @@ const MapView = dynamic(() => import('./MapView'), { ssr: false });
 type CupProps = {
   cup: CupData;
   size: CupSize;
-};
-
-function cupCardClassName(size: CupSize) {
-  return `cup-card cup-card--${size}`;
-}
-
-function cupCardStyle(textureUrl: string): CSSProperties {
-  return {
-    '--cup-card-texture': `url("${textureUrl}")`,
-    backgroundColor: 'var(--cup-card-background)',
-  } as CSSProperties;
-}
-
-const CupContent = ({ cup, size }: CupProps) => {
-  return (
-    <div className="cup-card__content">
-      <div className="cup-card__meta">
-        <CupTitle title={cup.name} size={size} />
-        <address className="font-mono text-sm uppercase tracking-wide not-italic">
-          <span>{cup.address}</span>
-          <CupMap cup={cup} size={size} />
-        </address>
-      </div>
-      <div className="cup-card__media">
-        <img
-          src={`/cups/${cup.slug}@${size}.png`}
-          alt={`${cup.name} coffee cup`}
-        />
-      </div>
-    </div>
-  );
 };
 
 export function CupMap({ cup, size }: CupProps) {
@@ -61,18 +28,34 @@ export function CupMap({ cup, size }: CupProps) {
   ) : null;
 }
 
-export function Cup({ cup, size }: CupProps) {
-  const className = cupCardClassName(size);
-  const texture = getCardTexture(cup.name);
-  const style = cupCardStyle(texture.url);
+function CupContent({ cup, size }: CupProps) {
+  return (
+    <div className="cup-card__content">
+      <div className="cup-card__meta">
+        <div className="cup-card__meta-text">
+          <CupTitle title={cup.name} className="cup-card__title" />
+          <address className="cup-card__address font-mono text-sm uppercase tracking-wide not-italic">
+            <span>{cup.address}</span>
+          </address>
+        </div>
+        <CupMap cup={cup} size={size} />
+      </div>
+      <div className="cup-card__media">
+        <img
+          src={`/cups/${cup.slug}@${size}.png`}
+          alt={`${cup.name} coffee cup`}
+        />
+      </div>
+    </div>
+  );
+}
 
+export function Cup({ cup, size }: CupProps) {
   if (size === 'small') {
     return (
       <Link
         href={`/pour/${encodeURIComponent(cup.slug)}`}
-        className={className}
-        data-cup-texture={texture.id}
-        style={style}
+        className={`cup-card cup-card--${size}`}
       >
         <CupContent cup={cup} size={size} />
       </Link>
@@ -80,7 +63,7 @@ export function Cup({ cup, size }: CupProps) {
   }
 
   return (
-    <section className={className} data-cup-texture={texture.id} style={style}>
+    <section className={`cup-card cup-card--${size}`}>
       <CupContent cup={cup} size={size} />
     </section>
   );

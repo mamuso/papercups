@@ -1,48 +1,47 @@
 .cup-card {
   position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
+  container-type: size;
+  display: block;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background-color: var(--cup-card-background);
   color: inherit;
   text-decoration: none;
 }
 
-.cup-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--cup-card-texture);
-  background-size: 50%;
-  background-position: center;
-  background-repeat: repeat;
-  mix-blend-mode: var(--cup-card-blend-mode);
-  opacity: var(--cup-card-texture-opacity);
-  pointer-events: none;
-}
-
 .cup-card__content {
   position: relative;
   z-index: 1;
-  display: flex;
-  min-height: 0;
-  flex: 1;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
 }
 
 .cup-card__meta {
-  flex-shrink: 0;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 20px;
+}
+
+.cup-card__meta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-width: 0;
 }
 
 .cup-card__media {
   display: flex;
   min-height: 0;
-  flex: 1;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  pointer-events: none;
 }
 
 .cup-card__media img {
@@ -53,16 +52,40 @@
   object-fit: contain;
 }
 
-.cup-card--small {
-  padding: 1rem;
+.cup-card__title {
+  overflow-wrap: anywhere;
+  font-size: clamp(1.125rem, min(10cqw, 22cqh), 2.25rem);
+  padding-bottom: 0.1em;
+}
+
+.cup-card__address {
+  line-height: 1.2;
+  opacity: 0.8;
 }
 
 .cup-card--large {
-  padding: 1.5rem;
+  aspect-ratio: auto;
 }
 
-@media (min-width: 768px) {
-  .cup-card--large {
-    padding: 2rem;
-  }
+.cup-card--large .cup-card__content {
+  min-height: 20rem;
+}
+
+.cup-card--large .cup-card__title {
+  font-size: clamp(1.5rem, min(8cqw, 14cqh), 3.5rem);
+}
+
+.cup-card--large .cup-card__meta {
+  justify-content: space-between;
+}
+
+.cup-card__meta .map {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cup-card--large .cup-card__meta .map,
+.cup-card--large .cup-card__meta .map.leaflet-container {
+  height: 14rem;
+  min-height: 14rem;
 }

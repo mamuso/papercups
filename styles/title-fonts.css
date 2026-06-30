@@ -1,38 +1,29 @@
 .cup-title {
   text-wrap: balance;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .cup-title--geist {
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  font-weight: 600;
+  line-height: 0.98;
 }
 
 .cup-title--rethink {
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 600;
+  line-height: 1;
 }
 
 .cup-title--kalnia {
-  line-height: 1;
-  letter-spacing: -0.01em;
-  font-weight: 500;
+  line-height: 0.95;
 }
 
 .cup-title--outfit {
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  font-weight: 600;
+  line-height: 0.98;
 }
 
 .cup-title--staatliches {
-  line-height: 0.95;
-  letter-spacing: 0.03em;
+  line-height: 0.92;
 }
 
 .cup-title--antonio {
-  line-height: 1;
-  letter-spacing: 0.05em;
-  font-weight: 700;
+  line-height: 0.95;
 }
