@@ -1,5 +1,5 @@
 import type { ElementType } from 'react';
-import { getTitleFont } from '../lib/titleFonts';
+import { staatliches } from '../lib/fonts';
 import type { CupSize } from '../types/cup';
 
 type CupTitleProps = {
@@ -7,6 +7,7 @@ type CupTitleProps = {
   size?: CupSize;
   as?: ElementType;
   className?: string;
+  accentColor?: string;
 };
 
 const sizeClasses: Record<CupSize, string> = {
@@ -19,23 +20,21 @@ export function CupTitle({
   size = 'large',
   as: Tag = 'h2',
   className = '',
+  accentColor,
 }: CupTitleProps) {
-  const font = getTitleFont(title);
-
   return (
     <Tag
       className={[
         'cup-title',
-        `cup-title--${font.id}`,
-        font.className,
+        staatliches.className,
         size ? sizeClasses[size] : '',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
-      data-title-font={font.id}
     >
       {title}
+      <span className="cup-title__period" style={accentColor ? { color: accentColor } : undefined}>.</span>
     </Tag>
   );
 }

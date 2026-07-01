@@ -31,20 +31,26 @@ export function CupMap({ cup, size }: CupProps) {
 function CupContent({ cup, size }: CupProps) {
   return (
     <div className="cup-card__content">
-      <div className="cup-card__meta">
-        <div className="cup-card__meta-text">
-          <CupTitle title={cup.name} className="cup-card__title" />
-          <address className="cup-card__address font-mono text-sm uppercase tracking-wide not-italic">
-            <span>{cup.address}</span>
-          </address>
-        </div>
-        <CupMap cup={cup} size={size} />
-      </div>
       <div className="cup-card__media">
         <img
           src={`/cups/${cup.slug}@${size}.png`}
           alt={`${cup.name} coffee cup`}
         />
+      </div>
+      <div className="cup-card__meta">
+        <CupMap cup={cup} size={size} />
+        <div className="cup-card__meta-text">
+          <CupTitle
+            title={cup.name}
+            className="cup-card__title"
+            accentColor={cup.markerColor ?? DEFAULT_MARKER_COLOR}
+          />
+          {size === 'large' && (
+            <address className="cup-card__address font-mono text-sm uppercase tracking-wide not-italic">
+              <span>{cup.address}</span>
+            </address>
+          )}
+        </div>
       </div>
     </div>
   );
