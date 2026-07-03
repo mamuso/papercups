@@ -1,6 +1,14 @@
-import { useEffect, useRef } from "react";
+import {
+  Map,
+  MapControls,
+  MapMarker,
+  MarkerContent,
+  MarkerPopup,
+} from './ui/map';
+import { DEFAULT_MARKER_COLOR } from '../types/cup';
 
-export type MapMarker = {
+export type MapMarkerData = {
+  color?: string;
   href?: string;
   position: {
     lat: number;
@@ -15,25 +23,37 @@ type MapViewProps = {
     lng: number;
   };
   fitBounds?: boolean;
-  markers: MapMarker[];
+  markers: MapMarkerData[];
   zoom?: number;
 };
 
-const mapTilerKey = process.env.NEXT_PUBLIC_MAPTILER_KEY;
-const openStreetMapTileUrl = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
-const openStreetMapAttribution =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-const tileUrl =
-  process.env.NEXT_PUBLIC_MAP_TILE_URL ??
-  (mapTilerKey
-    ? `https://api.maptiler.com/maps/dataviz-light/256/{z}/{x}/{y}.png?key=${mapTilerKey}`
-    : openStreetMapTileUrl);
+const markerColorPattern = /^#[0-9A-Fa-f]{6}$/;
 
-const tileAttribution =
-  process.env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION ??
-  (mapTilerKey
-    ? '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    : openStreetMapAttribution);
+function resolveMarkerColor(color?: string) {
+  return color && markerColorPattern.test(color) ? color : DEFAULT_MARKER_COLOR;
+}
+
+function getMarkerBounds(
+  markers: MapMarkerData[]
+): [[number, number], [number, number]] {
+  let west = markers[0].position.lng;
+  let south = markers[0].position.lat;
+  let east = west;
+  let north = south;
+
+  for (let index = 1; index < markers.length; index += 1) {
+    const marker = markers[index];
+    west = Math.min(west, marker.position.lng);
+    south = Math.min(south, marker.position.lat);
+    east = Math.max(east, marker.position.lng);
+    north = Math.max(north, marker.position.lat);
+  }
+
+  return [
+    [west, south],
+    [east, north],
+  ];
+}
 
 export default function MapView({
   center,
@@ -41,88 +61,87 @@ export default function MapView({
   markers,
   zoom = 15,
 }: MapViewProps) {
-  const mapElement = useRef<HTMLDivElement>(null);
-  const showFallback = !tileUrl || markers.length === 0;
-
-  useEffect(() => {
-    if (!mapElement.current || showFallback) {
-      return;
-    }
-
-    let cancelled = false;
-    let cleanup = () => {};
-
-    import("leaflet").then((L) => {
-      if (cancelled || !mapElement.current) {
-        return;
-      }
-
-      const markerIcon = L.icon({
-        iconUrl: "/marker.png",
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-        popupAnchor: [0, -40],
-      });
-
-      const initialCenter = center ?? markers[0].position;
-      const map = L.map(mapElement.current, {
-        center: [initialCenter.lat, initialCenter.lng],
-        zoom,
-        scrollWheelZoom: false,
-      });
-
-      L.tileLayer(tileUrl, {
-        attribution: tileAttribution,
-        crossOrigin: true,
-        maxZoom: 20,
-        minZoom: 1,
-      }).addTo(map);
-
-      const bounds = L.latLngBounds([]);
-
-      markers.forEach((marker) => {
-        const point: [number, number] = [marker.position.lat, marker.position.lng];
-        const leafletMarker = L.marker(point, {
-          icon: markerIcon,
-          title: marker.title,
-        }).addTo(map);
-
-        if (marker.href) {
-          const link = document.createElement("a");
-          link.href = marker.href;
-          link.textContent = marker.title;
-          leafletMarker.bindPopup(link);
-        }
-
-        bounds.extend(point);
-      });
-
-      if (fitBounds && bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [24, 24] });
-      }
-
-      requestAnimationFrame(() => {
-        map.invalidateSize();
-      });
-
-      cleanup = () => {
-        map.remove();
-      };
-    });
-
-    return () => {
-      cancelled = true;
-      cleanup();
-    };
-  }, [center, fitBounds, markers, showFallback, zoom]);
-
-  return (
-    <div className="map" ref={mapElement} aria-label="Coffee shop locations map">
-      {showFallback ? (
+  if (markers.length === 0) {
+    return (
+      <div className="map" aria-label="Coffee shop locations map">
         <div className="map-fallback">
           <span>Map unavailable</span>
         </div>
-      ) : null}
-    </div>
+      </div>
+    );
+  }
+
+  const initialCenter = center ?? markers[0].position;
+  const initialBounds = fitBounds ? getMarkerBounds(markers) : undefined;
+
+  return (
+    <Map
+      className="map"
+      center={fitBounds ? undefined : [initialCenter.lng, initialCenter.lat]}
+      zoom={fitBounds ? undefined : zoom}
+      bounds={initialBounds}
+      fitBoundsOptions={
+        fitBounds ? { animate: false, padding: 24, maxZoom: 15 } : undefined
+      }
+      scrollZoom={false}
+      cooperativeGestures
+      aria-label="Coffee shop locations map"
+    >
+      {markers.map((marker) => {
+        const color = resolveMarkerColor(marker.color);
+
+        return (
+          <MapMarker
+            key={`${marker.position.lat}:${marker.position.lng}:${marker.title}`}
+            latitude={marker.position.lat}
+            longitude={marker.position.lng}
+            anchor="center"
+          >
+            <MarkerContent>
+              <div
+                className="map-marker"
+                style={{ color }}
+                title={marker.title}
+                aria-label={marker.title}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <circle cx="10" cy="10" r="10" fill="currentColor" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="9.5"
+                    stroke="black"
+                    strokeOpacity="0.15"
+                  />
+                  <circle cx="10" cy="10" r="5" fill="white" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="5.5"
+                    stroke="black"
+                    strokeOpacity="0.12"
+                  />
+                </svg>
+              </div>
+            </MarkerContent>
+            {marker.href ? (
+              <MarkerPopup>
+                <a className="map-popup__link" href={marker.href}>
+                  {marker.title}
+                </a>
+              </MarkerPopup>
+            ) : null}
+          </MapMarker>
+        );
+      })}
+      <MapControls />
+    </Map>
   );
 }

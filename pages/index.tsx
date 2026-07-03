@@ -12,7 +12,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ cups }) => {
   return (
     <Layout>
-      <section className="homegrid">
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, 240px)', gap: '12px', justifyContent: 'center' }}>
         {cups.map((cup) => (
           <Cup key={cup.slug} cup={cup} size="small" />
         ))}

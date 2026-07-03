@@ -5,6 +5,7 @@
   "city": "Oakland",
   "country": "US",
   "created_at": "2018-05-29",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 37.8127104,
     "lng": -122.266355

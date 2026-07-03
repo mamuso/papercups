@@ -1,38 +1,47 @@
 import type { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import MapView from '../components/MapView';
 import Layout from '../layouts/Layout';
 import { getAboutMapMarkers, getCities, groupCupsByCity } from '../lib/cups';
 import type { CupListItem } from '../types/cup';
-import type { MapMarker } from '../components/MapView';
+import type { MapMarkerData } from '../components/MapView';
+
+const MapView = dynamic(() => import('../components/MapView'), { ssr: false });
 
 interface AboutProps {
   cities: string[];
   cupsByCity: Record<string, CupListItem[]>;
-  mapMarkers: MapMarker[];
+  mapMarkers: MapMarkerData[];
 }
 
 const AboutPage: NextPage<AboutProps> = ({ cities, cupsByCity, mapMarkers }) => {
   return (
     <Layout>
-      <div className="about">
-        <section className="blurb">
-          <h2>Sipping coffee all over the world</h2>
-          <p>We 💖 coffee. We are the kind of family who has a commercial-grade espresso machine and grinder in the kitchen and gets excited when a bag of fresh beans comes home, or when <a href="https://twitter.com/killermuffin">@killermuffin</a> roasts a small batch at home with her Gene Cafe.</p>
-          <p>I also enjoy the graphics aspects of the coffee culture. I realized that my photo library was full of pictures of cute coffee paper cups after each trip to a new city. I started copying coffee paper cups as a non-creative exercise. I just wanted to have an excuse to draw when I was too tired to find inspiration.</p>
-          <p>I started posting them to Instagram, but I thought that I could find a better home for them here :)</p>
+      <div>
+        <section className="mb-10 max-w-prose">
+          <h1 className="mb-6 font-mono text-3xl font-medium uppercase tracking-tight leading-none">
+            Paper Cups
+          </h1>
+          <p className="text-base leading-relaxed">
+            I tend to take photos of paper coffee cups whenever I travel. I love the little bits of design and personality they carry. At some point I started drawing them, mostly as an excuse to keep sketching. This is where they all ended up.
+          </p>
         </section>
 
         <MapView fitBounds markers={mapMarkers} />
 
-        <section className="blurb citylist">
+        <section className="columns-2 gap-8 pt-10 md:columns-3 lg:columns-4 xl:columns-5">
           {cities.map((city) => (
-            <div className="city" key={city}>
-              <h3>{city}</h3>
+            <div key={city} className="mb-8 break-inside-avoid">
+              <h3 className="mb-3 font-mono font-semibold uppercase">{city}</h3>
               <ul>
                 {cupsByCity[city].map((cup) => (
                   <li key={cup.slug}>
-                    <Link href={`/pour/${encodeURIComponent(cup.slug)}`}>{cup.name}</Link>
+                    <Link
+                      href={`/pour/${encodeURIComponent(cup.slug)}`}
+                      className="-mx-2.5 -my-[6px] block px-2.5 py-1 hover:bg-black/15"
+                    >
+                      {cup.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

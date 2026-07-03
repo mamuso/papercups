@@ -5,6 +5,7 @@
   "city": "San Francisco",
   "country": "US",
   "created_at": "2018-05-03",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 37.7815648,
     "lng": -122.4150428

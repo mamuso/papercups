@@ -5,6 +5,7 @@
   "city": "London",
   "country": "UK",
   "created_at": "2018-08-13",
+  "markerColor": "#FF3AA1",
   "location": {
     "lat": 51.524255,
     "lng": -0.111205

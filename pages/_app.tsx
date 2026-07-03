@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import 'leaflet/dist/leaflet.css';
 
-import '../styles/global.scss';
+import '../styles/globals.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import '../styles/map.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="author" content="mamuso" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Component {...pageProps} />
     </>
