@@ -50,7 +50,7 @@ function FitBounds({ markers }: { markers: MapMarkerData[] }) {
       new LngLatBounds()
     );
 
-    map.fitBounds(bounds, { padding: 24, maxZoom: 15 });
+    map.fitBounds(bounds, { animate: false, padding: 24, maxZoom: 15 });
   }, [isLoaded, map, markers]);
 
   return null;
