@@ -4,14 +4,14 @@ import Link from 'next/link';
 import Layout from '../layouts/Layout';
 import { getAboutMapMarkers, getCities, groupCupsByCity } from '../lib/cups';
 import type { CupListItem } from '../types/cup';
-import type { MapMarker } from '../components/MapView';
+import type { MapMarkerData } from '../components/MapView';
 
 const MapView = dynamic(() => import('../components/MapView'), { ssr: false });
 
 interface AboutProps {
   cities: string[];
   cupsByCity: Record<string, CupListItem[]>;
-  mapMarkers: MapMarker[];
+  mapMarkers: MapMarkerData[];
 }
 
 const AboutPage: NextPage<AboutProps> = ({ cities, cupsByCity, mapMarkers }) => {

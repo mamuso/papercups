@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 
 import '../styles/globals.css';
-import 'leaflet/dist/leaflet.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
 import '../styles/map.css';
 
 function MyApp({ Component, pageProps }: AppProps) {

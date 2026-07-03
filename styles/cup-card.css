@@ -97,7 +97,7 @@
 }
 
 .cup-card--large .cup-card__meta .map,
-.cup-card--large .cup-card__meta .map.leaflet-container {
+.cup-card--large .cup-card__meta .map.maplibregl-map {
   height: 14rem;
   min-height: 14rem;
 }

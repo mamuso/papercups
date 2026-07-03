@@ -1,7 +1,16 @@
-import { useEffect, useRef } from "react";
-import { DEFAULT_MARKER_COLOR } from "../types/cup";
+import { LngLatBounds } from 'maplibre-gl';
+import { useEffect } from 'react';
+import {
+  Map,
+  MapControls,
+  MapMarker,
+  MarkerContent,
+  MarkerPopup,
+  useMap,
+} from './ui/map';
+import { DEFAULT_MARKER_COLOR } from '../types/cup';
 
-export type MapMarker = {
+export type MapMarkerData = {
   color?: string;
   href?: string;
   position: {
@@ -17,33 +26,9 @@ type MapViewProps = {
     lng: number;
   };
   fitBounds?: boolean;
-  markers: MapMarker[];
+  markers: MapMarkerData[];
   zoom?: number;
 };
-
-const customTileUrl = process.env.NEXT_PUBLIC_MAP_TILE_URL;
-const customTileAttribution = process.env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION;
-
-const cartoAttribution =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-
-function getCartoTileUrl(isDark: boolean) {
-  const variant = isDark ? "dark_all" : "light_all";
-  return `https://cartodb-basemaps-{s}.global.ssl.fastly.net/${variant}/{z}/{x}/{y}.png`;
-}
-
-function prefersDarkMode() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
-const markerSvgHtml = `
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <circle cx="10" cy="10" r="10" fill="currentColor"/>
-  <circle cx="10" cy="10" r="9.5" stroke="black" stroke-opacity="0.15"/>
-  <circle cx="10" cy="10" r="5" fill="white"/>
-  <circle cx="10" cy="10" r="5.5" stroke="black" stroke-opacity="0.12"/>
-</svg>
-`.trim();
 
 const markerColorPattern = /^#[0-9A-Fa-f]{6}$/;
 
@@ -51,14 +36,24 @@ function resolveMarkerColor(color?: string) {
   return color && markerColorPattern.test(color) ? color : DEFAULT_MARKER_COLOR;
 }
 
-function createMarkerIcon(L: typeof import("leaflet"), color: string) {
-  return L.divIcon({
-    className: "map-marker",
-    html: `<div style="color: ${color}">${markerSvgHtml}</div>`,
-    iconSize: [20, 20],
-    iconAnchor: [10, 10],
-    popupAnchor: [0, -10],
-  });
+function FitBounds({ markers }: { markers: MapMarkerData[] }) {
+  const { map, isLoaded } = useMap();
+
+  useEffect(() => {
+    if (!map || !isLoaded || markers.length === 0) {
+      return;
+    }
+
+    const bounds = markers.reduce(
+      (nextBounds, marker) =>
+        nextBounds.extend([marker.position.lng, marker.position.lat]),
+      new LngLatBounds()
+    );
+
+    map.fitBounds(bounds, { padding: 24, maxZoom: 15 });
+  }, [isLoaded, map, markers]);
+
+  return null;
 }
 
 export default function MapView({
@@ -67,108 +62,83 @@ export default function MapView({
   markers,
   zoom = 15,
 }: MapViewProps) {
-  const mapElement = useRef<HTMLDivElement>(null);
-  const showFallback = markers.length === 0;
-
-  useEffect(() => {
-    if (!mapElement.current || showFallback) {
-      return;
-    }
-
-    let cancelled = false;
-    let cleanup = () => {};
-
-    import("leaflet").then((L) => {
-      if (cancelled || !mapElement.current) {
-        return;
-      }
-
-      const initialCenter = center ?? markers[0].position;
-      const map = L.map(mapElement.current, {
-        center: [initialCenter.lat, initialCenter.lng],
-        zoom,
-        scrollWheelZoom: false,
-      });
-
-      const createTileLayer = (isDark: boolean) =>
-        customTileUrl
-          ? L.tileLayer(customTileUrl, {
-              attribution: customTileAttribution ?? cartoAttribution,
-              crossOrigin: true,
-              maxZoom: 20,
-              minZoom: 1,
-            })
-          : L.tileLayer(getCartoTileUrl(isDark), {
-              attribution: cartoAttribution,
-              crossOrigin: true,
-              maxZoom: 20,
-              minZoom: 1,
-              subdomains: "abcd",
-            });
-
-      let tileLayer = createTileLayer(prefersDarkMode()).addTo(map);
-
-      const bounds = L.latLngBounds([]);
-
-      markers.forEach((marker) => {
-        const point: [number, number] = [marker.position.lat, marker.position.lng];
-        const leafletMarker = L.marker(point, {
-          icon: createMarkerIcon(L, resolveMarkerColor(marker.color)),
-          title: marker.title,
-        }).addTo(map);
-
-        if (marker.href) {
-          const link = document.createElement("a");
-          link.href = marker.href;
-          link.textContent = marker.title;
-          leafletMarker.bindPopup(link);
-        }
-
-        bounds.extend(point);
-      });
-
-      if (fitBounds && bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [24, 24] });
-      }
-
-      const refreshMapSize = () => {
-        map.invalidateSize();
-      };
-
-      requestAnimationFrame(refreshMapSize);
-      window.setTimeout(refreshMapSize, 100);
-
-      const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const handleColorSchemeChange = () => {
-        if (customTileUrl) {
-          return;
-        }
-
-        map.removeLayer(tileLayer);
-        tileLayer = createTileLayer(colorSchemeQuery.matches).addTo(map);
-      };
-
-      colorSchemeQuery.addEventListener("change", handleColorSchemeChange);
-
-      cleanup = () => {
-        colorSchemeQuery.removeEventListener("change", handleColorSchemeChange);
-        map.remove();
-      };
-    });
-
-    return () => {
-      cancelled = true;
-      cleanup();
-    };
-  }, [center, fitBounds, markers, showFallback, zoom]);
-
-  return (
-    <div className="map" ref={mapElement} aria-label="Coffee shop locations map">
-      {showFallback ? (
+  if (markers.length === 0) {
+    return (
+      <div className="map" aria-label="Coffee shop locations map">
         <div className="map-fallback">
           <span>Map unavailable</span>
         </div>
-      ) : null}
-    </div>
+      </div>
+    );
+  }
+
+  const initialCenter = center ?? markers[0].position;
+
+  return (
+    <Map
+      className="map"
+      center={[initialCenter.lng, initialCenter.lat]}
+      zoom={zoom}
+      scrollZoom={false}
+      cooperativeGestures
+      aria-label="Coffee shop locations map"
+    >
+      {fitBounds ? <FitBounds markers={markers} /> : null}
+      {markers.map((marker) => {
+        const color = resolveMarkerColor(marker.color);
+
+        return (
+          <MapMarker
+            key={`${marker.position.lat}:${marker.position.lng}:${marker.title}`}
+            latitude={marker.position.lat}
+            longitude={marker.position.lng}
+            anchor="center"
+          >
+            <MarkerContent>
+              <div
+                className="map-marker"
+                style={{ color }}
+                title={marker.title}
+                aria-label={marker.title}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <circle cx="10" cy="10" r="10" fill="currentColor" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="9.5"
+                    stroke="black"
+                    strokeOpacity="0.15"
+                  />
+                  <circle cx="10" cy="10" r="5" fill="white" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="5.5"
+                    stroke="black"
+                    strokeOpacity="0.12"
+                  />
+                </svg>
+              </div>
+            </MarkerContent>
+            {marker.href ? (
+              <MarkerPopup>
+                <a className="map-popup__link" href={marker.href}>
+                  {marker.title}
+                </a>
+              </MarkerPopup>
+            ) : null}
+          </MapMarker>
+        );
+      })}
+      <MapControls />
+    </Map>
   );
 }

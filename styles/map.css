@@ -1,14 +1,10 @@
 .map {
   background: color-mix(in srgb, var(--app-foreground) 12%, var(--app-background));
-  min-height: 24rem;
   height: 34rem;
+  min-height: 24rem;
   overflow: hidden;
   position: relative;
   width: 100%;
-}
-
-.map.leaflet-container {
-  height: 34rem;
 }
 
 .map-fallback {
@@ -22,170 +18,38 @@
   position: absolute;
 }
 
-address .map {
-  border-radius: 0 0 0.6rem 0.6rem;
+.map-marker {
+  cursor: pointer;
   display: block;
-  height: 32rem;
-  max-width: 100%;
-  padding: 0;
+  height: 20px;
+  width: 20px;
 }
 
-address .map.leaflet-container {
-  height: 32rem;
+.map-popup {
+  background: var(--app-background);
+  border: 1px solid color-mix(in srgb, var(--app-foreground) 18%, transparent);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.35rem 1rem color-mix(in srgb, black 18%, transparent);
+  color: var(--app-foreground);
+  font-family: "SUSE Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  padding: 0.65rem 0.75rem;
+  text-transform: uppercase;
 }
 
-.leaflet-div-icon.map-marker {
+.map-popup__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.maplibregl-popup-content {
   background: transparent;
-  border: none;
-}
-
-/* Leaflet container + controls (from leaflet-fixes.css) */
-.leaflet-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.leaflet-container .leaflet-top,
-.leaflet-container .leaflet-bottom {
-  position: absolute !important;
-  z-index: 1000;
-  pointer-events: none;
-}
-
-.leaflet-container .leaflet-top {
-  top: 0;
-}
-
-.leaflet-container .leaflet-bottom {
-  bottom: 0;
-}
-
-.leaflet-container .leaflet-left {
-  left: 0;
-}
-
-.leaflet-container .leaflet-right {
-  right: 0;
-}
-
-.leaflet-container .leaflet-control {
-  float: left;
-  clear: both;
-  pointer-events: auto;
-}
-
-.leaflet-container .leaflet-right .leaflet-control {
-  float: right;
-}
-
-.leaflet-container .leaflet-top .leaflet-control {
-  margin-top: 10px;
-}
-
-.leaflet-container .leaflet-bottom .leaflet-control {
-  margin-bottom: 10px;
-}
-
-.leaflet-container .leaflet-left .leaflet-control {
-  margin-left: 10px;
-}
-
-.leaflet-container .leaflet-right .leaflet-control {
-  margin-right: 10px;
-}
-
-.leaflet-container .leaflet-bar {
+  border-radius: 0;
   box-shadow: none;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.leaflet-container .leaflet-bar a {
-  background-color: var(--app-background);
-  border-bottom: 1px solid color-mix(in srgb, var(--app-foreground) 20%, transparent);
-  box-sizing: border-box;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: var(--app-foreground);
-  padding: 0;
-  margin: 0;
-}
-
-.leaflet-container .leaflet-bar a:hover,
-.leaflet-container .leaflet-bar a:focus {
-  background-color: color-mix(in srgb, var(--app-foreground) 10%, var(--app-background));
-}
-
-.leaflet-container .leaflet-bar a:last-child {
-  border-bottom: none;
-}
-
-.leaflet-container.leaflet-touch .leaflet-bar a {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-}
-
-.leaflet-container .leaflet-control-zoom-in,
-.leaflet-container .leaflet-control-zoom-out {
-  font: bold 18px/26px "Lucida Console", Monaco, monospace;
-  text-indent: 1px;
-}
-
-.leaflet-container.leaflet-touch .leaflet-control-zoom-in,
-.leaflet-container.leaflet-touch .leaflet-control-zoom-out {
-  font-size: 22px;
-  line-height: 30px;
-}
-
-.leaflet-container .leaflet-control-attribution {
-  background: color-mix(in srgb, var(--app-background) 85%, transparent);
-  padding: 0 5px;
-  font-size: 11px;
-  line-height: 1.4;
-  color: var(--app-foreground);
-  white-space: nowrap;
-}
-
-.leaflet-container .leaflet-control-attribution a {
-  color: var(--app-foreground);
-  text-decoration: none;
-}
-
-.leaflet-container .leaflet-control-attribution a:hover,
-.leaflet-container .leaflet-control-attribution a:focus {
-  text-decoration: underline;
-}
-
-.leaflet-container .leaflet-control-attribution img {
-  display: inline !important;
-  max-width: none !important;
-  width: 1em;
-  height: 0.6669em;
-  vertical-align: baseline;
-}
-
-/* Undo Tailwind preflight + Leaflet blend mode breaking tiles */
-.leaflet-container img.leaflet-tile,
-.leaflet-container .leaflet-marker-pane img,
-.leaflet-container .leaflet-shadow-pane img,
-.leaflet-container .leaflet-tile-pane img,
-.leaflet-container img.leaflet-image-layer,
-.leaflet-container .leaflet-tile {
-  max-width: none !important;
-  max-height: none !important;
-  width: auto;
   padding: 0;
 }
 
-.leaflet-container img.leaflet-tile {
-  mix-blend-mode: normal !important;
+.maplibregl-popup-tip {
+  display: none;
 }
