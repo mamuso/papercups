@@ -1,12 +1,9 @@
-import { LngLatBounds } from 'maplibre-gl';
-import { useEffect } from 'react';
 import {
   Map,
   MapControls,
   MapMarker,
   MarkerContent,
   MarkerPopup,
-  useMap,
 } from './ui/map';
 import { DEFAULT_MARKER_COLOR } from '../types/cup';
 
@@ -36,24 +33,26 @@ function resolveMarkerColor(color?: string) {
   return color && markerColorPattern.test(color) ? color : DEFAULT_MARKER_COLOR;
 }
 
-function FitBounds({ markers }: { markers: MapMarkerData[] }) {
-  const { map, isLoaded } = useMap();
+function getMarkerBounds(
+  markers: MapMarkerData[]
+): [[number, number], [number, number]] {
+  let west = markers[0].position.lng;
+  let south = markers[0].position.lat;
+  let east = west;
+  let north = south;
 
-  useEffect(() => {
-    if (!map || !isLoaded || markers.length === 0) {
-      return;
-    }
+  for (let index = 1; index < markers.length; index += 1) {
+    const marker = markers[index];
+    west = Math.min(west, marker.position.lng);
+    south = Math.min(south, marker.position.lat);
+    east = Math.max(east, marker.position.lng);
+    north = Math.max(north, marker.position.lat);
+  }
 
-    const bounds = markers.reduce(
-      (nextBounds, marker) =>
-        nextBounds.extend([marker.position.lng, marker.position.lat]),
-      new LngLatBounds()
-    );
-
-    map.fitBounds(bounds, { animate: false, padding: 24, maxZoom: 15 });
-  }, [isLoaded, map, markers]);
-
-  return null;
+  return [
+    [west, south],
+    [east, north],
+  ];
 }
 
 export default function MapView({
@@ -73,17 +72,21 @@ export default function MapView({
   }
 
   const initialCenter = center ?? markers[0].position;
+  const initialBounds = fitBounds ? getMarkerBounds(markers) : undefined;
 
   return (
     <Map
       className="map"
-      center={[initialCenter.lng, initialCenter.lat]}
-      zoom={zoom}
+      center={fitBounds ? undefined : [initialCenter.lng, initialCenter.lat]}
+      zoom={fitBounds ? undefined : zoom}
+      bounds={initialBounds}
+      fitBoundsOptions={
+        fitBounds ? { animate: false, padding: 24, maxZoom: 15 } : undefined
+      }
       scrollZoom={false}
       cooperativeGestures
       aria-label="Coffee shop locations map"
     >
-      {fitBounds ? <FitBounds markers={markers} /> : null}
       {markers.map((marker) => {
         const color = resolveMarkerColor(marker.color);
 
